@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Protocolo Gelatina</title>
+    <!-- Preload fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app-container">
+        
+        <!-- HEADER (Logo, Back Button, Progress Bar) -->
+        <header id="app-header" class="hidden">
+            <div class="header-top">
+                <button id="back-btn" class="icon-btn hidden" aria-label="Voltar">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <div class="logo-container">
+                    <!-- Text logo fallback -->
+                    <h1 class="logo-text"><span class="purple-text">Protocolo</span> <span class="pink-text">Gelatina</span></h1>
+                </div>
+                <div class="spacer"></div> <!-- To center the logo -->
+            </div>
+            
+            <div id="progress-container" class="hidden">
+                <div class="progress-bar-bg">
+                    <div id="progress-bar-fill"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT AREA -->
+        <main id="main-content">
+            
+            <!-- LANDING PAGE -->
+            <section id="landing-page" class="view-section active">
+                <div class="hero-image-container">
+                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=800&auto=format&fit=crop" alt="Gelatina Rosa" class="hero-img">
+                </div>
+                
+                <h1 class="main-title">Gelatina Mounjaro - Para perder até 12 kg em 30 dias!</h1>
+                <p class="sub-headline">Descubra como ativar seu metabolismo e perder até 12kg em 30 dias com a Gelatina Mounjaro!</p>
+                
+                <button id="start-btn" class="btn btn-primary btn-large btn-glow">
+                    Quero saber se funciona para mim! 🔥
+                </button>
+                
+                <div class="social-proof-badges">
+                    <span class="badge">✓ 127.000+ mulheres</span>
+                    <span class="dot">•</span>
+                    <span class="badge">✓ 100% Natural</span>
+                </div>
+            </section>
+
+            <!-- QUIZ CONTAINER -->
+            <section id="quiz-page" class="view-section hidden">
+                <div id="question-container">
+                    <!-- Questions will be injected here dynamically by JS -->
+                </div>
+            </section>
+
+            <!-- CALCULATING / LOADING SCREEN -->
+            <section id="loading-page" class="view-section hidden">
+                <div class="loading-content">
+                    <div class="spinner"></div>
+                    <h2 id="loading-text">Analisando suas respostas...</h2>
+                    <p class="loading-subtext">Isso pode levar alguns segundos</p>
+                </div>
+            </section>
+            
+            <!-- ELIGIBILITY / RESULTS PAGE -->
+            <section id="results-page" class="view-section hidden">
+                 <div class="success-banner">
+                    <div class="success-icon">✓</div>
+                    <h2>Parabéns <span id="user-name-display"></span>!</h2>
+                    <p>Você é elegível para o Protocolo Gelatina!</p>
+                </div>
+                
+                <div class="analysis-card">
+                    <h3>Sua Análise Corporal</h3>
+                    <div class="bmi-result">
+                        <span class="bmi-label">IMC Estimado:</span>
+                        <span class="bmi-value">27.5</span>
+                        <span class="bmi-status warn">Sobrepeso</span>
+                    </div>
+                    
+                    <ul class="alert-signs">
+                        <li>⚠️ Metabolismo desacelerado detectado</li>
+                        <li>⚠️ Retenção de líquidos na região da barriga</li>
+                        <li>⚠️ Dificuldade em queimar gordura localizada</li>
+                    </ul>
+                </div>
+
+                <div class="vsl-container">
+                    <h3>Assista ao vídeo abaixo para liberar seu acesso</h3>
+                    
+                    <!-- ========================================== -->
+                    <!-- COLOQUE O SEU VÍDEO AQUI (IFRAME)          -->
+                    <!-- Exemplo de como colar do YouTube/Panda:    -->
+                    <!-- <iframe src="URL_DO_SEU_VIDEO" width="100%" height="auto" frameborder="0"></iframe> -->
+                    <!-- ========================================== -->
+                    
+                    <div id="video-wrapper" class="video-placeholder">
+                        <div class="play-btn-mock">▶</div>
+                        <p>Substitua este bloco pelo código do seu vídeo (Iframe)</p>
+                    </div>
+                </div>
+
+                <button id="continue-to-checkout-btn" class="btn btn-primary btn-large mt-4">
+                    Eu assisti e quero continuar 🚀
+                </button>
+            </section>
+
+            <!-- CHECKOUT / FINAL OFFER PAGE -->
+            <section id="checkout-page" class="view-section hidden">
+                <div class="offer-header">
+                    <h2>ÚLTIMA CHAMADA PARA O PROTOCOLO GELATINA!</h2>
+                    <div class="timer-badge">Oferta expira em: <span id="countdown">14:59</span></div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=400&auto=format&fit=crop" alt="Protocolo Gelatina" class="product-img">
+                    <div class="price-container">
+                        <span class="price-strikethrough">De R$ 147,00</span>
+                        <span class="price-current">Por apenas <strong>R$ 37,00</strong></span>
+                    </div>
+                    
+                    <ul class="benefits-list">
+                        <li>✓ Receita 100% Natural aprovada</li>
+                        <li>✓ Ativa o GLP-1 do seu corpo</li>
+                        <li>✓ Queima de gordura localizada</li>
+                        <li>✓ Acesso imediato pelo celular</li>
+                        <li>✓ Garantia de 7 dias</li>
+                    </ul>
+                </div>
+
+                <button id="buy-btn" class="btn btn-primary btn-large btn-pulse mt-4">
+                    QUERO MEU ACESSO AGORA! 🔓
+                </button>
+                
+                <div class="secure-payment">
+                    🔒 Pagamento 100% Seguro
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
