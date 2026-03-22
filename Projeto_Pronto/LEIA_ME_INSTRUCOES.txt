@@ -1,0 +1,16 @@
+INSTRUÇÕES PARA SUBIR SEU SITE NO GITHUB E FAZER FUNCIONAR DE PRIMEIRA
+
+1. Abra o arquivo 'index.html' com qualquer editor de texto (Bloco de Notas, ou direto no GitHub depois de subir).
+2. Lá pela linha 31, você vai ver a marcação: "=== COLOQUE SEU PIXEL (FACEBOOK, UTMIFY, GOOGLE) AQUI ==="
+3. Cole o seu script de rastreamento ali. (Eu tirei o pixel do antigo dono para ele não roubar seus dados).
+
+🚨 **ATENÇÃO: PASSO OBRIGATÓRIO PARA O SITE NÃO FICAR COM TELA BRANCA/ERRO 404** 🚨
+4. Lá no seu GitHub, quando for criar o repositório ("New repository"), você precisa nomear o repositório EXATAMENTE no formato:
+   
+   seu-usuario.github.io
+   
+   (Exemplo: se o seu login no github é JoaoSilva, o repositório TEM QUE se chamar JoaoSilva.github.io).
+
+5. Se você colocar qualquer outro nome, o sistema interno da página vai dar conflito de rotas e o site vai dar erro 404.
+6. Arraste todos os arquivos soltos dessa pasta (index.html, favicon, README e a pasta 'assets' inteira) e faça o commit para a branch "main".
+7. Vá em "Settings" > "Pages", selecione "Deploy from a branch", escolha a branch "main" e salve. Aguarde 2 minutos e a página estará no ar na raiz do seu site!
