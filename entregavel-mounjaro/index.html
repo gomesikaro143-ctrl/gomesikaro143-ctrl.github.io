@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Protocolo Gelatina - Portal do Aluno</title>
     
     <!-- Google Fonts: Montserrat for headings, Inter for body -->
@@ -17,19 +17,27 @@
 </head>
 <body>
     <div id="app-container">
+        <!-- Hero Background (Large Gradient) -->
+        <div class="hero-bg-container"></div>
+
         <!-- Header -->
         <header class="app-header">
             <div class="header-content">
-                <span class="greeting">Olá, <strong id="user-name">ikaro gomes</strong>! 👋</span>
+                <span class="greeting" id="page-greeting">Olá, ikaro gomes</span>
                 <h1 id="page-title">Dashboard</h1>
             </div>
-            <div id="header-avatar" class="avatar-circle">IG</div>
+            <div class="avatar-circle" id="header-avatar">IG</div>
         </header>
 
-        <!-- Main Content (Dynamic) -->
+        <!-- Main Content Area -->
         <main id="app-main">
-            <!-- View content will be injected here by app.js -->
+            <!-- Dynamic content injected here -->
         </main>
+
+        <!-- Sticky IA Button -->
+        <button class="sticky-ia-button" onclick="alert('Nutri IA em breve!')">
+            <i data-lucide="message-circle"></i>
+        </button>
 
         <!-- Bottom Navigation -->
         <nav class="bottom-nav">
@@ -38,7 +46,7 @@
                 <span>Início</span>
             </button>
             <button class="nav-item" data-tab="content">
-                <i data-lucide="play-circle"></i>
+                <i data-lucide="book-open"></i>
                 <span>Conteúdo</span>
             </button>
             <button class="nav-item" data-tab="progress">
@@ -46,7 +54,7 @@
                 <span>Progresso</span>
             </button>
             <button class="nav-item" data-tab="tools">
-                <i data-lucide="wrench"></i>
+                <i data-lucide="search"></i>
                 <span>Ferramentas</span>
             </button>
             <button class="nav-item" data-tab="profile">
@@ -56,10 +64,7 @@
         </nav>
     </div>
 
+    <!-- App Logic -->
     <script src="app.js"></script>
-    <script>
-        // Initialize icons
-        lucide.createIcons();
-    </script>
 </body>
 </html>
