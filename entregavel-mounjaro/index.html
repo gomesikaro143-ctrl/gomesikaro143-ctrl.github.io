@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Desafio 21D - Mounjaro</title>
+    
+    <!-- Google Fonts: Montserrat for headings, Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <span class="greeting">Olá, <strong id="user-name">ikaro gomes</strong>! 👋</span>
+                <h1 id="page-title">Dashboard</h1>
+            </div>
+            <div id="header-avatar" class="avatar-circle">IG</div>
+        </header>
+
+        <!-- Main Content (Dynamic) -->
+        <main id="app-main">
+            <!-- View content will be injected here by app.js -->
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-tab="home">
+                <i data-lucide="home"></i>
+                <span>Início</span>
+            </button>
+            <button class="nav-item" data-tab="content">
+                <i data-lucide="play-circle"></i>
+                <span>Conteúdo</span>
+            </button>
+            <button class="nav-item" data-tab="progress">
+                <i data-lucide="bar-chart-2"></i>
+                <span>Progresso</span>
+            </button>
+            <button class="nav-item" data-tab="tools">
+                <i data-lucide="wrench"></i>
+                <span>Ferramentas</span>
+            </button>
+            <button class="nav-item" data-tab="profile">
+                <i data-lucide="user"></i>
+                <span>Perfil</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Initialize icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
