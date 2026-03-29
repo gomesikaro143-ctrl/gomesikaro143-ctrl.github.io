@@ -166,6 +166,51 @@ section {
 .feature-btn.highlight i {
     background: rgba(255,255,255,0.2);
 }
+/* Module Detail Navigation */
+.module-detail {
+    padding-top: 10px;
+}
+
+.back-link {
+    background: #F1F5F9;
+    color: var(--text-muted);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.module-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.content-item {
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    background: var(--white);
+    box-shadow: var(--shadow-card);
+}
+
+.content-item h4 {
+    margin-bottom: 10px;
+    color: var(--accent-orange);
+}
+
+.content-item p {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
 /* Recipes */
 .section-title {
     font-size: 1.2rem;
@@ -208,28 +253,39 @@ section {
     box-shadow: var(--shadow-button);
 }
 
-/* Modules */
+/* Modules List */
+.module-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 .module-card {
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-bottom: 12px;
+    cursor: pointer;
 }
 
 .module-icon {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     background: #F1F5F9;
     color: var(--accent-orange);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 800;
+    font-size: 1.2rem;
 }
 
 .module-info {
     flex: 1;
+}
+
+.module-info h4 {
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 /* Stats view */
@@ -237,7 +293,6 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
-    margin-top: 20px;
 }
 
 .stat-item {
@@ -259,10 +314,7 @@ section {
     color: var(--accent-orange);
 }
 
-.chart-placeholder {
-    height: 150px;
-    display: flex;
-    align-items: flex-end;
+.chart-box {
     margin-top: 20px;
 }
 
@@ -275,21 +327,16 @@ section {
 }
 
 .bar {
-    width: 15%;
+    width: 10%;
     background: #E2E8F0;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    transition: height 1s ease;
-}
-
-.bar:last-child {
-    background: var(--primary-gradient);
 }
 
 /* Profile view */
 .profile-header {
     text-align: center;
-    padding: 30px 0;
+    padding: 20px 0;
 }
 
 .avatar-large {
@@ -307,52 +354,20 @@ section {
     box-shadow: var(--shadow-button);
 }
 
-.profile-stats {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 10px 0 30px;
-}
-
-.stat-col {
+.profile-menu {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 10px;
 }
 
-.stat-col strong {
-    font-size: 1.2rem;
-    color: var(--text-dark);
-}
-
-.stat-col span {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-}
-
-.stat-col.line {
-    width: 1px;
-    height: 30px;
-    background: #E2E8F0;
-}
-
-.profile-menu .menu-item {
-    padding: 18px 0;
-    border-bottom: 1px solid #F1F5F9;
+.menu-item {
+    padding: 18px;
     display: flex;
     align-items: center;
     gap: 12px;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-dark);
-}
-
-.profile-menu .menu-item i {
-    color: var(--text-muted);
-}
-
-.profile-menu .menu-item.logout {
-    color: #EF4444;
 }
 
 /* Bottom Nav */
