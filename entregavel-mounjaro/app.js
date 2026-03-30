@@ -46,15 +46,6 @@ const contentData = {
             { name: "Danoninho Proteico", text: "Textura cremosa idêntica ao original, mas anabólica. Use gelatina zero morango + iogurte natural." },
             { name: "Prestígio de Colher", text: "Mata a vontade de chocolate. Gelatina sem sabor dissolvida em leite de coco light com cacau 100%." }
         ]
-    },
-    bonus: {
-        title: "Bônus Exclusivos",
-        items: [
-            { 
-                name: "Guia Visual Ilustrado", 
-                text: "Acesse agora o material complementar oficial com todo o detalhamento rico e ilustrado.<br><br><a href='https://www.canva.com/design/DAGnFBUMQ4s/yQQ7SSl0TBKWEbtD1Q-RFg/view' target='_blank' style='display: flex; align-items: center; justify-content: center; gap: 8px; margin-top:15px; background:var(--primary-gradient); color:white; padding:15px 20px; border-radius:16px; text-decoration:none; font-weight:800; font-size:1rem; box-shadow:0 8px 25px rgba(237,143,3,0.4); text-align:center;'><i data-lucide='external-link' style='width: 18px;'></i> Abrir Material Completo</a>" 
-            }
-        ]
     }
 };
 
@@ -205,16 +196,6 @@ const templates = {
                         <div class="module-info">
                             <h4>Sobremesas Permitidas</h4>
                             <span class="muted"><i data-lucide="heart" style="width:12px;"></i> Sem Culpa</span>
-                        </div>
-                    </div>
-                    
-                    <div class="card clickable module-row" onclick="openModule('bonus')" style="border: 1px solid var(--accent-orange); background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,235,180,0.3));">
-                        <div class="module-icon-wrap" style="color:var(--white); background:var(--primary-gradient); box-shadow: 0 4px 15px rgba(237,143,3,0.3);">
-                            <i data-lucide="gift"></i>
-                        </div>
-                        <div class="module-info">
-                            <h4 style="color:var(--text-dark);">Super Bônus</h4>
-                            <span class="muted" style="color:var(--accent-orange); font-weight:600;"><i data-lucide="star" style="width:12px;"></i> Material Ilustrado (Canva)</span>
                         </div>
                     </div>
                 </div>
