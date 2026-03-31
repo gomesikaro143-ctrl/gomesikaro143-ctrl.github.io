@@ -129,7 +129,7 @@ const templates = {
                     <div class="module-items" style="margin-top:10px;">
                         ${mod.items.map((item) => `
                             <div class="card content-item" style="margin-bottom:20px;">
-                                <h4 style="font-size:1.2rem; color:var(--accent-orange); margin-bottom: 15px;">${item.name}</h4>
+                                <h4 style="font-size:1.2rem; color:var(--accent-primary); margin-bottom: 15px;">${item.name}</h4>
                                 
                                 ${item.ingredients ? `
                                     <h5 style="font-size:0.9rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);">Ingredientes</h5>
@@ -170,7 +170,7 @@ const templates = {
                     </div>
                     
                     <div class="card clickable module-row" onclick="openModule('fundamentos')">
-                        <div class="module-icon-wrap" style="color:var(--accent-orange); background:rgba(237,143,3,0.1);">
+                        <div class="module-icon-wrap" style="color:var(--accent-primary); background:rgba(16,185,129,0.1);">
                             <i data-lucide="book"></i>
                         </div>
                         <div class="module-info">
@@ -204,7 +204,7 @@ const templates = {
     },
     progress: () => `
         <div class="view-animate" style="padding-top:20px;">
-            <div class="card" style="margin-bottom:20px; border-top: 4px solid var(--accent-orange);">
+            <div class="card" style="margin-bottom:20px; border-top: 4px solid var(--accent-primary);">
                 <h3 style="margin-bottom:25px; text-align:center; font-size:1.4rem;">Seu Impacto Metabólico</h3>
                 <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; text-align:center;">
                     <div style="padding: 15px; background: var(--bg-light); border-radius: 12px;">
@@ -213,7 +213,7 @@ const templates = {
                     </div>
                     <div style="padding: 15px; background: var(--bg-light); border-radius: 12px;">
                         <span class="muted" style="font-size:0.75rem; font-weight:700; text-transform:uppercase;">Sequência</span>
-                        <h4 style="font-size:1.8rem; color:var(--accent-orange); margin-top:5px;">${state.currentDay} Dias</h4>
+                        <h4 style="font-size:1.8rem; color:var(--accent-primary); margin-top:5px;">${state.currentDay} Dias</h4>
                     </div>
                 </div>
             </div>
@@ -252,7 +252,7 @@ const templates = {
             </div>
             
             <div class="card clickable" style="margin-bottom:18px; display:flex; align-items:center; gap:18px;">
-                <div class="module-icon-wrap" style="color:var(--accent-orange); background:rgba(237,143,3,0.1);">
+                <div class="module-icon-wrap" style="color:var(--accent-primary); background:rgba(16,185,129,0.1);">
                     <i data-lucide="target"></i>
                 </div>
                 <div>
@@ -279,7 +279,7 @@ const templates = {
                         <span class="muted" style="font-size:0.65rem; text-transform:uppercase;">Gordura Off</span>
                     </div>
                     <div class="profile-stat-box">
-                        <h4 style="font-size:1.3rem; margin-bottom:2px; color:var(--accent-orange);">ON</h4>
+                        <h4 style="font-size:1.3rem; margin-bottom:2px; color:var(--accent-primary);">ON</h4>
                         <span class="muted" style="font-size:0.65rem; text-transform:uppercase;">Metabolismo</span>
                     </div>
                 </div>

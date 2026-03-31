@@ -1,25 +1,26 @@
 :root {
-    --primary-gradient: linear-gradient(135deg, #FFB75E 0%, #ED8F03 100%);
-    --bg-light: #F8F9FB; /* Cooler, premium light gray */
-    --text-dark: #111827; /* Near black for high contrast */
-    --text-muted: #6B7280;
-    --accent-orange: #ED8F03;
+    --primary-gradient: linear-gradient(135deg, #059669 0%, #10B981 100%); /* Emerald Clinical */
+    --bg-light: #F3F4F6; /* Crisp cool gray */
+    --text-dark: #1F2937; /* Sophisticated Slate */
+    --text-muted: #9CA3AF;
+    --accent-primary: #10B981; /* Sleek Medical Green */
     --white: #FFFFFF;
     
-    /* Glassmorphism 2.0 Tokens */
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.5);
-    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
-    --glass-blur: blur(20px);
+    /* Glassmorphism Refined Tokens */
+    --glass-bg: rgba(255, 255, 255, 0.9);
+    --glass-border: rgba(209, 213, 219, 0.4);
+    --glass-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.03);
+    --glass-blur: blur(16px);
     
     /* Solid Card Tokens */
-    --shadow-card: 0 10px 40px -10px rgba(0,0,0,0.08); /* Ambient occlusion shadow */
-    --shadow-button: 0 8px 25px -8px hsla(38, 100%, 50%, 0.6);
+    --shadow-card: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03); /* Crisper shadow */
+    --shadow-button: 0 4px 14px -4px rgba(16, 185, 129, 0.5);
     
-    --border-radius-3xl: 24px;
-    --border-radius-2xl: 20px;
-    --border-radius-xl: 16px;
-    --nav-height: 90px;
+    /* Sharper, architectural radii */
+    --border-radius-3xl: 16px;
+    --border-radius-2xl: 12px;
+    --border-radius-xl: 8px;
+    --nav-height: 80px;
 }
 
 * {
@@ -54,20 +55,17 @@ h1, h2, h3, h4, .app-header span, .bottom-nav span {
     box-shadow: 0 0 80px rgba(0,0,0,0.1);
 }
 
-/* Dynamic Mesh Gradient Background */
+/* Clinical Sleek Gradient Background */
 .hero-bg-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 420px;
-    background: radial-gradient(circle at top left, #FFD700 0%, transparent 60%),
-                radial-gradient(circle at bottom right, #FF8C00 0%, transparent 60%),
-                linear-gradient(135deg, #FFB75E 0%, #ED8F03 100%);
-    background-size: 150% 150%;
-    animation: gradientMove 10s ease infinite alternate;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
+    height: 380px;
+    background: linear-gradient(160deg, #064E3B 0%, #059669 80%, var(--bg-light) 100%);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); /* Cool diagonal architectural cut */
     z-index: 0;
 }
 
@@ -182,11 +180,11 @@ h1, h2, h3, h4, .app-header span, .bottom-nav span {
 .progress-ring::before {
     content: "";
     position: absolute;
-    inset: 12px; /* thickness of ring */
+    inset: 8px; /* Thinner, sleeker ring */
     border-radius: 50%;
-    background: var(--accent-orange); /* Matching the hero gradient core */
-    background: linear-gradient(135deg, #FFB75E, #ED8F03);
-    box-shadow: inset 0 4px 10px rgba(0,0,0,0.1);
+    background: var(--accent-primary);
+    background: linear-gradient(135deg, #34D399, #059669); /* Medical green depth */
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .progress-ring-content {
@@ -248,7 +246,7 @@ h1, h2, h3, h4, .app-header span, .bottom-nav span {
     height: 28px;
     padding: 6px;
     background: white;
-    color: var(--accent-orange);
+    color: var(--accent-primary);
     border-radius: 10px;
 }
 
@@ -279,7 +277,7 @@ h1, h2, h3, h4, .app-header span, .bottom-nav span {
 
 .home-recipe-overlay .tag {
     display: inline-block;
-    background: var(--accent-orange);
+    background: var(--accent-primary);
     color: white;
     font-size: 0.65rem;
     font-weight: 800;
