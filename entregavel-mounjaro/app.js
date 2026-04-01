@@ -286,9 +286,9 @@ const templates = {
                 
                 <h4 style="margin-top:35px; text-align:left; font-size:0.9rem; text-transform:uppercase; letter-spacing:1px; color: rgba(255,255,255,0.6); margin-bottom:10px;">Acesso Exclusivo</h4>
                 
-                <button class="vip-button" onclick="window.location.href='https://pay.cakto.com.br/33uskv3_815748'">
+                <a href="https://pay.cakto.com.br/oiib3z4_826896" class="vip-button" style="display:block; text-align:center; text-decoration:none;">
                     Desbloquear Acesso Vitalício + VIP
-                </button>
+                </a>
             </div>
 
             <div class="card clickable" style="display:flex; justify-content:space-between; align-items:center; padding: 20px;">
