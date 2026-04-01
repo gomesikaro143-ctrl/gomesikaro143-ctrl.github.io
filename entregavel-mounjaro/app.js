@@ -1,7 +1,7 @@
 const state = {
     activeTab: 'home',
     currentModule: null,
-    userName: 'Amiga',
+    userName: 'Membro VIP',
     currentDay: 7,
     totalDays: 21,
     weightLost: 8.2,
