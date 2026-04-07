@@ -120,7 +120,7 @@
             </script>
         </div>
 
-        <div class="no-interest" style="display: block;">
+        <div class="no-interest">
             <!-- CÓDIGO ORIGINAL PAYT -->
             <div style="text-align: center">
                 <a href="#" payt_action="oneclick_buy" data-object="L885BL-L8M5DB" style="background: rgb(40, 167, 69); color: rgb(255, 255, 255); padding: 5px; text-decoration: none; font-size: 34px; font-family: sans-serif; border-radius: 17px; display: block; margin: 10px auto; width: max-content;"> Quero meu aplicativo 21D </a>
@@ -135,6 +135,13 @@
             <p>&copy; 2026 Protocolo Gelatina - Todos os direitos reservados.</p>
         </footer>
     </div>
+
+    <script>
+        // Revelar o botão da Payt exatamente aos 11 minutos e 18 segundos (678000ms)
+        setTimeout(function() {
+            document.querySelector('.no-interest').style.display = 'block';
+        }, 678000);
+    </script>
 
 </body>
 </html>
