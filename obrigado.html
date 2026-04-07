@@ -17,7 +17,16 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '769699762506486');
     fbq('track', 'PageView');
-    fbq('track', 'Purchase', {value: 37.00, currency: 'BRL'});
+    fbq('track', 'Purchase', {value: 37.00, currency: 'BRL'}); // Track da venda principal concluída
+
+    // Tracking InitiateCheckout para quem clica na oferta de Upsell
+    document.addEventListener("click", function(e) {
+        var el = e.target.closest("a") || e.target.closest("button") || e.target.closest("div[role='button']");
+        var text = el ? (el.innerText || "").toUpperCase() : "";
+        if (text.includes("QUERO") || text.includes("SIM") || text.includes("ACELERAR")) {
+            fbq('track', 'InitiateCheckout');
+        }
+    }, true);
     </script>
     <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" async defer></script>
     

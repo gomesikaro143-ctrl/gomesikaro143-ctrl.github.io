@@ -17,6 +17,14 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '769699762506486');
     fbq('track', 'PageView');
+
+    // Tracking InitiateCheckout no clique do botão
+    document.addEventListener("click", function(e) {
+        var el = e.target.closest("a") || e.target.closest("button");
+        if (el && (el.innerText || "").toUpperCase().includes("QUERO MEU ACESSO")) {
+            fbq('track', 'InitiateCheckout');
+        }
+    }, true);
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=769699762506486&ev=PageView&noscript=1"
