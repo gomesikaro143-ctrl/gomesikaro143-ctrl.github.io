@@ -1,0 +1,112 @@
+--- /tmp/amigo_project/assets/index-EKBqwSm3.js	2026-04-07 15:53:15
++++ /Users/macbook/site gelatina moujaro/assets/index-EKBqwSm3.js	2026-04-07 15:53:16
+@@ -24393,7 +24393,7 @@
+     "Corpo Todo": "✨",
+   },
+   TM = ({ onBack: e }) => {
+-    const [t, n] = b.useState(1),
++    const [t, n] = b.useState(2),
+       [r, s] = b.useState({}),
+       [o, i] = b.useState(""),
+       [a, l] = b.useState(75),
+@@ -26210,7 +26210,7 @@
+   PM = ({ onComplete: e, userName: t }) => {
+     const [r, s] = b.useState(0),
+       [o, i] = b.useState(!1),
+-      [a, l] = b.useState(!1);
++      [a, l] = b.useState(!0);
+     b.useEffect(() => {
+       if (!a) return;
+       const c = setInterval(() => {
+@@ -26319,23 +26319,12 @@
+             "w-full max-w-[272px] mx-auto rounded-2xl overflow-hidden border-2 border-primary/20 shadow-xl relative cursor-pointer",
+           onClick: u,
+           children: d.jsxs("div", {
+-            style: { position: "relative", paddingTop: "177.78%" },
++            style: { position: "relative" },
+             children: [
+-              d.jsx("iframe", {
+-                id: "panda-player-2",
+-                src: "https://player-vz-de976c3f-628.tv.pandavideo.com.br/embed/?v=29e8b030-acfc-4cea-82cf-c292ce30757b",
+-                style: {
+-                  border: "none",
+-                  position: "absolute",
+-                  top: 0,
+-                  left: 0,
+-                  width: "100%",
+-                  height: "100%",
+-                  pointerEvents: a ? "auto" : "none",
++              d.jsx("div", {
++                dangerouslySetInnerHTML: {
++                  __html: `<div id="ifr_69d4f18b95a1d0cd29f7f35d_wrapper" style="margin: 0 auto; width: 100%; max-width: 400px;"> <div style="position: relative; padding: 177.5% 0 0 0;" id="ifr_69d4f18b95a1d0cd29f7f35d_aspect"> <iframe frameborder="0" allowfullscreen src="about:blank" id="ifr_69d4f18b95a1d0cd29f7f35d" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" referrerpolicy="origin" onload=" this.onload=null, this.src='https://scripts.converteai.net/77523c7b-c31c-4d97-b00f-a3ae8b422951/players/69d4f18b95a1d0cd29f7f35d/v4/embed.html' +(location.search||'?') +'&vl=' +encodeURIComponent(location.href)"></iframe> </div> </div>`,
+                 },
+-                allow:
+-                  "accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture",
+-                allowFullScreen: !0,
+               }),
+               !a && d.jsx("div", { className: "absolute inset-0 z-10" }),
+             ],
+@@ -26416,7 +26405,7 @@
+   kM = ({ onComplete: e }) => {
+     const [n, r] = b.useState(0),
+       [s, o] = b.useState(!1),
+-      [i, a] = b.useState(!1);
++      [i, a] = b.useState(!0);
+     b.useEffect(() => {
+       if (!i) return;
+       const u = setInterval(() => {
+@@ -26467,23 +26456,12 @@
+             "w-full max-w-[272px] mx-auto rounded-2xl overflow-hidden border-2 border-primary/20 shadow-xl relative cursor-pointer",
+           onClick: l,
+           children: d.jsxs("div", {
+-            style: { position: "relative", paddingTop: "177.78%" },
++            style: { position: "relative" },
+             children: [
+-              d.jsx("iframe", {
+-                id: "panda-player",
+-                src: "https://player-vz-de976c3f-628.tv.pandavideo.com.br/embed/?v=f62040b6-5346-4384-a471-08a64cd5f293",
+-                style: {
+-                  border: "none",
+-                  position: "absolute",
+-                  top: 0,
+-                  left: 0,
+-                  width: "100%",
+-                  height: "100%",
+-                  pointerEvents: i ? "auto" : "none",
++              d.jsx("div", {
++                dangerouslySetInnerHTML: {
++                  __html: `<div id="ifr_69d4f27ab88719b10eb6c0cc_wrapper" style="margin: 0 auto; width: 100%; max-width: 400px;"> <div style="position: relative; padding: 177.63157894736844% 0 0 0;" id="ifr_69d4f27ab88719b10eb6c0cc_aspect"> <iframe frameborder="0" allowfullscreen src="about:blank" id="ifr_69d4f27ab88719b10eb6c0cc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" referrerpolicy="origin" onload=" this.onload=null, this.src='https://scripts.converteai.net/77523c7b-c31c-4d97-b00f-a3ae8b422951/players/69d4f27ab88719b10eb6c0cc/v4/embed.html' +(location.search||'?') +'&vl=' +encodeURIComponent(location.href)"></iframe> </div> </div>`,
+                 },
+-                allow:
+-                  "accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture",
+-                allowFullScreen: !0,
+               }),
+               !i && d.jsx("div", { className: "absolute inset-0 z-10" }),
+             ],
+@@ -27016,7 +26994,7 @@
+           children: "QUERO COMEÇAR 🥰",
+         })
+       : d.jsx(W.a, {
+-          href: "https://pay.cakto.com.br/pntvqgy",
++          href: "https://payt.site/p7CBMJ9",
+           target: "_blank",
+           rel: "noopener noreferrer",
+           className:
+@@ -27389,7 +27367,7 @@
+                   d.jsx("p", {
+                     className: "text-5xl font-bold",
+                     style: { color: "hsl(142, 71%, 40%)" },
+-                    children: "R$ 27",
++                    children: "R$ 37",
+                   }),
+                   d.jsx("p", {
+                     className: "text-muted-foreground text-sm",
+@@ -27541,7 +27519,7 @@
+ }
+ const DM = (e) => d.jsx(MM, { children: d.jsx(TM, { ...e }) }),
+   LM = () => {
+-    const [e, t] = b.useState(!1);
++    const [e, t] = b.useState(!0);
+     return d.jsx("main", {
+       className: "bg-background min-h-screen",
+       children: e
