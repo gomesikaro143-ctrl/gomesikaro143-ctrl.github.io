@@ -73,6 +73,7 @@
         }
 
         .no-interest {
+            display: none; /* Inicialmente escondido */
             margin-top: 20px;
         }
 
@@ -110,13 +111,20 @@
         </div>
 
         <div class="no-interest">
-            <a href="#" class="btn-no-red">NÃO QUERO, OBRIGADO!</a>
+            <a href="downsell.html" class="btn-no-red">NÃO QUERO, OBRIGADO!</a>
         </div>
 
         <footer>
             <p>&copy; 2026 Protocolo Gelatina - Todos os direitos reservados.</p>
         </footer>
     </div>
+
+    <script>
+        // Revelar o botão de 'Não Quero' aos 11 minutos e 18 segundos (678000ms)
+        setTimeout(function() {
+            document.querySelector('.no-interest').style.display = 'block';
+        }, 678000);
+    </script>
 
 </body>
 </html>

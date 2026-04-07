@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESPERE! ÚLTIMA CHANCE - Protocolo Gelatina</title>
+    
+    <!-- Scripts de Rastreamento (Pixel e UTMify) -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '769699762506486');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=769699762506486&ev=PageView&noscript=1"
+    /></noscript>
+    
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" async defer></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Outfit:wght@800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --bg: #fff;
+            --text-dark: #0f172a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-dark);
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .header-danger {
+            background-color: var(--warning);
+            color: #000;
+            padding: 15px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            color: var(--danger);
+            margin-bottom: 25px;
+            line-height: 1.1;
+        }
+
+        .offer-box {
+            background: #fff9f0;
+            border: 2px dashed var(--warning);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .main-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #334155;
+        }
+
+        .price-drop {
+            margin: 30px 0;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #94a3b8;
+            font-size: 1.5rem;
+        }
+
+        .new-price {
+            color: var(--primary);
+            font-size: 4rem;
+            font-weight: 900;
+            display: block;
+            margin-top: -10px;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--primary);
+            color: #fff;
+            padding: 22px 30px;
+            border-radius: 15px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+            width: 100%;
+            box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.4);
+            transition: transform 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        .btn-cta:hover { transform: scale(1.05); }
+
+        .btn-no {
+            display: inline-block;
+            margin-top: 30px;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            text-decoration: underline;
+        }
+
+        footer { margin-top: 50px; font-size: 0.8rem; color: #94a3b8; }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .new-price { font-size: 3rem; }
+            .btn-cta { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-danger">
+        ⚠️ ESPERE! ÚLTIMA CHANCE...
+    </div>
+
+    <div class="container">
+        <h1>OLHA O QUE EU TENHO PARA VOCÊ!</h1>
+        
+        <div class="offer-box">
+            <p class="main-text">
+                Entendo que R$ 47,00 pode parecer muito agora, mas e se eu te dissesse que você pode ter acesso ao <strong>Desafio da Virgínia 21D</strong> por menos da metade do preço?
+            </p>
+
+            <div class="price-drop">
+                <span class="old-price">De R$ 47,00</span>
+                <span class="new-price">R$ 27,00</span>
+            </div>
+        </div>
+
+        <a href="https://pay.cakto.com.br/DOWNSELL_ID_27" class="btn-cta">
+            SIM! QUERO MEU ACESSO COM DESCONTO AGORA!
+        </a>
+
+        <a href="#" class="btn-no" onclick="alert('Deseja realmente perder essa oportunidade única?')">
+            Não, eu realmente não quero emagrecer mais rápido e não aceito o desconto.
+        </a>
+
+        <footer>
+            <p>&copy; 2026 Protocolo Gelatina - Compra Segura</p>
+        </footer>
+    </div>
+
+</body>
+</html>
