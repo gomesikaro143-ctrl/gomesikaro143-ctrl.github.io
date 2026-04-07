@@ -99,6 +99,30 @@
             opacity: 1;
             text-decoration: underline;
         }
+
+        .btn-upsell {
+            display: block;
+            background-color: var(--primary);
+            color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-decoration: none;
+            width: 100%;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.4);
+            animation: pulse-green 2s infinite;
+            transition: transform 0.3s;
+        }
+        .btn-upsell:hover {
+            transform: scale(1.05);
+        }
+        @keyframes pulse-green {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
     </style>
 </head>
 <body>
@@ -120,6 +144,13 @@
         </div>
 
         <div class="no-interest">
+            <!-- BOTÃO DE COMPRA 1 CLIQUE (PAYT) -->
+            <a href="#" class="btn-upsell" payt_action="oneclick_buy" data-object="L885BL-L8M5DB">
+                SIM! QUERO ADICIONAR AO MEU PEDIDO
+            </a>
+            <select payt_element='installment' style='display: none' data-object='L885BL-L8M5DB'></select>
+            <script type="text/javascript" src="https://checkout.payt.com.br/multiple-oneclickbuyscript/47ME93.js"></script>
+
             <a href="downsell.html" class="btn-no-red">NÃO QUERO, OBRIGADO!</a>
         </div>
 
