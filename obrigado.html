@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESPERA! NÃO FECHE ESTA PÁGINA - Protocolo Gelatina</title>
+    
+    <!-- Scripts de Rastreamento -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '769699762506486');
+    fbq('track', 'PageView');
+    fbq('track', 'Purchase', {value: 37.00, currency: 'BRL'});
+    </script>
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" async defer></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Outfit:wght@800&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --primary: #10b981; --danger: #ef4444; }
+        body { font-family: 'Inter', sans-serif; background: #f8fafc; margin: 0; text-align: center; color: #0f172a; }
+        
+        /* Barra de Urgência */
+        .urgency-bar {
+            background: var(--danger);
+            color: white;
+            padding: 12px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            animation: pulse-red 2s infinite;
+        }
+
+        @keyframes pulse-red {
+            0% { background-color: #ef4444; }
+            50% { background-color: #b91c1c; }
+            100% { background-color: #ef4444; }
+        }
+
+        .container { max-width: 850px; margin: 0 auto; padding: 40px 20px; }
+        
+        .confirmation {
+            background: #d1fae5;
+            color: #065f46;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+        }
+
+        h1 { font-family: 'Outfit', sans-serif; font-size: 1.8rem; color: #0f172a; margin-bottom: 30px; line-height: 1.2; }
+        
+        /* Container do Vídeo */
+        .video-box {
+            background: #000;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border: 3px solid var(--primary);
+            overflow: hidden;
+            margin-bottom: 30px;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer { margin-top: 50px; color: #64748b; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <div class="urgency-bar">⚠️ POR FAVOR, NÃO FECHE ESTA PÁGINA. ISSO É MUITO IMPORTANTE!</div>
+
+    <div class="container">
+        <div class="confirmation">✅ COMPRA APROVADA!</div>
+        <h1>ASSISTA AO VÍDEO ABAIXO PARA LIBERAR SEU ACESSO...</h1>
+
+        <div class="video-box">
+            <!-- PLAYER VTURB -->
+            <vturb-smartplayer id="vid-69d4f3ffb88719b10eb6c518" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
+            <script type="text/javascript">
+                var s=document.createElement("script");
+                s.src="https://scripts.converteai.net/77523c7b-c31c-4d97-b00f-a3ae8b422951/players/69d4f3ffb88719b10eb6c518/v4/player.js",
+                s.async=!0,document.head.appendChild(s);
+            </script>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Protocolo Gelatina - Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
