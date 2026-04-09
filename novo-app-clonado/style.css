@@ -434,47 +434,72 @@ h1, h2, h3, h4, h5 {
     background-color: rgba(239, 68, 68, 0.1);
 }
 
-/* Toast de Notificação do Presente (Canto da tela) */
-.gift-toast {
+/* Estrelas de Fundo (Particles) */
+.particles-bg {
     position: fixed;
-    bottom: -100px; /* Escondido inicialmente */
-    right: 20px;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background: radial-gradient(circle at 50% 50%, #150f24 0%, #0c0a15 100%);
+}
+
+.particle {
+    position: absolute;
+    background: #facc15;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle var(--duration) ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.1; transform: scale(0.5); }
+    100% { opacity: 0.8; transform: scale(1.5); box-shadow: 0 0 10px #facc15, 0 0 20px #db2777; }
+}
+
+/* Segunda Notificacao (Modal Central de Presente) */
+.gift-offer-content {
     background: #190c2e;
-    border: 1px solid rgba(234, 179, 8, 0.5);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(234, 179, 8, 0.2);
-    border-radius: 12px;
-    padding: 15px 20px;
+    border: 1px solid rgba(234, 179, 8, 0.4);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8), inset 0 0 20px rgba(234, 179, 8, 0.1);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+    margin: auto;
+    transform: scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: white;
+}
+
+.modal-overlay.show .gift-offer-content {
+    transform: scale(1);
+}
+
+.gift-offer-icon {
+    font-size: 3.5rem;
+    animation: bounce 2s infinite;
+    margin-bottom: 5px;
+}
+
+.btn-close-gift {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255,255,255,0.05);
+    border: none;
+    color: var(--text-muted);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    gap: 15px;
-    z-index: 10001;
+    justify-content: center;
     cursor: pointer;
-    transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.gift-toast.show {
-    bottom: 90px; /* Fica acima da nav-bar */
-}
-
-.toast-icon {
-    font-size: 2rem;
-    animation: bounce 2s infinite;
-}
-
-.toast-text-area {
-    display: flex;
-    flex-direction: column;
-}
-
-.toast-title {
-    color: #eab308;
-    font-weight: 700;
-    font-size: 1rem;
-    margin-bottom: 2px;
-}
-
-.toast-desc {
-    color: #ffffff;
-    font-size: 0.85rem;
 }
 

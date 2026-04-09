@@ -126,15 +126,15 @@ function renderProfile() {
 
 // Lógica da Roleta / Modal de Prêmio
 window.triggerRoulette = function() {
-    const modal = document.getElementById('prize-modal');
-    const toast = document.getElementById('gift-toast');
+    const giftModal = document.getElementById('gift-offer-modal');
+    const prizeModal = document.getElementById('prize-modal');
     const prizeText = document.getElementById('prize-text-area');
 
-    // Esconde o toast
-    if(toast) { toast.classList.remove('show'); }
+    // Esconde a oferta do presente
+    if(giftModal) { giftModal.classList.remove('show'); }
 
-    // Abre o modal de tela cheia
-    modal.classList.add('show');
+    // Abre o modal GIGANTE de tela cheia que vai rodar
+    prizeModal.classList.add('show');
     
     // Animação da roleta dura 2.5s -> mostra o texto do prêmio
     setTimeout(() => {
@@ -144,8 +144,12 @@ window.triggerRoulette = function() {
 
     const closeBtn = document.getElementById('close-modal');
     closeBtn.addEventListener('click', () => {
-        modal.classList.remove('show');
+        prizeModal.classList.remove('show');
     });
+};
+
+window.closeGiftOffer = function() {
+    document.getElementById('gift-offer-modal').classList.remove('show');
 };
 
 // Ação ao aceitar o prêmio
@@ -157,23 +161,47 @@ window.claimPrize = function() {
 // Controle do Modal de Instruções
 window.closeInstructionsModal = function() {
     document.getElementById('instructions-modal').classList.remove('show');
-    // Em vez de estourar a roleta central, aciona o Toast flutuante de alerta
+    // Em vez de estourar a roleta central, aciona o Modal do Presente
     setTimeout(() => {
-        const toast = document.getElementById('gift-toast');
-        if(toast) { toast.classList.add('show'); }
-    }, 1500);
+        const giftModal = document.getElementById('gift-offer-modal');
+        if(giftModal) { giftModal.classList.add('show'); }
+    }, 800);
 };
 
 window.goToInstructions = function() {
     document.getElementById('instructions-modal').classList.remove('show');
     renderView('content'); // leva para alguma tela que tiver as instruções
     
-    // Lança também se for pra tela de instrução
     setTimeout(() => {
-        const toast = document.getElementById('gift-toast');
-        if(toast) { toast.classList.add('show'); }
+        const giftModal = document.getElementById('gift-offer-modal');
+        if(giftModal) { giftModal.classList.add('show'); }
     }, 2000);
 };
+
+// Gerador de Estrelas no Fundo
+function initParticles() {
+    const bg = document.getElementById('particles-bg');
+    if(!bg) return;
+    for(let i = 0; i < 40; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        // Random propriedades
+        const size = Math.random() * 3 + 1;
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const duration = Math.random() * 3 + 2;
+        const delay = Math.random() * 5;
+        
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.left = x + 'vw';
+        particle.style.top = y + 'vh';
+        particle.style.setProperty('--duration', duration + 's');
+        particle.style.animationDelay = delay + 's';
+        
+        bg.appendChild(particle);
+    }
+}
 
 
 // Configuração do Splash Screen de Entrada Automática
@@ -208,6 +236,9 @@ function initSplashScreen() {
 // Event Listeners Iniciais
 document.addEventListener('DOMContentLoaded', () => {
     const navItems = document.querySelectorAll('.nav-item');
+    
+    // Inicia Particulas de Fundo Estrelado
+    initParticles();
     
     // Inicializa a Tela de Entrada
     initSplashScreen();

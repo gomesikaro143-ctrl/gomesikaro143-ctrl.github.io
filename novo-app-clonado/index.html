@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Estrelas do Fundo (Partículas geradas no JS) -->
+    <div id="particles-bg" class="particles-bg"></div>
+
     <!-- Splash Screen Idêntico ao Original -->
     <div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #0c0a15; z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.8s ease, transform 0.8s ease; transform: scale(1);">
         <h1 style="font-family: 'Playfair Display', serif; color: #facc15; font-size: 3.5rem; margin-bottom: 2px; text-shadow: 0 0 20px rgba(250,204,21,0.4); animation: fadeIn 1s ease forwards;">Protocolo</h1>
@@ -84,12 +87,17 @@
             </div>
         </div>
 
-        <!-- Toast Notification (Presente) -->
-        <div id="gift-toast" class="gift-toast" onclick="triggerRoulette()">
-            <div class="toast-icon">🎁</div>
-            <div class="toast-text-area">
-                <span class="toast-title">Você ganhou um presente!</span>
-                <span class="toast-desc">Toque aqui para girar a roleta</span>
+        <!-- Segunda Notificação de Presente (Modal Centralizado) -->
+        <div id="gift-offer-modal" class="modal-overlay">
+            <div class="gift-offer-content">
+                <button class="btn-close-gift" onclick="closeGiftOffer()"><i data-lucide="x" style="width: 18px; height: 18px;"></i></button>
+                <div class="gift-offer-icon">🎁</div>
+                <h2 class="inst-title" style="color: #eab308; margin-top: 10px;">Você ganhou um Presente!</h2>
+                <p class="inst-text" style="color: #fff;">Queremos recompensar sua determinação inicial.</p>
+                
+                <button class="btn-menu btn-yellow" onclick="triggerRoulette()" style="margin-top: 10px; box-shadow: 0 4px 15px rgba(234, 179, 8, 0.4);">
+                    👉 Clicar aqui para Abrir 👈
+                </button>
             </div>
         </div>
 
