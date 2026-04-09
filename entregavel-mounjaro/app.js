@@ -1,449 +1,450 @@
+// Estado Global Inicial
 const DEFAULT_STATE = {
-    activeTab: 'home',
-    currentModule: null,
-    userName: 'Membro VIP',
-    currentDay: 0,
-    totalDays: 21,
-    weightLost: 0,
-    progressPercent: 0,
-    waterIntake: 0,
-    waterGoal: 2.5
+    user: {
+        name: "Guerreira",
+        progress: 0,
+        currentDay: 1,
+        weightLost: 0,
+        daysLeft: 29
+    },
+    activeTab: 'home'
 };
 
 let state = { ...DEFAULT_STATE };
 
-// Persistence Logic
-function saveState() {
-    localStorage.setItem('protocolo_gelatina_state', JSON.stringify(state));
-}
-
-function loadState() {
-    const saved = localStorage.getItem('protocolo_gelatina_state');
-    if (saved) {
-        state = { ...state, ...JSON.parse(saved) };
-    }
-}
-
-loadState();
-
-const contentData = {
-    fundamentos: {
-        title: "Fundamentos & Boosters",
-        items: [
-            { name: "O Conceito Booster", text: "Para que as gelatinas funcionem como inibidores de apetite, usamos 'Boosters'. São ingredientes que transformam uma gelatina simples em uma bomba de saciedade." },
-            { name: "Psyllium - A Esponja", text: "Fibra natural que absorve água e vira uma esponja no estômago. Essencial para o Protocolo Gelatina." },
-            { name: "Chia & Whey", text: "Chia libera um gel saciante e anti-inflamatório. O Whey garante a densidade proteica para firmar o corpo." }
-        ]
-    },
-    receitas: {
-        title: "Receitas do Protocolo",
-        items: [
-            { name: "Omelete Proteico Termogênico", ingredients: ["2 ovos", "Espinafre a gosto", "Queijo branco magro", "Pimenta preta", "Gengibre ralado", "Dose do Monjaro de Pobre"], instructions: "Bata os ovos com os temperos. Adicione o espinafre e queijo. Prepare em frigideira untada." },
-            { name: "Frittata de Vegetais", ingredients: ["3 ovos", "Brócolis picado", "Pimentão em cubos", "Abobrinha ralada", "Dose do Monjaro de Pobre"], instructions: "Misture os vegetais e os ovos batidos. Asse em fogo baixo com tampa até firmar." },
-            { name: "Torrada com Ovo Poché", ingredients: ["1 ovo", "Fatia de pão low carb", "Pasta de abacate", "Tomate cereja confit", "Dose do Monjaro de Pobre"], instructions: "Prepare o poché (água fervente, vinagre, redemoinho, 3 min). Sirva sobre a torrada com abacate." },
-            { name: "Mounjaro de Pobre (Drink Mix)", ingredients: ["100g de psyllium em pó", "100g de chia em grãos", "100g de farinha de linhaça", "Água ou suco limão diet"], instructions: "Misture as 3 farinhas em um pote hermético. Tome 1 colher de sopa misturada em líquido 30 min antes do almoço e do jantar." }
-        ]
-    },
-    aceleradoras: {
-        title: "Aceleradoras de Metabolismo",
-        items: [
-            { name: "Turbo de Limão e Gengibre", text: "Termogênica potente para acelerar o metabolismo e queimar calorias passivamente logo pela manhã.<br><br><strong>Uso:</strong> 1 dose em jejum." },
-            { name: "Chá Verde Energético", text: "Oxidação de gordura natural e energia sustentada ao longo do dia.<br><br><strong>Preparo:</strong> 10g gelatina incolor em 300ml de chá verde quente." }
-        ]
-    },
-    drenagem: {
-        title: "Drenagem Comestível",
-        items: [
-            { name: "Gelatina de Hibisco", text: "Fim da retenção de líquido e inchaço corporal. Prepare com morangos frescos ao fundo." },
-            { name: "Melancia com Hortelã", text: "Hidratação máxima com efeito diurético natural. Bata no liquidificador e deixe gelando por 4h." }
-        ]
-    },
-    sobremesas: {
-        title: "Sobremesas Mata-Vontade",
-        items: [
-            { name: "Danoninho Proteico", text: "Textura cremosa idêntica ao original, mas anabólica. Use gelatina zero morango + iogurte natural." },
-            { name: "Prestígio de Colher", text: "Mata a vontade de chocolate. Gelatina sem sabor dissolvida em leite de coco light com cacau 100%." }
-        ]
-    }
-};
-
+// Elementos da DOM
 const appMain = document.getElementById('app-main');
 const navItems = document.querySelectorAll('.nav-item');
-const pageTitle = document.getElementById('page-title');
-const pageGreeting = document.getElementById('page-greeting');
 
-// Dynamic Progress Ring System
-function renderProgressRing(percent) {
-    const degrees = (percent / 100) * 360;
-    return `
-        <div class="progress-ring-container">
-            <div class="progress-ring" style="background: conic-gradient(var(--white) ${degrees}deg, rgba(255,255,255,0.2) 0deg);">
-                <div class="progress-ring-content">
-                    <h3>${percent}%</h3>
-                    <span>Foco Diário</span>
-                </div>
-            </div>
-        </div>
-    `;
-}
-
-// Templates
-const templates = {
-    home: () => `
-        <div class="view-animate">
-            <section class="feature-buttons">
-                <button class="feature-btn clickable" onclick="openModule('receitas')">
-                    <i data-lucide="book-open"></i>
-                    Protocolo 21D
-                </button>
-                <button class="feature-btn clickable" onclick="openModule('fundamentos')">
-                    <i data-lucide="droplet"></i>
-                    Drink Mounjaro
-                </button>
-            </section>
-
-            ${renderProgressRing(state.progressPercent)}
-
-            <section class="home-recipe-card glass-card clickable" onclick="openModule('receitas')">
-                <div class="home-recipe-image" style="background-image: url('https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=600')"></div>
-                <div class="home-recipe-overlay">
-                    <span class="tag">Destaque do Dia</span>
-                    <h4>Torrada com Ovo Poché e Abacate</h4>
-                </div>
-            </section>
-
-            <section class="categories-section" style="margin-top: 40px;">
-                <div class="section-title-row">
-                    <h3>Foco da Semana</h3>
-                    <a href="#" class="ver-todas" onclick="renderView('content')">Ver Mais <i data-lucide="arrow-right" style="width:14px; vertical-align:middle;"></i></a>
-                </div>
-                
-                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
-                    <div class="card clickable" style="flex-direction:column; padding:20px; text-align:center;" onclick="openModule('drenagem')">
-                        <span style="font-size:3rem; margin-bottom:12px; display:block; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">🥑</span>
-                        <h4 style="font-size:0.95rem; line-height:1.2;">Drenagem Intensa</h4>
-                        <span class="muted" style="font-size:0.75rem; margin-top:6px; display:block;">Perca Retenção</span>
-                    </div>
-                    <div class="card clickable" style="flex-direction:column; padding:20px; text-align:center;" onclick="openModule('aceleradoras')">
-                        <span style="font-size:3rem; margin-bottom:12px; display:block; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">🔥</span>
-                        <h4 style="font-size:0.95rem; line-height:1.2;">Aceleradoras</h4>
-                        <span class="muted" style="font-size:0.75rem; margin-top:6px; display:block;">Metabolismo</span>
-                    </div>
-                </div>
-            </section>
-        </div>
-    `,
-    content: () => {
-        if (state.currentModule) {
-            const mod = contentData[state.currentModule.id];
-            return `
-                <div class="view-animate module-detail" style="padding-top:10px;">
-                    <button class="clickable" onclick="closeModule()" style="background:var(--white); border:none; color:var(--text-dark); padding:10px 20px; border-radius:30px; cursor:pointer; font-weight:700; font-size: 0.9rem; margin-bottom:25px; box-shadow: var(--shadow-card); display:flex; gap:8px; align-items:center;">
-                        <i data-lucide="arrow-left" style="width: 16px;"></i> Voltar
-                    </button>
-                    
-                    <h2 class="module-title" style="color:var(--white); margin-bottom:30px; font-size:1.8rem;">${mod.title}</h2>
-                    
-                    <div class="module-items" style="margin-top:10px;">
-                        ${mod.items.map((item) => `
-                            <div class="card content-item" style="margin-bottom:20px;">
-                                <h4 style="font-size:1.2rem; color:var(--accent-primary); margin-bottom: 15px;">${item.name}</h4>
-                                
-                                ${item.ingredients ? `
-                                    <h5 style="font-size:0.9rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);">Ingredientes</h5>
-                                    <ul class="recipe-ingredient-list">
-                                        ${item.ingredients.map(ing => `
-                                            <li class="recipe-ingredient-item" onclick="this.classList.toggle('checked')">
-                                                <div class="custom-checkbox"></div>
-                                                ${ing}
-                                            </li>
-                                        `).join('')}
-                                    </ul>
-                                ` : ''}
-
-                                ${item.instructions ? `
-                                    <h5 style="font-size:0.9rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-top:20px;">Preparo</h5>
-                                    <p style="margin-top:8px; color:var(--text-dark); line-height:1.6;">${item.instructions}</p>
-                                ` : ''}
-
-                                ${item.text ? `<p style="color:var(--text-dark); line-height:1.6;">${item.text}</p>` : ''}
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            `;
-        }
-        return `
-            <div class="view-animate" style="padding-top:10px;">
-                <h3 class="section-title" style="color:var(--white); margin-bottom:25px;">Biblioteca Premium</h3>
-                <div class="module-list">
-                    <div class="card clickable module-row" onclick="openModule('receitas')">
-                        <div class="module-icon-wrap" style="color:#10B981; background:rgba(16,185,129,0.1);">
-                            <i data-lucide="chef-hat"></i>
-                        </div>
-                        <div class="module-info">
-                            <h4>Receitas do Protocolo</h4>
-                            <span class="muted"><i data-lucide="check-circle-2" style="width:12px; color:#10B981;"></i> Completo • 10 itens</span>
-                        </div>
-                    </div>
-                    
-                    <div class="card clickable module-row" onclick="openModule('fundamentos')">
-                        <div class="module-icon-wrap" style="color:var(--accent-primary); background:rgba(16,185,129,0.1);">
-                            <i data-lucide="book"></i>
-                        </div>
-                        <div class="module-info">
-                            <h4>Drink Mounjaro & Boosters</h4>
-                            <span class="muted"><i data-lucide="library" style="width:12px;"></i> Fundamentos</span>
-                        </div>
-                    </div>
-                    
-                    <div class="card clickable module-row" onclick="openModule('aceleradoras')">
-                        <div class="module-icon-wrap" style="color:#EF4444; background:rgba(239,68,68,0.1);">
-                            <i data-lucide="flame"></i>
-                        </div>
-                        <div class="module-info">
-                            <h4>Aceleradoras Táticas</h4>
-                            <span class="muted"><i data-lucide="zap" style="width:12px;"></i> Queima Rápida</span>
-                        </div>
-                    </div>
-                    
-                    <div class="card clickable module-row" onclick="openModule('sobremesas')">
-                        <div class="module-icon-wrap" style="color:#8B5CF6; background:rgba(139,92,246,0.1);">
-                            <i data-lucide="cake"></i>
-                        </div>
-                        <div class="module-info">
-                            <h4>Sobremesas Permitidas</h4>
-                            <span class="muted"><i data-lucide="heart" style="width:12px;"></i> Sem Culpa</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-    },
-    progress: () => `
-        <div class="view-animate" style="padding-top:20px;">
-            <div class="card" style="margin-bottom:20px; border-top: 4px solid var(--accent-primary);">
-                <h3 style="margin-bottom:25px; text-align:center; font-size:1.4rem;">Seu Impacto Metabólico</h3>
-                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; text-align:center;">
-                    <div style="padding: 15px; background: var(--bg-light); border-radius: 12px;">
-                        <span class="muted" style="font-size:0.75rem; font-weight:700; text-transform:uppercase;">Peso Eliminado</span>
-                        <h4 style="font-size:1.8rem; color:var(--text-dark); margin-top:5px;">${state.weightLost} kg</h4>
-                    </div>
-                    <div style="padding: 15px; background: var(--bg-light); border-radius: 12px;">
-                        <span class="muted" style="font-size:0.75rem; font-weight:700; text-transform:uppercase;">Sequência</span>
-                        <h4 style="font-size:1.8rem; color:var(--accent-primary); margin-top:5px;">${state.currentDay} Dias</h4>
-                    </div>
-                </div>
-            </div>
-            
-            <section class="card">
-                <h3 style="margin-bottom:10px; font-size:1.1rem;">Consistência Semanal</h3>
-                <p class="muted" style="font-size:0.85rem; margin-bottom:25px;">Seu pico de adesão foi na Quinta-feira.</p>
-                
-                <div class="bars" style="display:flex; align-items:flex-end; height:140px; gap:12px;">
-                    ${[0, 0, 0, 0, 0, 0, 0].map((h, i) => `
-                        <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:8px;">
-                            <div class="bar" style="width:100%; height: ${h}%; background: ${h > 80 ? 'var(--primary-gradient)' : 'var(--bg-light)'}; border-radius:6px; transition: height 1s ease;"></div>
-                            <span style="font-size:0.6rem; color:var(--text-muted); font-weight:700;">${['S','T','Q','Q','S','S','D'][i]}</span>
-                        </div>
-                    `).join('')}
-                </div>
-            </section>
-        </div>
-    `,
-    tools: () => {
-        const waterPercent = Math.min(100, (state.waterIntake / state.waterGoal) * 100);
-        return `
-        <div class="view-animate" style="padding-top:10px;">
-            <h3 class="section-title" style="color:var(--white); margin-bottom:25px;">Ferramentas Clínicas</h3>
-            
-            <!-- Hydration Tool -->
-            <div class="card" style="margin-bottom:18px;">
-                <div style="display:flex; align-items:center; gap:18px; margin-bottom:15px;">
-                    <div class="module-icon-wrap" style="color:#0EA5E9; background:rgba(14,165,233,0.1);">
-                        <i data-lucide="droplets"></i>
-                    </div>
-                    <div style="flex:1;">
-                       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
-                           <h4 style="font-size:1.05rem;">Hidratação Diária</h4>
-                           <span style="font-weight:700; color:#0EA5E9;">${state.waterIntake.toFixed(1)}L / ${state.waterGoal}L</span>
-                       </div>
-                       <div style="width:100%; height:8px; background:var(--bg-light); border-radius:10px; overflow:hidden;">
-                            <div id="water-bar" style="width:${waterPercent}%; height:100%; background:#0EA5E9; border-radius:10px; transition: width 0.5s ease;"></div>
-                       </div>
-                    </div>
-                </div>
-                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
-                    <button class="tool-btn aqua" onclick="addWater(0.25)">+250ml</button>
-                    <button class="tool-btn aqua" onclick="addWater(0.5)">+500ml</button>
-                </div>
-            </div>
-            
-            <!-- BMI Calculator Tool -->
-            <div class="card" style="margin-bottom:18px;">
-                <div style="display:flex; align-items:center; gap:18px; margin-bottom:20px;">
-                    <div class="module-icon-wrap" style="color:var(--accent-primary); background:rgba(16,185,129,0.1);">
-                        <i data-lucide="target"></i>
-                    </div>
-                    <div>
-                        <h4 style="font-size:1.05rem; margin-bottom:2px;">Calculadora de IMC</h4>
-                        <span class="muted" style="font-size:0.85rem;">Monitore seu índice corporal</span>
-                    </div>
-                </div>
-                
-                <div class="calculator-grid">
-                    <div class="input-group">
-                        <label>Peso (kg)</label>
-                        <input type="number" id="calc-weight" placeholder="Ex: 75.5" step="0.1">
-                    </div>
-                    <div class="input-group">
-                        <label>Altura (m)</label>
-                        <input type="number" id="calc-height" placeholder="Ex: 1.65" step="0.01">
-                    </div>
-                </div>
-                
-                <button class="tool-btn primary" style="margin-top:15px; width:100%;" onclick="calculateBMI()">Calcular Agora</button>
-                
-                <div id="bmi-result" class="result-box hidden">
-                    <div class="res-val">---</div>
-                    <div class="res-desc">Aguardando dados...</div>
-                </div>
-            </div>
-        </div>
-    `;},
-    profile: () => `
-        <div class="view-animate" style="padding-top:10px;">
-            <div class="profile-header card">
-                <div class="profile-avatar"><i data-lucide="user"></i></div>
-                <h3 style="font-size:1.6rem; font-weight:800; letter-spacing:-0.05em; margin-bottom:5px;">${state.userName}</h3>
-                <span style="display:inline-block; padding:5px 15px; background: rgba(255,215,0,0.15); color: #FFD700; border: 1px solid rgba(255,215,0,0.3); border-radius:20px; font-size:0.8rem; font-weight:700; letter-spacing:1px; text-transform:uppercase;">Account Premium</span>
-                
-                <div class="profile-stats-grid">
-                    <div class="profile-stat-box">
-                        <h4 style="font-size:1.3rem; margin-bottom:2px;">${state.currentDay}</h4>
-                        <span class="muted" style="font-size:0.65rem; text-transform:uppercase;">Dias Totais</span>
-                    </div>
-                    <div class="profile-stat-box">
-                        <h4 style="font-size:1.3rem; margin-bottom:2px;">${state.weightLost}kg</h4>
-                        <span class="muted" style="font-size:0.65rem; text-transform:uppercase;">Gordura Off</span>
-                    </div>
-                    <div class="profile-stat-box">
-                        <h4 style="font-size:1.3rem; margin-bottom:2px; color:var(--accent-primary);">ON</h4>
-                        <span class="muted" style="font-size:0.65rem; text-transform:uppercase;">Metabolismo</span>
-                    </div>
-                </div>
-                
-                <h4 style="margin-top:35px; text-align:left; font-size:0.9rem; text-transform:uppercase; letter-spacing:1px; color: rgba(255,255,255,0.6); margin-bottom:10px;">Acesso Exclusivo</h4>
-                
-                <a href="https://pay.cakto.com.br/oiib3z4_826896" class="vip-button" style="display:block; text-align:center; text-decoration:none;">
-                    Desbloquear Acesso Vitalício + VIP
-                </a>
-            </div>
-
-            <div class="card clickable" style="display:flex; justify-content:space-between; align-items:center; padding: 20px;" onclick="resetApp()">
-                <span style="font-weight:700; color:#EF4444;">Encerrar Sessão (Resetar)</span>
-                <i data-lucide="log-out" style="color:#EF4444;"></i>
-            </div>
-        </div>
-    `
-};
-
-// Functions
-window.openModule = (moduleId) => {
-    state.currentModule = { id: moduleId };
-    renderView('content');
-};
-
-window.closeModule = () => {
-    state.currentModule = null;
-    renderView('content');
-};
-
+// Navegação Principal
 function renderView(viewName) {
     state.activeTab = viewName;
     
-    // Inject logic to handle Hero BG visibility
-    const heroBg = document.querySelector('.hero-bg-container');
-    if(viewName === 'profile') {
-        heroBg.style.opacity = '0'; // Hide gradient on dark profile page
-    } else {
-        heroBg.style.opacity = '1';
-    }
-
-    appMain.innerHTML = templates[viewName]();
-    saveState();
-    
-    // Update header context
-    pageTitle.textContent = viewName === 'home' ? 'Dashboard' : 
-                           viewName.charAt(0).toUpperCase() + viewName.slice(1).replace('Tools', 'Ferramentas');
-    
-    if (window.lucide) {
-        lucide.createIcons();
-    }
-}
-
-// Interactive IA Button Logic
-const iaButton = document.querySelector('.sticky-ia-button');
-if(iaButton) {
-    iaButton.innerHTML = `
-        <div class="ia-status-dot"></div>
-        <i data-lucide="bot" style="width:28px; height:28px;"></i>
-    `;
-    iaButton.addEventListener('click', () => {
-        alert('Conectando à sua Nutricionista IA Privada... (Em breve)');
+    // Atualiza botão ativo na navegação inferior dinamicamente
+    const currentNavItems = document.querySelectorAll('.nav-item');
+    currentNavItems.forEach(item => {
+        if (item.dataset.tab === viewName) item.classList.add('active');
+        else item.classList.remove('active');
     });
+
+    // Renderiza o conteúdo da aba
+    switch(viewName) {
+        case 'home': renderHome(); break;
+        case 'content': renderContent(); break;
+        case 'tools': renderTools(); break;
+        case 'progress': renderProgress(); break;
+        case 'profile': renderProfile(); break;
+        default: renderHome();
+    }
+    
+    // Atualiza ícones do Lucide
+    if (window.lucide) lucide.createIcons();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Tool Actions
-window.addWater = (amount) => {
-    state.waterIntake += amount;
-    saveState();
-    renderView('tools');
+// ----------------------------------------------------
+// PÁGINA INICIAL (Mounjaro Clone Idêntico)
+// ----------------------------------------------------
+function renderHome() {
+    appMain.innerHTML = `
+        <div class="view-animate">
+            
+            <!-- Botões Principais -->
+            <button class="btn-menu btn-yellow" onclick="renderView('content')">
+                <i data-lucide="book-open" style="width: 18px; height: 18px;"></i>
+                ACESSAR RECEITAS COMPLETAS
+            </button>
+            <button class="btn-menu btn-yellow" onclick="renderView('content')">
+                <i data-lucide="file-text" style="width: 18px; height: 18px;"></i>
+                ACESSAR INSTRUÇÕES
+            </button>
+            <button class="btn-menu btn-gradient">
+                <i data-lucide="crown" style="width: 18px; height: 18px;"></i>
+                CONHECER ACOMPANHAMENTO EXCLUSIVO
+            </button>
+            <button class="btn-menu btn-pink">
+                <i data-lucide="shield" style="width: 18px; height: 18px;"></i>
+                CONHECER PROGRAMA ANTI FLACIDEZ
+            </button>
+
+            <!-- Círculo de Progresso -->
+            <div class="progress-circle-container">
+                <div class="progress-circle">
+                    <span class="circle-title">Dia 1</span>
+                    <span class="circle-subtitle">de 30</span>
+                </div>
+            </div>
+
+            <!-- Cards de Status -->
+            <div class="status-grid">
+                <div class="status-card">
+                    <i data-lucide="flame" style="color: var(--btn-pink); width: 24px; height: 24px;"></i>
+                    <span class="status-value">-0kg</span>
+                    <span class="status-label">Peso perdido</span>
+                </div>
+                <div class="status-card">
+                    <i data-lucide="calendar" style="color: var(--btn-yellow); width: 24px; height: 24px;"></i>
+                    <span class="status-value">29</span>
+                    <span class="status-label">Dias restantes</span>
+                </div>
+            </div>
+
+            <!-- Novas Seções (Receita, Dica, Hidratação) -->
+            <div class="daily-sections" style="margin-top: 25px; display: flex; flex-direction: column; gap: 15px;">
+                
+                <!-- Receita do Dia -->
+                <div class="recipe-card" style="background: linear-gradient(135deg, rgba(219, 39, 119, 0.2), var(--card-bg)); border: 1px solid rgba(219, 39, 119, 0.3); border-radius: 16px; padding: 20px; position: relative; overflow: hidden; cursor: pointer;" onclick="renderView('content')">
+                    <div style="position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.1;">🍮</div>
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                        <i data-lucide="star" style="color: var(--btn-yellow); width: 16px; height: 16px;"></i>
+                        <span style="color: var(--btn-yellow); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;">RECEITA DO DIA</span>
+                    </div>
+                    <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 5px; font-family: 'Outfit', sans-serif;">Gelatina de Morango</h3>
+                    <div style="display: flex; align-items: center; gap: 5px; color: var(--text-muted); font-size: 0.85rem;">
+                        <i data-lucide="clock" style="width: 14px; height: 14px;"></i> 15 min de preparo
+                    </div>
+                </div>
+
+                <!-- Dica do Protocolo -->
+                <div class="tip-card" style="background: var(--card-bg); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 10px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="lightbulb" style="color: #a855f7; width: 18px; height: 18px;"></i>
+                        <span style="color: #a855f7; font-size: 0.85rem; font-weight: 700;">DICA DO PROTOCOLO</span>
+                    </div>
+                    <p style="color: var(--text-main); font-size: 0.95rem; font-style: italic; line-height: 1.5; opacity: 0.9;">"Beba 1 copo de água 30 minutos antes do almoço para potencializar os efeitos da gelatina e aumentar a saciedade."</p>
+                </div>
+
+                <!-- Hidratação -->
+                <div class="hydration-card" style="background: var(--card-bg); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 16px; padding: 20px; margin-bottom: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <i data-lucide="droplet" style="color: #38bdf8; width: 18px; height: 18px;"></i>
+                            <span style="color: white; font-weight: 700; font-size: 1rem;">Hidratação Diária</span>
+                        </div>
+                        <span style="color: #38bdf8; font-weight: 700; font-size: 0.9rem;">0 / 8 copos</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; cursor: pointer;">
+                        <!-- Gotas de Água Placeholder -->
+                        ${[1,2,3,4,5,6,7,8].map(i => `
+                            <div style="width: 35px; height: 45px; border-radius: 20px; border: 1px dashed rgba(56, 189, 248, 0.5); display: flex; align-items: center; justify-content: center; color: rgba(56, 189, 248, 0.5); font-size: 0.9rem; transition: background 0.3s; cursor: pointer;:hover{background:rgba(56,189,248,0.2)}">💧</div>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    `;
+}
+
+// ----------------------------------------------------
+// ABA DE CONTEÚDO (RECEITAS OFICIAIS)
+// ----------------------------------------------------
+const recipesCategories = ["Todas","FIT","Gelatinas","Detox","Beleza","Relaxantes","Shakes","Almoço","Jantar"];
+const recipesDatabase = [
+    {id:100,name:"Gelatina FIT de Morango com Whey",category:"FIT",time:"15 min",emoji:"🍓",desc:"Alta em proteína, sacia e ajuda na recuperação muscular. Apenas 80 kcal por porção.",ingredients:"10g gelatina incolor, 200ml água, 1 scoop whey de morango, 5 morangos picados, adoçante a gosto",instructions:"Hidrate a gelatina em 50ml de água fria. Aqueça 150ml de água e dissolva a gelatina. Misture o whey já frio. Adicione os morangos picados, leve à geladeira por 3h."},
+    {id:101,name:"Gelatina FIT de Café com Canela",category:"FIT",time:"20 min",emoji:"☕",desc:"Termogênica natural! Acelera o metabolismo e dá energia. 45 kcal por porção.",ingredients:"10g gelatina incolor, 250ml café forte sem açúcar, 1 col. chá de canela em pó, adoçante, pitada de cacau",instructions:"Hidrate a gelatina em água fria. Aqueça o café e dissolva a gelatina. Adicione canela e cacau. Adoce a gosto e leve à geladeira por 4h."},
+    {id:102,name:"Gelatina FIT de Iogurte com Limão",category:"FIT",time:"10 min",emoji:"🍋",desc:"Cremosa, leve e probiótica. Melhora a flora intestinal. 65 kcal.",ingredients:"10g gelatina incolor, 200ml iogurte natural desnatado, suco de 1 limão, raspas de limão, adoçante",instructions:"Hidrate a gelatina e dissolva em 3 col. de água quente. Misture ao iogurte com suco e raspas. Adoce e refrigere por 3h."},
+    {id:103,name:"Gelatina FIT de Maçã e Canela",category:"FIT",time:"25 min",emoji:"🍎",desc:"Sabor de torta de maçã sem culpa! Rica em fibras. 55 kcal.",ingredients:"10g gelatina incolor, 250ml chá de maçã, 1 maçã picada, canela, 1 col. chia",instructions:"Faça o chá de maçã e dissolva a gelatina. Adicione a maçã picada, chia e canela. Leve à geladeira por 4h."},
+    {id:104,name:"Gelatina FIT de Cacau Zero",category:"FIT",time:"15 min",emoji:"🍫",desc:"Mata a vontade de chocolate! Antioxidante.",ingredients:"10g gelatina incolor, 250ml leite desnatado, 2 col. cacau em pó, adoçante",instructions:"Hidrate a gelatina. Aqueça o leite com cacau. Dissolva a gelatina, adoce e leve à geladeira por 3h."},
+    {id:105,name:"Gelatina FIT de Coco com Abacaxi",category:"FIT",time:"20 min",emoji:"🥥",desc:"Refrescante! Combate inchaço e retenção.",ingredients:"10g gelatina incolor, 200ml leite de coco light, 100g abacaxi picado, adoçante",instructions:"Hidrate a gelatina. Aqueça o leite de coco e dissolva. Adicione abacaxi picado, adoce e refrigere por 4h."},
+    {id:106,name:"Gelatina de Frutas Vermelhas e Chia",category:"FIT",time:"15 min",emoji:"🫐"},
+    {id:107,name:"Gelatina de Chá Verde com Gengibre",category:"FIT",time:"20 min",emoji:"🍵"},
+    {id:10,name:"Gelatina de Abacaxi com Hortelã",category:"Detox",time:"20 min",emoji:"🍍",desc:"Combate a retenção de líquidos e melhora a digestão.",ingredients:"10g gelatina incolor, 300ml suco de abacaxi, hortelã, 1 col. chia",instructions:""},
+    {id:11,name:"Gelatina Verde de Couve e Limão",category:"Detox",time:"25 min",emoji:"🥬",desc:"Rica em clorofila e vitamina C, ideal para limpar o fígado.",ingredients:"10g gelatina, 200ml água de coco, 1 folha de couve, suco de 1 limão, psyllium",instructions:""},
+    {id:12,name:"Gelatina de Melancia e Gengibre",category:"Detox",time:"20 min",emoji:"🍉",desc:"Hidratação e ação anti-inflamatória.",ingredients:"",instructions:""},
+    {id:13,name:"Gelatina de Frutas Vermelhas Antioxidante",category:"Beleza",time:"20 min",emoji:"🍒",desc:"Combate radicais livres e previne envelhecimento.",ingredients:"10g gelatina, 300ml chá de hibisco, frutas vermelhas, colágeno",instructions:""},
+    {id:14,name:"Gelatina de Maracujá com Camomila",category:"Relaxantes",time:"25 min",emoji:"🌸",desc:"Calmante natural. Reduz ansiedade e melhora o sono.",ingredients:"10g gelatina, 200ml chá de camomila, polpa de maracujá, adoçante",instructions:""},
+    {id:15,name:"Gelatina de Banana com Canela",category:"Relaxantes",time:"20 min",emoji:"🍌"},
+    {id:2,name:"Shake Detox Verde",category:"Shakes",time:"5 min",emoji:"🥤"},
+    {id:5,name:"Frango Grelhado com Legumes",category:"Almoço",time:"30 min",emoji:"🍗"},
+    {id:6,name:"Salmão ao Forno",category:"Jantar",time:"25 min",emoji:"🐟"}
+];
+
+let globalActiveCategory = 'Todas';
+let globalSearchQuery = '';
+
+function renderContent() {
+    state.activeTab = 'content';
+    
+    // Filtragem
+    let filteredList = recipesDatabase.filter(r => {
+        let textMatch = r.name.toLowerCase().includes(globalSearchQuery.toLowerCase());
+        let catMatch = (globalActiveCategory === 'Todas') || (r.category === globalActiveCategory);
+        return textMatch && catMatch;
+    });
+
+    const activeCatStyle = `background: linear-gradient(135deg, hsl(340, 65%, 55%), hsl(350, 70%, 60%)); color: white; box-shadow: 0 0 15px rgba(236,72,153,0.3); border-color: transparent;`;
+    const inactiveCatStyle = `background: rgba(255,255,255,0.05); color: #a1a1aa; border: 1px solid rgba(255,255,255,0.1);`;
+
+    const chipsHtml = recipesCategories.map(cat => `
+        <button class="category-chip" 
+            style="${cat === globalActiveCategory ? activeCatStyle : inactiveCatStyle}"
+            onclick="setRecipeCategory('${cat}')">
+            ${cat}
+        </button>
+    `).join('');
+
+    const gridHtml = filteredList.map(recipe => `
+        <div class="recipe-card-new" onclick="openRecipeDialog(${recipe.id})">
+            <div class="recipe-emoji-bg">
+                <span>${recipe.emoji}</span>
+            </div>
+            <div class="recipe-info">
+                <h3 class="r-title">${recipe.name}</h3>
+                <div class="r-meta">
+                    <span><i data-lucide="clock" style="width: 12px; height: 12px;"></i> ${recipe.time}</span>
+                    <i data-lucide="heart" style="width: 14px; height: 14px; color: #a1a1aa;"></i>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    appMain.innerHTML = `
+        <div class="view-animate recipes-page-container">
+            <h1 class="page-title" style="font-family: 'Playfair Display'; margin-bottom: 20px;">Receitas</h1>
+            
+            <div class="search-box">
+                <i data-lucide="search" class="search-icon"></i>
+                <input type="text" id="recipe-search-input" class="search-input" placeholder="Buscar receitas..." value="${globalSearchQuery}" onkeyup="setRecipeSearch(this.value)">
+            </div>
+
+            <div class="category-chips-container">
+                ${chipsHtml}
+            </div>
+
+            <div class="recipes-grid">
+                ${gridHtml.length > 0 ? gridHtml : '<p style="color: #a1a1aa; grid-column: span 2; text-align: center;">Nenhuma receita encontrada.</p>'}
+            </div>
+        </div>
+
+        <!-- Recipe Details Bottom Sheet -->
+        <div id="recipe-sheet-overlay" class="sheet-overlay" onclick="closeRecipeDialog(event)">
+            <div class="bottom-sheet view-animate" id="recipe-sheet-content">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    `;
+
+    if (window.lucide) lucide.createIcons();
+}
+
+window.setRecipeCategory = function(cat) {
+    globalActiveCategory = cat;
+    renderContent();
 };
 
-window.calculateBMI = () => {
-    const wStr = document.getElementById('calc-weight').value;
-    const hStr = document.getElementById('calc-height').value;
-    const w = parseFloat(wStr);
-    const h = parseFloat(hStr);
-    const resBox = document.getElementById('bmi-result');
-    
-    if (w && h) {
-        const bmi = (w / (h * h)).toFixed(1);
-        let desc = "";
-        if (bmi < 18.5) desc = "Abaixo do peso";
-        else if (bmi < 25) desc = "Peso ideal";
-        else if (bmi < 30) desc = "Sobrepeso";
-        else desc = "Obesidade";
+window.setRecipeSearch = function(query) {
+    globalSearchQuery = query;
+    renderContent();
+    // Re-focus input
+    const input = document.getElementById('recipe-search-input');
+    if(input) { input.focus(); }
+};
+
+window.openRecipeDialog = function(id) {
+    const recipe = recipesDatabase.find(r => r.id === id);
+    if(!recipe) return;
+
+    const overlay = document.getElementById('recipe-sheet-overlay');
+    const sheet = document.getElementById('recipe-sheet-content');
+
+    sheet.innerHTML = `
+        <div class="sheet-drag-handle"></div>
+        <div class="sheet-emoji-circle">${recipe.emoji}</div>
+        <h2 class="sheet-title">${recipe.name}</h2>
         
-        resBox.classList.remove('hidden');
-        resBox.querySelector('.res-val').textContent = bmi;
-        resBox.querySelector('.res-desc').textContent = desc;
+        <div class="sheet-meta-badges">
+            <span class="badge"><i data-lucide="clock" style="width:14px;height:14px;"></i> ${recipe.time}</span>
+            <span class="badge">${recipe.category}</span>
+        </div>
+
+        ${recipe.desc ? `<p class="sheet-desc">${recipe.desc}</p>` : ''}
         
-        saveState();
-    } else {
-        alert("Por favor, preencha peso e altura corretamente.");
+        ${recipe.ingredients ? `
+        <div class="sheet-box">
+            <span class="box-label" style="color: #d946ef;">INGREDIENTES</span>
+            <p>${recipe.ingredients}</p>
+        </div>` : ''}
+
+        ${recipe.instructions ? `
+        <div class="sheet-box">
+            <span class="box-label" style="color: #facc15;">MODO DE PREPARO</span>
+            <p>${recipe.instructions}</p>
+        </div>` : ''}
+    `;
+
+    overlay.classList.add('show');
+    if (window.lucide) lucide.createIcons();
+};
+
+window.closeRecipeDialog = function(e) {
+    // Only close if clicking the dark overlay bg, not the sheet itself
+    if(e.target.id === 'recipe-sheet-overlay') {
+        e.target.classList.remove('show');
     }
 };
 
-// Navigation Listeners
-navItems.forEach(item => {
-    item.addEventListener('click', () => {
-        const tab = item.getAttribute('data-tab');
-        navItems.forEach(n => n.classList.remove('active'));
-        item.classList.add('active');
-        state.currentModule = null;
-        renderView(tab);
+// ----------------------------------------------------
+// ABAS PLACEHOLDERS
+// ----------------------------------------------------
+function renderProgress() {
+    appMain.innerHTML = `<div class="view-animate"><div class="status-card" style="margin-top: 50px;"><p class="text-center text-muted">Progresso em construção.</p></div></div>`;
+}
+
+function renderTools() {
+    appMain.innerHTML = `<div class="view-animate"><div class="status-card" style="margin-top: 50px;"><p class="text-center text-muted">Nutri em construção.</p></div></div>`;
+}
+
+function renderProfile() {
+    appMain.innerHTML = `<div class="view-animate"><div class="status-card" style="margin-top: 50px;"><p class="text-center text-muted">Perfil em construção.</p></div></div>`;
+}
+
+
+// Lógica da Roleta Real e Sorteio
+window.triggerRoulette = function() {
+    const giftModal = document.getElementById('gift-offer-modal');
+    const prizeModal = document.getElementById('prize-modal');
+
+    // Esconde a oferta do presente central e abre o container da roleta
+    if(giftModal) { giftModal.classList.remove('show'); }
+    prizeModal.classList.add('show');
+};
+
+window.closeRoulette = function() {
+    document.getElementById('prize-modal').classList.remove('show');
+};
+
+window.startWheelSpin = function() {
+    const wheel = document.getElementById('wheel-board');
+    const prizeText = document.getElementById('prize-text-area');
+    const btnSpin = document.getElementById('btn-spin-wheel');
+    const btnClaim = document.getElementById('btn-claim-spin');
+
+    // Desativa botão para não clicar 2x
+    btnSpin.style.pointerEvents = 'none';
+    btnSpin.style.opacity = '0.5';
+
+    // Roda a roleta!
+    wheel.classList.add('spinning');
+    
+    // Aguarda terminar o giro (transição CSS dura 3.5s)
+    setTimeout(() => {
+        prizeText.style.display = 'block';
+        btnSpin.style.display = 'none'; // Esconde botão de girar
+        btnClaim.style.display = 'flex'; // Exibe o de resgatar
+        
+        if(navigator.vibrate) navigator.vibrate([100, 50, 100]);
+    }, 3600);
+};
+
+window.closeGiftOffer = function() {
+    document.getElementById('gift-offer-modal').classList.remove('show');
+};
+
+// Ação ao aceitar o prêmio
+window.claimPrize = function() {
+    document.getElementById('prize-modal').classList.remove('show');
+    renderView('content');
+};
+
+// Controle do Modal de Instruções
+window.closeInstructionsModal = function() {
+    document.getElementById('instructions-modal').classList.remove('show');
+    // Em vez de estourar a roleta central, aciona o Modal do Presente
+    setTimeout(() => {
+        const giftModal = document.getElementById('gift-offer-modal');
+        if(giftModal) { giftModal.classList.add('show'); }
+    }, 800);
+};
+
+window.goToInstructions = function() {
+    document.getElementById('instructions-modal').classList.remove('show');
+    renderView('content'); // leva para alguma tela que tiver as instruções
+    
+    setTimeout(() => {
+        const giftModal = document.getElementById('gift-offer-modal');
+        if(giftModal) { giftModal.classList.add('show'); }
+    }, 2000);
+};
+
+// Gerador de Estrelas no Fundo
+function initParticles() {
+    const bg = document.getElementById('particles-bg');
+    if(!bg) return;
+    for(let i = 0; i < 40; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        // Random propriedades
+        const size = Math.random() * 3 + 1;
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const duration = Math.random() * 3 + 2;
+        const delay = Math.random() * 5;
+        
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.left = x + 'vw';
+        particle.style.top = y + 'vh';
+        particle.style.setProperty('--duration', duration + 's');
+        particle.style.animationDelay = delay + 's';
+        
+        bg.appendChild(particle);
+    }
+}
+
+
+// Configuração do Splash Screen de Entrada Automática
+function initSplashScreen() {
+    const splash = document.getElementById('splash-screen');
+    const appContainer = document.getElementById('app-container');
+    const instModal = document.getElementById('instructions-modal');
+
+    // Aguarda barra de progresso (2.5s) e entra
+    setTimeout(() => {
+        // Efeito de saída (fade out & zoom in leve)
+        splash.style.opacity = '0';
+        splash.style.transform = 'scale(1.1)';
+        
+        setTimeout(() => {
+            splash.style.display = 'none';
+            // Revela o App 
+            appContainer.style.visibility = 'visible';
+            appContainer.style.opacity = '1';
+            appContainer.style.filter = 'blur(0px)';
+            
+            // Força a exibição do popup de "Leia as Instruções" idêntico ao site original
+            setTimeout(() => {
+                instModal.classList.add('show');
+            }, 600); // delay de segurança para animação principal terminar
+            
+        }, 800);
+    }, 2800); // 2.5s loading + 300ms suspance
+}
+
+
+// Event Listeners Iniciais
+document.addEventListener('DOMContentLoaded', () => {
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    // Inicia Particulas de Fundo Estrelado
+    initParticles();
+    
+    // Inicializa a Tela de Entrada
+    initSplashScreen();
+    
+    // Carrega a tela inicial
+    renderView('home');
+    
+    // Configura cliques da navegação
+    navItems.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const tab = btn.dataset.tab || btn.closest('.nav-item').dataset.tab;
+            if(tab) renderView(tab);
+        });
+        btn.addEventListener('touchstart', (e) => {
+            const tab = btn.dataset.tab || btn.closest('.nav-item').dataset.tab;
+            if(tab) renderView(tab);
+        }, {passive: true});
     });
 });
-
-window.resetApp = () => {
-    if(confirm("Deseja realmente resetar todo o seu progresso?")) {
-        state = { ...DEFAULT_STATE };
-        saveState();
-        renderView('home');
-    }
-};
-
-// Initial Render
-renderView('home');
