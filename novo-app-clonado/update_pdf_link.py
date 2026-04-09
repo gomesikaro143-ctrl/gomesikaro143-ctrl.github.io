@@ -14,12 +14,18 @@ try:
     for link in links:
         if link["kind"] == fitz.LINK_URI:
             old_uri = link["uri"]
+            # Botão 1: Flacidez (Clonado por nós)
             if "emotional-upsell-booster" in old_uri:
-                print(f"Substituindo link antigo: {old_uri}")
-                # Atualiza o dicionário do link
+                print(f"Substituindo link 1 (Flacidez): {old_uri}")
                 link["uri"] = new_link
                 last_page.update_link(link)
                 print(f"Novo link injetado: {new_link}")
+            
+            # Botão 2: Acompanhamento (Desativar por enquanto)
+            elif "docu-funnel-magic" in old_uri:
+                print(f"Desativando link 2 (Acompanhamento): {old_uri}")
+                last_page.delete_link(link)
+                print("Link 2 removido com sucesso (Botão OFF).")
     
     doc.save(output_pdf)
     doc.close()
