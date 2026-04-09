@@ -3,289 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Etapa 2 - Acelerador de Resultados</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-    
-    <!-- Lucide Icons -->
+    <title>Oferta Especial - Protocolo Anti-Flacidez</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- CSS Base do App -->
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-        body {
-            background-color: var(--bg-main);
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .upsell-header {
-            background: rgba(255, 255, 255, 0.03);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            text-align: center;
-        }
-
-        .progress-bar {
-            width: 80%;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            margin: 0 auto 10px auto;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            position: absolute;
-            top: 0; left: 0; height: 100%; width: 50%;
-            background: #10b981;
-            border-radius: 10px;
-            animation: loadProgress 1s ease-out forwards;
-        }
-
-        @keyframes loadProgress {
-            0% { width: 0%; }
-            100% { width: 50%; }
-        }
-
-        .upsell-container {
-            max-width: 480px;
-            margin: 0 auto;
-            padding: 30px 20px;
-            text-align: center;
-        }
-
-        .alert-box {
-            background: rgba(239, 68, 68, 0.15);
-            border: 1px solid rgba(239, 68, 68, 0.4);
-            color: #fca5a5;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 25px;
-            animation: pulseAlert 2s infinite;
-        }
-
-        @keyframes pulseAlert {
-            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
-        }
-
-        .headline {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: #facc15;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-        
-        .subheadline {
-            font-size: 1.1rem;
-            color: #d1d5db;
-            margin-bottom: 30px;
-            line-height: 1.5;
-        }
-
-        .video-placeholder {
-            width: 100%;
-            aspect-ratio: 16/9;
-            background: linear-gradient(135deg, #1e1433, #2a1f42);
-            border: 1px solid rgba(217, 70, 239, 0.3);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .play-btn {
-            width: 60px; height: 60px;
-            background: rgba(217, 70, 239, 0.8);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: white;
-            cursor: pointer;
-            backdrop-filter: blur(5px);
-        }
-
-        .copy-block {
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 30px;
-            text-align: left;
-        }
-
-        .copy-block p {
-            color: #a1a1aa;
-            margin-bottom: 15px;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        .copy-block p strong {
-            color: #fff;
-        }
-
-        .price-box {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .price-box .old-price {
-            text-decoration: line-through;
-            color: #ef4444;
-            font-size: 1.1rem;
-        }
-
-        .price-box .new-price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #10b981;
-            font-family: 'Outfit', sans-serif;
-        }
-
-        .btn-buy {
-            width: 100%;
-            padding: 18px 20px;
-            border-radius: 50px;
-            border: none;
-            background: linear-gradient(135deg, #facc15, #eab308);
-            color: #422006;
-            font-weight: 800;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            cursor: pointer;
-            box-shadow: 0 10px 25px rgba(234, 179, 8, 0.3);
-            transition: transform 0.2s;
-            margin-bottom: 20px;
-            text-decoration: none;
-        }
-
-        .btn-buy:active { transform: scale(0.96); }
-
-        .btn-reject {
-            background: transparent;
-            color: #a1a1aa;
-            text-align: center;
-            font-size: 0.85rem;
-            border: none;
-            width: 100%;
-            cursor: pointer;
-            text-decoration: underline;
-            padding: 10px;
-            margin-bottom: 40px;
-        }
-    </style>
+    <link rel="stylesheet" href="upsell1.css">
 </head>
 <body>
 
-    <header class="upsell-header">
-        <div class="progress-bar">
-            <div class="progress-fill"></div>
-        </div>
-        <span style="font-size: 0.75rem; color: #a1a1aa; text-transform: uppercase; letter-spacing: 1px;">Etapa Final (2 de 3)</span>
-    </header>
-
-    <div class="upsell-container">
+    <div class="hero-section">
+        <center>
+            <div class="capsule-badge">⚡ APENAS 50 VAGAS — OFERTA EXCLUSIVA</div>
+        </center>
         
-        <div class="alert-box">
-            <i data-lucide="alert-triangle" style="width: 16px; height: 16px;"></i>
-            ATENÇÃO: Não feche essa página
+        <h1 class="hero-title">
+            PARABÉNS PELA SUA COMPRA!<br>
+            Você fez a escolha certa. <span class="highlight">Mas tem um detalhe</span> que ninguém fala...
+        </h1>
+
+        <p class="hero-subtitle">
+            A Gelatina Mounjaro vai fazer a parte mais difícil — eliminar a gordura. Mas agora preciso te mostrar algo que a maioria das mulheres não sabe...
+        </p>
+
+        <div style="background: rgba(217, 70, 239, 0.1); padding: 20px; border-radius: 20px; border: 1px dashed rgba(217, 70, 239, 0.3); margin-bottom: 40px;">
+             <h2 style="color: #ff4d4d; font-size: 1.4rem; font-weight: 800; margin-bottom: 10px;">70% das mulheres que emagrecem sofrem com flacidez e celulite</h2>
+             <p style="color: #fff; font-size: 0.95rem;">Enquanto você lê isso, há mulheres no WhatsApp dizendo: <br><i>"Emagreci, mas a pele ficou horrível."</i></p>
         </div>
 
-        <h1 class="headline">Você fez a escolha certa. <span style="color: #ffffff;">Mas tem um detalhe que ninguém te fala...</span></h1>
-        
-        <p class="subheadline">Você está prestes a eliminar peso rápido. Mas o que acontece com a pele quando a gordura vai embora?</p>
-
-        <div class="video-placeholder">
-            <div class="play-btn"><i data-lucide="play" fill="currentColor"></i></div>
-            <div style="position: absolute; bottom: 10px; font-size: 0.7rem; color: #a1a1aa;">Assista ao vídeo curto (2 min)</div>
+        <div class="quote-box">
+             "Você quer ser essa mulher? Ou quer ser aquela que emagreceu <strong>E ficou linda?</strong>"
         </div>
 
-        <div class="copy-block">
-            <p>Quando você ativa o Protocolo Gelatina, seu corpo se transforma em uma <strong>máquina de queimar gordura</strong> nas próximas semanas.</p>
-            <p>Porém, o emagrecimento rápido gera um efeito colateral grave: <strong>a perda brutal de colágeno e a flacidez da pele</strong> (aquela barriga "avental" e braços moles).</p>
-            <p>É por isso que desenvolvemos o <strong>Composto Firmador Anti-Flacidez</strong>. Uma adição secreta para ser tomada junto com a sua gelatina que "cola" a sua pele no músculo de volta.</p>
+        <div class="highlight-section">
+             <h3 class="highlight-title">Apresentamos o Protocolo Anti-Flacidez Premium</h3>
+             <ul style="list-style: none; text-align: left; max-width: 320px; margin: 0 auto; color: #a1a1aa; font-size: 0.95rem;">
+                 <li style="margin-bottom: 10px;">✅ Segredo do Colágeno Natural</li>
+                 <li style="margin-bottom: 10px;">✅ Eliminação de Celulite em 21 dias</li>
+                 <li style="margin-bottom: 10px;">✅ Pele firme enquanto emagrece</li>
+                 <li style="margin-bottom: 10px;">✅ Acesso vitalício e imediato</li>
+             </ul>
         </div>
 
-        <div class="price-box">
-            <div class="old-price">De R$ 197,00</div>
-            <div style="font-size: 0.9rem; color: #a1a1aa; margin: 5px 0;">Por apenas:</div>
-            <div class="new-price">R$ 87,00</div>
-        </div>
-
-        <!-- LINK 1 KIRVANO: PREÇO NORMAL R$87 -->
-        <a href="https://pay.kirvano.com/5077563a-cd43-4da4-b3b6-0c3a9672c2d1" class="btn-buy" style="margin-top: 20px;">
-            SIM! QUERO FIRMAR MINHA PELE 🔒
-        </a>
-
-        <!-- BOTÃO DE DOWNSELL -->
-        <button class="btn-reject" onclick="openDownsell()">
-            Não, obrigado. Eu aceito o risco de ficar com a pele flácida.
-        </button>
-
-        <!-- Selos de Garantia -->
-        <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px; opacity: 0.5;">
-            <i data-lucide="shield-check"></i>
-            <i data-lucide="lock"></i>
-            <i data-lucide="award"></i>
-        </div>
-
-    </div>
-
-    <!-- =============== ROOT MODAL DE DOWNSELL =============== -->
-    <div id="downsell-modal" class="modal-overlay">
-        <div class="modal-content" style="border: 2px solid #ef4444;">
-            <button class="btn-close-gift" onclick="closeDownsell()"><i data-lucide="x" style="width: 18px; height: 18px;"></i></button>
-            <div style="font-size: 3rem; margin-bottom: 10px;">🤫</div>
-            <h2 class="modal-title" style="color: #ef4444; font-size: 1.5rem;">ESPERA!</h2>
-            <p class="modal-text" style="margin-bottom: 15px;">Eu não quero que o preço seja um obstáculo entre você e o corpo perfeito.</p>
-            
-            <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; margin-bottom: 20px;">
-                <p style="color: #a1a1aa; font-size: 0.85rem; text-decoration: line-through;">R$ 87,00</p>
-                <div style="color: #10b981; font-size: 2rem; font-weight: 800; font-family: 'Outfit', sans-serif;">R$ 77,90</div>
-                <p style="color: #fca5a5; font-size: 0.8rem; margin-top: 5px;">🔥 Última chance com desconto exclusivo.</p>
-            </div>
-
-            <!-- LINK 2 KIRVANO: PREÇO COM DESCONTO R$77,90 -->
-            <a href="https://pay.kirvano.com/c05fb023-4ba7-4fe1-a7fc-10ab0a4c49b6" class="btn-menu btn-green" style="text-decoration: none; width: 100%; display: flex; align-items: center; justify-content: center;">
-                👉 Aproveitar Desconto Agora! 👈
+        <div style="margin-top: 40px;">
+            <a href="https://pay.kirvano.com/5077563a-cd43-4da4-b3b6-0c3a9672c2d1" class="btn-main">
+                GARANTIR MEU PROTOCOLO AGORA
             </a>
             
-            <button class="btn-reject" style="margin-bottom: 0; margin-top: 15px; padding: 5px;" onclick="window.location.href='obrigado.html'">
-                Recusar oferta permanentemente
-            </button>
+            <p style="margin-top: 15px; font-size: 0.75rem; color: #a1a1aa;">Acesso imediato • Pagamento 100% Seguro</p>
+
+            <a href="#" class="btn-no-thanks" onclick="openDownsellModal(event)">
+                Não quero, obrigada
+            </a>
+        </div>
+    </div>
+
+    <!-- Downsell Modal -->
+    <div id="downsell-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 class="modal-title">Espera! 🥺 Tenho uma última oferta pra você...</h2>
+            <p style="color: #fff; font-size: 0.9rem; margin-bottom: 15px;">
+                Eu entendo que nem sempre é fácil investir. Por isso, preparei um desconto exclusivo só pra você:
+            </p>
+            
+            <div class="modal-price">R$ 77,90</div>
+            <p style="color: #d946ef; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 25px;">DESCONTO VÁLIDO APENAS AGORA</p>
+
+            <a href="https://pay.kirvano.com/c05fb023-4ba7-4fe1-a7fc-10ab0a4c49b6" class="btn-main" style="box-shadow: 0 0 20px rgba(217, 70, 239, 0.4);">
+                QUERO COM DESCONTO! 🔥
+            </a>
+
+            <a href="index.html" style="display: block; margin-top: 20px; color: #a1a1aa; font-size: 0.8rem; text-decoration: underline;">Não, obrigada.</a>
         </div>
     </div>
 
     <script>
-        lucide.createIcons();
-
-        function openDownsell() {
+        function openDownsellModal(e) {
+            e.preventDefault();
             document.getElementById('downsell-modal').classList.add('show');
         }
 
-        function closeDownsell() {
-            document.getElementById('downsell-modal').classList.remove('show');
-        }
+        // Initialize Icons
+        if (window.lucide) lucide.createIcons();
     </script>
 </body>
 </html>
