@@ -434,3 +434,47 @@ h1, h2, h3, h4, h5 {
     background-color: rgba(239, 68, 68, 0.1);
 }
 
+/* Toast de Notificação do Presente (Canto da tela) */
+.gift-toast {
+    position: fixed;
+    bottom: -100px; /* Escondido inicialmente */
+    right: 20px;
+    background: #190c2e;
+    border: 1px solid rgba(234, 179, 8, 0.5);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(234, 179, 8, 0.2);
+    border-radius: 12px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 10001;
+    cursor: pointer;
+    transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gift-toast.show {
+    bottom: 90px; /* Fica acima da nav-bar */
+}
+
+.toast-icon {
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+}
+
+.toast-text-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.toast-title {
+    color: #eab308;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 2px;
+}
+
+.toast-desc {
+    color: #ffffff;
+    font-size: 0.85rem;
+}
+

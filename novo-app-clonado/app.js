@@ -125,43 +125,54 @@ function renderProfile() {
 
 
 // Lógica da Roleta / Modal de Prêmio
-function handlePrizeModal() {
+window.triggerRoulette = function() {
     const modal = document.getElementById('prize-modal');
-    const closeBtn = document.getElementById('close-modal');
+    const toast = document.getElementById('gift-toast');
     const prizeText = document.getElementById('prize-text-area');
-    const prizeIcon = document.getElementById('prize-icon');
 
-    // Verifica localstorage pra não irritar o usuario toda vez (Mas pra efeito clone, vai mostrar na primeira)
-    if (!localStorage.getItem('prize_shown_v1')) {
-        setTimeout(() => {
-            modal.classList.add('show');
-            
-            // Depois que a animação da roleta terminar (2.5s), mostra o texto do prêmio
-            setTimeout(() => {
-                prizeText.style.display = 'block';
-                // Efeito sonoro mágico ou vibração pode ser acionado aqui (Opcional)
-                if(navigator.vibrate) navigator.vibrate([100, 50, 100]);
-            }, 2500);
+    // Esconde o toast
+    if(toast) { toast.classList.remove('show'); }
 
-            localStorage.setItem('prize_shown_v1', 'true');
-        }, 800); // Mostra 800ms após entrar no app
-    }
+    // Abre o modal de tela cheia
+    modal.classList.add('show');
+    
+    // Animação da roleta dura 2.5s -> mostra o texto do prêmio
+    setTimeout(() => {
+        prizeText.style.display = 'block';
+        if(navigator.vibrate) navigator.vibrate([100, 50, 100]);
+    }, 2500);
 
+    const closeBtn = document.getElementById('close-modal');
     closeBtn.addEventListener('click', () => {
         modal.classList.remove('show');
     });
-}
+};
+
+// Ação ao aceitar o prêmio
+window.claimPrize = function() {
+    document.getElementById('prize-modal').classList.remove('show');
+    renderView('content');
+};
 
 // Controle do Modal de Instruções
 window.closeInstructionsModal = function() {
     document.getElementById('instructions-modal').classList.remove('show');
-    // Dispara a roleta só depos que fecharem os avisos de instrucao obrigatória
-    handlePrizeModal();
+    // Em vez de estourar a roleta central, aciona o Toast flutuante de alerta
+    setTimeout(() => {
+        const toast = document.getElementById('gift-toast');
+        if(toast) { toast.classList.add('show'); }
+    }, 1500);
 };
 
 window.goToInstructions = function() {
     document.getElementById('instructions-modal').classList.remove('show');
     renderView('content'); // leva para alguma tela que tiver as instruções
+    
+    // Lança também se for pra tela de instrução
+    setTimeout(() => {
+        const toast = document.getElementById('gift-toast');
+        if(toast) { toast.classList.add('show'); }
+    }, 2000);
 };
 
 
@@ -193,13 +204,6 @@ function initSplashScreen() {
     }, 2800); // 2.5s loading + 300ms suspance
 }
 
-// Ação ao aceitar o prêmio
-window.claimPrize = function() {
-    document.getElementById('prize-modal').classList.remove('show');
-    // Navegar para o checkout ou página de bônus, conforme o site original faz.
-    // Opcional: alert("Prêmio resgatado! Você ganhou 90% OFF");
-    renderView('content');
-};
 
 // Event Listeners Iniciais
 document.addEventListener('DOMContentLoaded', () => {
@@ -207,9 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Inicializa a Tela de Entrada
     initSplashScreen();
-    
-    // O modal do premio agora só é chamado DEPOIS de clicar no botão "Entrar" no splash.
-    // (removido daqui para não tocar antes do tempo)
     
     // Carrega a tela inicial
     renderView('home');
