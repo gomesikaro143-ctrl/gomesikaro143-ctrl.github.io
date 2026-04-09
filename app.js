@@ -67,7 +67,7 @@ function renderHome() {
                 <i data-lucide="crown" style="width: 18px; height: 18px;"></i>
                 CONHECER ACOMPANHAMENTO EXCLUSIVO
             </button>
-            <button class="btn-menu btn-pink">
+            <button class="btn-menu btn-pink" onclick="window.open('https://protocolo-gelatina-app.vercel.app/upsell1.html', '_blank')">
                 <i data-lucide="shield" style="width: 18px; height: 18px;"></i>
                 CONHECER PROGRAMA ANTI FLACIDEZ
             </button>
