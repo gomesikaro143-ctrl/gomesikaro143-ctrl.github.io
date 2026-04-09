@@ -59,7 +59,7 @@ function renderHome() {
                 <i data-lucide="book-open" style="width: 18px; height: 18px;"></i>
                 ACESSAR RECEITAS COMPLETAS
             </button>
-            <button class="btn-menu btn-yellow" onclick="window.open('https://protocolo-gelatina-app.vercel.app/upsell1.html', '_blank')">
+            <button class="btn-menu btn-yellow" onclick="window.open('https://protocolo-gelatina-app.vercel.app/obrigado.html', '_blank')">
                 <i data-lucide="file-text" style="width: 18px; height: 18px;"></i>
                 ACESSAR INSTRUÇÕES
             </button>
