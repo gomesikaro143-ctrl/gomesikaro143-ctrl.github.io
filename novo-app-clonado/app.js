@@ -55,11 +55,11 @@ function renderHome() {
         <div class="view-animate">
             
             <!-- Botões Principais -->
-            <button class="btn-menu btn-yellow" onclick="renderView('content')">
+            <button class="btn-menu btn-yellow" onclick="window.open('ebook_gelatina_mounjaro_final.pdf', '_blank')">
                 <i data-lucide="book-open" style="width: 18px; height: 18px;"></i>
                 ACESSAR RECEITAS COMPLETAS
             </button>
-            <button class="btn-menu btn-yellow" onclick="renderView('content')">
+            <button class="btn-menu btn-yellow" onclick="window.open('O-SEGREDO-DA-BARRIGA-RETINHA.pdf', '_blank')">
                 <i data-lucide="file-text" style="width: 18px; height: 18px;"></i>
                 ACESSAR INSTRUÇÕES
             </button>
