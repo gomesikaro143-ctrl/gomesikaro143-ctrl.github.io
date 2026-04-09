@@ -63,7 +63,7 @@ function renderHome() {
                 <i data-lucide="file-text" style="width: 18px; height: 18px;"></i>
                 ACESSAR INSTRUÇÕES
             </button>
-            <button class="btn-menu btn-gradient">
+            <button class="btn-menu btn-gradient" onclick="window.open('https://pay.kirvano.com/d07c776b-2a48-491b-8b75-790115a11a08', '_blank')">
                 <i data-lucide="crown" style="width: 18px; height: 18px;"></i>
                 CONHECER ACOMPANHAMENTO EXCLUSIVO
             </button>
