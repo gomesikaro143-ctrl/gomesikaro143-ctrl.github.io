@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -16,14 +16,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Splash Screen (Animação de Entrada) -->
-    <div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: var(--bg-main); z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.6s ease, transform 0.6s ease; transform: scale(1);">
-        <i data-lucide="sparkles" style="width: 60px; height: 60px; color: var(--btn-pink); animation: pulseRing 1.5s infinite; filter: drop-shadow(0 0 20px var(--btn-pink));"></i>
-        <h2 style="color: white; margin-top: 20px; font-family: 'Outfit', sans-serif;">Protocolo Gelatina</h2>
+    <!-- Splash Screen Idêntico ao Original -->
+    <div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #0c0a15; z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.8s ease, transform 0.8s ease; transform: scale(1);">
+        <h1 style="font-family: 'Playfair Display', serif; color: #facc15; font-size: 3.5rem; margin-bottom: 2px; text-shadow: 0 0 20px rgba(250,204,21,0.4); animation: fadeIn 1s ease forwards;">Protocolo</h1>
+        <h2 style="font-family: 'Playfair Display', serif; color: #a1a1aa; font-size: 1.5rem; letter-spacing: 0.5em; margin-bottom: 5px; animation: fadeIn 1.5s ease forwards; margin-left: 0.5em;">GELATINA</h2>
+        <h3 style="font-family: 'Inter', sans-serif; color: #9d174d; font-size: 0.85rem; letter-spacing: 0.6em; margin-bottom: 50px; font-weight: 600; animation: fadeIn 2s ease forwards; margin-left: 0.6em;">MOUNJARO</h3>
         
-        <button id="btn-enter-app" class="btn-menu btn-gradient" style="width: auto; padding: 15px 40px; margin-top: 40px; font-size: 1.1rem; border-radius: 30px; animation: fadeInUp 0.8s ease forwards; opacity: 0; animation-delay: 0.5s;">
-            ENTRAR NO APLICATIVO
-        </button>
+        <div style="width: 180px; height: 2px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; position: relative;">
+            <div style="width: 100%; height: 100%; background: #facc15; box-shadow: 0 0 10px #facc15; animation: splashLoad 2.5s ease-in-out forwards; transform-origin: left;"></div>
+        </div>
     </div>
 
     <div id="app-container" style="opacity: 0; transition: opacity 0.7s ease, filter 0.7s ease; filter: blur(10px); visibility: hidden;">

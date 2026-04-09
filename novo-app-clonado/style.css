@@ -224,6 +224,16 @@ h1, h2, h3, h4, h5 {
     }
 }
 
+@keyframes splashLoad {
+    0% { transform: scaleX(0); }
+    100% { transform: scaleX(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 /* Bottom Navigation */
 .bottom-nav {
     position: fixed;

@@ -165,15 +165,15 @@ window.goToInstructions = function() {
 };
 
 
-// Configuração do Splash Screen de Entrada
+// Configuração do Splash Screen de Entrada Automática
 function initSplashScreen() {
     const splash = document.getElementById('splash-screen');
-    const btnEnter = document.getElementById('btn-enter-app');
     const appContainer = document.getElementById('app-container');
     const instModal = document.getElementById('instructions-modal');
 
-    btnEnter.addEventListener('click', () => {
-        // Efeito de saída (z-zoom out e fade)
+    // Aguarda barra de progresso (2.5s) e entra
+    setTimeout(() => {
+        // Efeito de saída (fade out & zoom in leve)
         splash.style.opacity = '0';
         splash.style.transform = 'scale(1.1)';
         
@@ -187,10 +187,10 @@ function initSplashScreen() {
             // Força a exibição do popup de "Leia as Instruções" idêntico ao site original
             setTimeout(() => {
                 instModal.classList.add('show');
-            }, 400); // pequeno delay para suavidade
+            }, 600); // delay de segurança para animação principal terminar
             
-        }, 600);
-    });
+        }, 800);
+    }, 2800); // 2.5s loading + 300ms suspance
 }
 
 // Ação ao aceitar o prêmio

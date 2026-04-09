@@ -1,12 +1,30 @@
-const state = {
+const DEFAULT_STATE = {
     activeTab: 'home',
     currentModule: null,
     userName: 'Membro VIP',
-    currentDay: 7,
+    currentDay: 0,
     totalDays: 21,
-    weightLost: 8.2,
-    progressPercent: 33
+    weightLost: 0,
+    progressPercent: 0,
+    waterIntake: 0,
+    waterGoal: 2.5
 };
+
+let state = { ...DEFAULT_STATE };
+
+// Persistence Logic
+function saveState() {
+    localStorage.setItem('protocolo_gelatina_state', JSON.stringify(state));
+}
+
+function loadState() {
+    const saved = localStorage.getItem('protocolo_gelatina_state');
+    if (saved) {
+        state = { ...state, ...JSON.parse(saved) };
+    }
+}
+
+loadState();
 
 const contentData = {
     fundamentos: {
@@ -223,7 +241,7 @@ const templates = {
                 <p class="muted" style="font-size:0.85rem; margin-bottom:25px;">Seu pico de adesão foi na Quinta-feira.</p>
                 
                 <div class="bars" style="display:flex; align-items:flex-end; height:140px; gap:12px;">
-                    ${[40, 55, 45, 95, 70, 85, 90].map((h, i) => `
+                    ${[0, 0, 0, 0, 0, 0, 0].map((h, i) => `
                         <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:8px;">
                             <div class="bar" style="width:100%; height: ${h}%; background: ${h > 80 ? 'var(--primary-gradient)' : 'var(--bg-light)'}; border-radius:6px; transition: height 1s ease;"></div>
                             <span style="font-size:0.6rem; color:var(--text-muted); font-weight:700;">${['S','T','Q','Q','S','S','D'][i]}</span>
@@ -233,39 +251,70 @@ const templates = {
             </section>
         </div>
     `,
-    tools:() => `
+    tools: () => {
+        const waterPercent = Math.min(100, (state.waterIntake / state.waterGoal) * 100);
+        return `
         <div class="view-animate" style="padding-top:10px;">
             <h3 class="section-title" style="color:var(--white); margin-bottom:25px;">Ferramentas Clínicas</h3>
-            <div class="card clickable" style="margin-bottom:18px; display:flex; align-items:center; gap:18px;">
-                <div class="module-icon-wrap" style="color:#0EA5E9; background:rgba(14,165,233,0.1);">
-                    <i data-lucide="droplets"></i>
+            
+            <!-- Hydration Tool -->
+            <div class="card" style="margin-bottom:18px;">
+                <div style="display:flex; align-items:center; gap:18px; margin-bottom:15px;">
+                    <div class="module-icon-wrap" style="color:#0EA5E9; background:rgba(14,165,233,0.1);">
+                        <i data-lucide="droplets"></i>
+                    </div>
+                    <div style="flex:1;">
+                       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
+                           <h4 style="font-size:1.05rem;">Hidratação Diária</h4>
+                           <span style="font-weight:700; color:#0EA5E9;">${state.waterIntake.toFixed(1)}L / ${state.waterGoal}L</span>
+                       </div>
+                       <div style="width:100%; height:8px; background:var(--bg-light); border-radius:10px; overflow:hidden;">
+                            <div id="water-bar" style="width:${waterPercent}%; height:100%; background:#0EA5E9; border-radius:10px; transition: width 0.5s ease;"></div>
+                       </div>
+                    </div>
                 </div>
-                <div style="flex:1;">
-                   <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
-                       <h4 style="font-size:1.05rem;">Hidratação</h4>
-                       <span style="font-weight:700; color:#0EA5E9;">1.2L / 2.8L</span>
-                   </div>
-                   <div style="width:100%; height:6px; background:var(--bg-light); border-radius:10px; overflow:hidden;">
-                        <div style="width:45%; height:100%; background:#0EA5E9; border-radius:10px;"></div>
-                   </div>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                    <button class="tool-btn aqua" onclick="addWater(0.25)">+250ml</button>
+                    <button class="tool-btn aqua" onclick="addWater(0.5)">+500ml</button>
                 </div>
             </div>
             
-            <div class="card clickable" style="margin-bottom:18px; display:flex; align-items:center; gap:18px;">
-                <div class="module-icon-wrap" style="color:var(--accent-primary); background:rgba(16,185,129,0.1);">
-                    <i data-lucide="target"></i>
+            <!-- BMI Calculator Tool -->
+            <div class="card" style="margin-bottom:18px;">
+                <div style="display:flex; align-items:center; gap:18px; margin-bottom:20px;">
+                    <div class="module-icon-wrap" style="color:var(--accent-primary); background:rgba(16,185,129,0.1);">
+                        <i data-lucide="target"></i>
+                    </div>
+                    <div>
+                        <h4 style="font-size:1.05rem; margin-bottom:2px;">Calculadora de IMC</h4>
+                        <span class="muted" style="font-size:0.85rem;">Monitore seu índice corporal</span>
+                    </div>
                 </div>
-                <div>
-                   <h4 style="font-size:1.05rem; margin-bottom:2px;">Calculadora de IMC e Meta</h4>
-                   <span class="muted" style="font-size:0.85rem;">Revise sua estratégia semanal</span>
+                
+                <div class="calculator-grid">
+                    <div class="input-group">
+                        <label>Peso (kg)</label>
+                        <input type="number" id="calc-weight" placeholder="Ex: 75.5" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label>Altura (m)</label>
+                        <input type="number" id="calc-height" placeholder="Ex: 1.65" step="0.01">
+                    </div>
+                </div>
+                
+                <button class="tool-btn primary" style="margin-top:15px; width:100%;" onclick="calculateBMI()">Calcular Agora</button>
+                
+                <div id="bmi-result" class="result-box hidden">
+                    <div class="res-val">---</div>
+                    <div class="res-desc">Aguardando dados...</div>
                 </div>
             </div>
         </div>
-    `,
+    `;},
     profile: () => `
         <div class="view-animate" style="padding-top:10px;">
             <div class="profile-header card">
-                <div class="profile-avatar">IG</div>
+                <div class="profile-avatar"><i data-lucide="user"></i></div>
                 <h3 style="font-size:1.6rem; font-weight:800; letter-spacing:-0.05em; margin-bottom:5px;">${state.userName}</h3>
                 <span style="display:inline-block; padding:5px 15px; background: rgba(255,215,0,0.15); color: #FFD700; border: 1px solid rgba(255,215,0,0.3); border-radius:20px; font-size:0.8rem; font-weight:700; letter-spacing:1px; text-transform:uppercase;">Account Premium</span>
                 
@@ -291,8 +340,8 @@ const templates = {
                 </a>
             </div>
 
-            <div class="card clickable" style="display:flex; justify-content:space-between; align-items:center; padding: 20px;">
-                <span style="font-weight:700; color:#EF4444;">Encerrar Sessão</span>
+            <div class="card clickable" style="display:flex; justify-content:space-between; align-items:center; padding: 20px;" onclick="resetApp()">
+                <span style="font-weight:700; color:#EF4444;">Encerrar Sessão (Resetar)</span>
                 <i data-lucide="log-out" style="color:#EF4444;"></i>
             </div>
         </div>
@@ -322,6 +371,7 @@ function renderView(viewName) {
     }
 
     appMain.innerHTML = templates[viewName]();
+    saveState();
     
     // Update header context
     pageTitle.textContent = viewName === 'home' ? 'Dashboard' : 
@@ -344,6 +394,38 @@ if(iaButton) {
     });
 }
 
+// Tool Actions
+window.addWater = (amount) => {
+    state.waterIntake += amount;
+    saveState();
+    renderView('tools');
+};
+
+window.calculateBMI = () => {
+    const wStr = document.getElementById('calc-weight').value;
+    const hStr = document.getElementById('calc-height').value;
+    const w = parseFloat(wStr);
+    const h = parseFloat(hStr);
+    const resBox = document.getElementById('bmi-result');
+    
+    if (w && h) {
+        const bmi = (w / (h * h)).toFixed(1);
+        let desc = "";
+        if (bmi < 18.5) desc = "Abaixo do peso";
+        else if (bmi < 25) desc = "Peso ideal";
+        else if (bmi < 30) desc = "Sobrepeso";
+        else desc = "Obesidade";
+        
+        resBox.classList.remove('hidden');
+        resBox.querySelector('.res-val').textContent = bmi;
+        resBox.querySelector('.res-desc').textContent = desc;
+        
+        saveState();
+    } else {
+        alert("Por favor, preencha peso e altura corretamente.");
+    }
+};
+
 // Navigation Listeners
 navItems.forEach(item => {
     item.addEventListener('click', () => {
@@ -354,6 +436,14 @@ navItems.forEach(item => {
         renderView(tab);
     });
 });
+
+window.resetApp = () => {
+    if(confirm("Deseja realmente resetar todo o seu progresso?")) {
+        state = { ...DEFAULT_STATE };
+        saveState();
+        renderView('home');
+    }
+};
 
 // Initial Render
 renderView('home');

@@ -1,0 +1,66 @@
+[
+  {
+    "title": "Omelete Proteico Termogênico",
+    "ingredients": [
+      "2 ovos",
+      "Espinafre",
+      "Queijo branco",
+      "Pimenta e gengibre",
+      "Dose do Monjaro de Pobre"
+    ],
+    "instructions": ""
+  },
+  {
+    "title": "Frittata de Vegetais",
+    "ingredients": [
+      "3 ovos",
+      "Brócolis",
+      "Pimentão",
+      "Abobrinha",
+      "Dose do Monjaro de Pobre"
+    ],
+    "instructions": ""
+  },
+  {
+    "title": "Bolinho de Ovo Fit",
+    "ingredients": [
+      "2 ovos",
+      "Farinha de amêndoas",
+      "Xilitol",
+      "Canela",
+      "Dose do Monjaro de Pobre"
+    ],
+    "instructions": ""
+  },
+  {
+    "title": "Ovos Mexidos Cremosos",
+    "ingredients": [
+      "2 ovos",
+      "Manteiga ghee",
+      "Sal e pimenta",
+      "Cebolinha"
+    ],
+    "instructions": ""
+  },
+  {
+    "title": "Torrada com Ovo Poché",
+    "ingredients": [
+      "1 ovo",
+      "Pão low carb",
+      "Abacate",
+      "Tomate cereja"
+    ],
+    "instructions": ""
+  },
+  {
+    "title": "Salada Proteica com Ovo",
+    "ingredients": [
+      "2 ovos cozidos",
+      "Mix de folhas",
+      "Tomate",
+      "Pepino",
+      "Azeite"
+    ],
+    "instructions": ""
+  }
+]
