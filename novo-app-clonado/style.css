@@ -341,18 +341,72 @@ h1, h2, h3, h4, h5 {
     justify-content: center;
 }
 
-/* Roleta/Sorteio Animacao */
-.spinning-roulette {
-    width: 80px;
-    height: 80px;
-    animation: rouletteSpin 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+/* Roleta Real / Wheel of Fortune */
+.wheel-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-@keyframes rouletteSpin {
-    0% { transform: scale(0.5) rotate(0deg); opacity: 0; }
-    20% { transform: scale(1.2) rotate(180deg); opacity: 1; filter: drop-shadow(0 0 20px #eab308); }
-    80% { transform: scale(1.1) rotate(1080deg); filter: drop-shadow(0 0 10px #eab308); }
-    100% { transform: scale(1) rotate(1080deg); filter: drop-shadow(0 0 30px #eab308); }
+.wheel-pointer {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; 
+    height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 25px solid #d81b60; /* Seta Rosa Destaque */
+    z-index: 10;
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.5));
+}
+
+.wheel-board {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid #f8bbd0;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5), inset 0 0 10px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+    /* 6 fatias simétricas com tons pasteis do print */
+    background: conic-gradient(
+        #d97a95 0deg 60deg,
+        #d1a3c6 60deg 120deg,
+        #e1d48c 120deg 180deg,
+        #d97a95 180deg 240deg,
+        #d8aa89 240deg 300deg,
+        #e1d48c 300deg 360deg
+    );
+    transition: transform 3.5s cubic-bezier(0.15, 0.85, 0.25, 1);
+    transform: rotate(0deg);
+}
+
+.wheel-board.spinning {
+    transform: rotate(3800deg); /* Roda bastante (10 voltas e meia) até parar numa cor */
+}
+
+.wheel-spin-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: #f8cdd6;
+    border-radius: 50%;
+    border: 2px solid #f8bbd0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    z-index: 5;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
 .modal-title {

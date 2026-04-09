@@ -124,28 +124,41 @@ function renderProfile() {
 }
 
 
-// Lógica da Roleta / Modal de Prêmio
+// Lógica da Roleta Real e Sorteio
 window.triggerRoulette = function() {
     const giftModal = document.getElementById('gift-offer-modal');
     const prizeModal = document.getElementById('prize-modal');
-    const prizeText = document.getElementById('prize-text-area');
 
-    // Esconde a oferta do presente
+    // Esconde a oferta do presente central e abre o container da roleta
     if(giftModal) { giftModal.classList.remove('show'); }
-
-    // Abre o modal GIGANTE de tela cheia que vai rodar
     prizeModal.classList.add('show');
+};
+
+window.closeRoulette = function() {
+    document.getElementById('prize-modal').classList.remove('show');
+};
+
+window.startWheelSpin = function() {
+    const wheel = document.getElementById('wheel-board');
+    const prizeText = document.getElementById('prize-text-area');
+    const btnSpin = document.getElementById('btn-spin-wheel');
+    const btnClaim = document.getElementById('btn-claim-spin');
+
+    // Desativa botão para não clicar 2x
+    btnSpin.style.pointerEvents = 'none';
+    btnSpin.style.opacity = '0.5';
+
+    // Roda a roleta!
+    wheel.classList.add('spinning');
     
-    // Animação da roleta dura 2.5s -> mostra o texto do prêmio
+    // Aguarda terminar o giro (transição CSS dura 3.5s)
     setTimeout(() => {
         prizeText.style.display = 'block';
+        btnSpin.style.display = 'none'; // Esconde botão de girar
+        btnClaim.style.display = 'flex'; // Exibe o de resgatar
+        
         if(navigator.vibrate) navigator.vibrate([100, 50, 100]);
-    }, 2500);
-
-    const closeBtn = document.getElementById('close-modal');
-    closeBtn.addEventListener('click', () => {
-        prizeModal.classList.remove('show');
-    });
+    }, 3600);
 };
 
 window.closeGiftOffer = function() {
