@@ -16,9 +16,14 @@ let state = { ...DEFAULT_STATE };
 const appMain = document.getElementById('app-main');
 const navItems = document.querySelectorAll('.nav-item');
 
-// Navegação Principal
-function renderView(viewName) {
+// Navegação Principal com Suporte ao Botão Voltar (History API)
+function renderView(viewName, pushHistory = true) {
     state.activeTab = viewName;
+
+    // Registra a rota no histórico nativo do celular
+    if(pushHistory) {
+        history.pushState({ tab: viewName }, '', `#${viewName}`);
+    }
     
     // Atualiza botão ativo na navegação inferior dinamicamente
     const currentNavItems = document.querySelectorAll('.nav-item');
@@ -432,9 +437,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicializa a Tela de Entrada
     initSplashScreen();
     
-    // Carrega a tela inicial
-    renderView('home');
+    // Inicia a primeira tela e guarda no histórico
+    if(!window.location.hash) {
+        history.replaceState({ tab: 'home' }, '', '#home');
+        renderView('home', false);
+    } else {
+        const initialTab = window.location.hash.substring(1);
+        renderView(initialTab, false);
+    }
     
+    // Suporte mágico ao Botão "Voltar" do Android/iPhone
+    window.addEventListener('popstate', (e) => {
+        // 1. Força o fechamento de qualquer modal/janela que estiver aberta por cima
+        document.querySelectorAll('.modal-overlay.show, .sheet-overlay.show').forEach(el => {
+            el.classList.remove('show');
+        });
+        
+        // 2. Retorna para a tela exata que o cliente estava testando antes
+        if(e.state && e.state.tab) {
+            renderView(e.state.tab, false);
+        } else {
+            renderView('home', false);
+        }
+    });    
     // Configura cliques da navegação
     navItems.forEach(btn => {
         btn.addEventListener('click', (e) => {
