@@ -112,9 +112,62 @@ body {
     margin-top: 25px;
     color: var(--pink-primary);
     font-size: 0.9rem;
-    text-decoration: none;
+    text-decoration: underline;
     font-weight: 600;
     opacity: 0.8;
+}
+
+/* New Sections Styles */
+.section-white-text {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 25px;
+    margin: 30px 0;
+    text-align: left;
+}
+
+.testimonial-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 40px 0;
+}
+
+.testimonial-card {
+    background: #190c2e;
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 16px;
+    text-align: left;
+}
+
+.testimonial-name {
+    display: block;
+    font-weight: 700;
+    color: var(--yellow-gold);
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.testimonial-text {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+}
+
+.guarantee-badge {
+    border: 2px dashed rgba(234, 179, 8, 0.3);
+    padding: 30px 20px;
+    border-radius: 24px;
+    margin: 40px 0;
+    text-align: center;
+}
+
+.guarantee-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
 }
 
 /* Modal Styels */
