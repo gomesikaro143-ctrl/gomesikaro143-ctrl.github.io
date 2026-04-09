@@ -137,19 +137,152 @@ function renderHome() {
 }
 
 // ----------------------------------------------------
-// ABA DE CONTEÚDO (RECEITAS)
+// ABA DE CONTEÚDO (RECEITAS OFICIAIS)
 // ----------------------------------------------------
+const recipesCategories = ["Todas","FIT","Gelatinas","Detox","Beleza","Relaxantes","Shakes","Almoço","Jantar"];
+const recipesDatabase = [
+    {id:100,name:"Gelatina FIT de Morango com Whey",category:"FIT",time:"15 min",emoji:"🍓",desc:"Alta em proteína, sacia e ajuda na recuperação muscular. Apenas 80 kcal por porção.",ingredients:"10g gelatina incolor, 200ml água, 1 scoop whey de morango, 5 morangos picados, adoçante a gosto",instructions:"Hidrate a gelatina em 50ml de água fria. Aqueça 150ml de água e dissolva a gelatina. Misture o whey já frio. Adicione os morangos picados, leve à geladeira por 3h."},
+    {id:101,name:"Gelatina FIT de Café com Canela",category:"FIT",time:"20 min",emoji:"☕",desc:"Termogênica natural! Acelera o metabolismo e dá energia. 45 kcal por porção.",ingredients:"10g gelatina incolor, 250ml café forte sem açúcar, 1 col. chá de canela em pó, adoçante, pitada de cacau",instructions:"Hidrate a gelatina em água fria. Aqueça o café e dissolva a gelatina. Adicione canela e cacau. Adoce a gosto e leve à geladeira por 4h."},
+    {id:102,name:"Gelatina FIT de Iogurte com Limão",category:"FIT",time:"10 min",emoji:"🍋",desc:"Cremosa, leve e probiótica. Melhora a flora intestinal. 65 kcal.",ingredients:"10g gelatina incolor, 200ml iogurte natural desnatado, suco de 1 limão, raspas de limão, adoçante",instructions:"Hidrate a gelatina e dissolva em 3 col. de água quente. Misture ao iogurte com suco e raspas. Adoce e refrigere por 3h."},
+    {id:103,name:"Gelatina FIT de Maçã e Canela",category:"FIT",time:"25 min",emoji:"🍎",desc:"Sabor de torta de maçã sem culpa! Rica em fibras. 55 kcal.",ingredients:"10g gelatina incolor, 250ml chá de maçã, 1 maçã picada, canela, 1 col. chia",instructions:"Faça o chá de maçã e dissolva a gelatina. Adicione a maçã picada, chia e canela. Leve à geladeira por 4h."},
+    {id:104,name:"Gelatina FIT de Cacau Zero",category:"FIT",time:"15 min",emoji:"🍫",desc:"Mata a vontade de chocolate! Antioxidante.",ingredients:"10g gelatina incolor, 250ml leite desnatado, 2 col. cacau em pó, adoçante",instructions:"Hidrate a gelatina. Aqueça o leite com cacau. Dissolva a gelatina, adoce e leve à geladeira por 3h."},
+    {id:105,name:"Gelatina FIT de Coco com Abacaxi",category:"FIT",time:"20 min",emoji:"🥥",desc:"Refrescante! Combate inchaço e retenção.",ingredients:"10g gelatina incolor, 200ml leite de coco light, 100g abacaxi picado, adoçante",instructions:"Hidrate a gelatina. Aqueça o leite de coco e dissolva. Adicione abacaxi picado, adoce e refrigere por 4h."},
+    {id:106,name:"Gelatina de Frutas Vermelhas e Chia",category:"FIT",time:"15 min",emoji:"🫐"},
+    {id:107,name:"Gelatina de Chá Verde com Gengibre",category:"FIT",time:"20 min",emoji:"🍵"},
+    {id:10,name:"Gelatina de Abacaxi com Hortelã",category:"Detox",time:"20 min",emoji:"🍍",desc:"Combate a retenção de líquidos e melhora a digestão.",ingredients:"10g gelatina incolor, 300ml suco de abacaxi, hortelã, 1 col. chia",instructions:""},
+    {id:11,name:"Gelatina Verde de Couve e Limão",category:"Detox",time:"25 min",emoji:"🥬",desc:"Rica em clorofila e vitamina C, ideal para limpar o fígado.",ingredients:"10g gelatina, 200ml água de coco, 1 folha de couve, suco de 1 limão, psyllium",instructions:""},
+    {id:12,name:"Gelatina de Melancia e Gengibre",category:"Detox",time:"20 min",emoji:"🍉",desc:"Hidratação e ação anti-inflamatória.",ingredients:"",instructions:""},
+    {id:13,name:"Gelatina de Frutas Vermelhas Antioxidante",category:"Beleza",time:"20 min",emoji:"🍒",desc:"Combate radicais livres e previne envelhecimento.",ingredients:"10g gelatina, 300ml chá de hibisco, frutas vermelhas, colágeno",instructions:""},
+    {id:14,name:"Gelatina de Maracujá com Camomila",category:"Relaxantes",time:"25 min",emoji:"🌸",desc:"Calmante natural. Reduz ansiedade e melhora o sono.",ingredients:"10g gelatina, 200ml chá de camomila, polpa de maracujá, adoçante",instructions:""},
+    {id:15,name:"Gelatina de Banana com Canela",category:"Relaxantes",time:"20 min",emoji:"🍌"},
+    {id:2,name:"Shake Detox Verde",category:"Shakes",time:"5 min",emoji:"🥤"},
+    {id:5,name:"Frango Grelhado com Legumes",category:"Almoço",time:"30 min",emoji:"🍗"},
+    {id:6,name:"Salmão ao Forno",category:"Jantar",time:"25 min",emoji:"🐟"}
+];
+
+let globalActiveCategory = 'Todas';
+let globalSearchQuery = '';
+
 function renderContent() {
+    state.activeTab = 'content';
+    
+    // Filtragem
+    let filteredList = recipesDatabase.filter(r => {
+        let textMatch = r.name.toLowerCase().includes(globalSearchQuery.toLowerCase());
+        let catMatch = (globalActiveCategory === 'Todas') || (r.category === globalActiveCategory);
+        return textMatch && catMatch;
+    });
+
+    const activeCatStyle = `background: linear-gradient(135deg, hsl(340, 65%, 55%), hsl(350, 70%, 60%)); color: white; box-shadow: 0 0 15px rgba(236,72,153,0.3); border-color: transparent;`;
+    const inactiveCatStyle = `background: rgba(255,255,255,0.05); color: #a1a1aa; border: 1px solid rgba(255,255,255,0.1);`;
+
+    const chipsHtml = recipesCategories.map(cat => `
+        <button class="category-chip" 
+            style="${cat === globalActiveCategory ? activeCatStyle : inactiveCatStyle}"
+            onclick="setRecipeCategory('${cat}')">
+            ${cat}
+        </button>
+    `).join('');
+
+    const gridHtml = filteredList.map(recipe => `
+        <div class="recipe-card-new" onclick="openRecipeDialog(${recipe.id})">
+            <div class="recipe-emoji-bg">
+                <span>${recipe.emoji}</span>
+            </div>
+            <div class="recipe-info">
+                <h3 class="r-title">${recipe.name}</h3>
+                <div class="r-meta">
+                    <span><i data-lucide="clock" style="width: 12px; height: 12px;"></i> ${recipe.time}</span>
+                    <i data-lucide="heart" style="width: 14px; height: 14px; color: #a1a1aa;"></i>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
     appMain.innerHTML = `
-        <div class="view-animate" style="min-height: 80vh; display:flex; flex-direction:column; align-items:center; justify-content:center;">
-            <i data-lucide="utensils-crossed" style="width: 60px; height: 60px; color: var(--text-muted); opacity: 0.5; margin-bottom: 20px;"></i>
-            <h3 style="color: var(--btn-yellow); text-align: center; margin-bottom: 10px;">Receitas (Extratadas)</h3>
-            <p style="color: var(--text-muted); text-align: center; font-size: 0.9rem;">
-                A base de dados será injetada aqui.
-            </p>
+        <div class="view-animate recipes-page-container">
+            <h1 class="page-title" style="font-family: 'Playfair Display'; margin-bottom: 20px;">Receitas</h1>
+            
+            <div class="search-box">
+                <i data-lucide="search" class="search-icon"></i>
+                <input type="text" id="recipe-search-input" class="search-input" placeholder="Buscar receitas..." value="${globalSearchQuery}" onkeyup="setRecipeSearch(this.value)">
+            </div>
+
+            <div class="category-chips-container">
+                ${chipsHtml}
+            </div>
+
+            <div class="recipes-grid">
+                ${gridHtml.length > 0 ? gridHtml : '<p style="color: #a1a1aa; grid-column: span 2; text-align: center;">Nenhuma receita encontrada.</p>'}
+            </div>
+        </div>
+
+        <!-- Recipe Details Bottom Sheet -->
+        <div id="recipe-sheet-overlay" class="sheet-overlay" onclick="closeRecipeDialog(event)">
+            <div class="bottom-sheet view-animate" id="recipe-sheet-content">
+                <!-- Content injected via JS -->
+            </div>
         </div>
     `;
+
+    if (window.lucide) lucide.createIcons();
 }
+
+window.setRecipeCategory = function(cat) {
+    globalActiveCategory = cat;
+    renderContent();
+};
+
+window.setRecipeSearch = function(query) {
+    globalSearchQuery = query;
+    renderContent();
+    // Re-focus input
+    const input = document.getElementById('recipe-search-input');
+    if(input) { input.focus(); }
+};
+
+window.openRecipeDialog = function(id) {
+    const recipe = recipesDatabase.find(r => r.id === id);
+    if(!recipe) return;
+
+    const overlay = document.getElementById('recipe-sheet-overlay');
+    const sheet = document.getElementById('recipe-sheet-content');
+
+    sheet.innerHTML = `
+        <div class="sheet-drag-handle"></div>
+        <div class="sheet-emoji-circle">${recipe.emoji}</div>
+        <h2 class="sheet-title">${recipe.name}</h2>
+        
+        <div class="sheet-meta-badges">
+            <span class="badge"><i data-lucide="clock" style="width:14px;height:14px;"></i> ${recipe.time}</span>
+            <span class="badge">${recipe.category}</span>
+        </div>
+
+        ${recipe.desc ? `<p class="sheet-desc">${recipe.desc}</p>` : ''}
+        
+        ${recipe.ingredients ? `
+        <div class="sheet-box">
+            <span class="box-label" style="color: #d946ef;">INGREDIENTES</span>
+            <p>${recipe.ingredients}</p>
+        </div>` : ''}
+
+        ${recipe.instructions ? `
+        <div class="sheet-box">
+            <span class="box-label" style="color: #facc15;">MODO DE PREPARO</span>
+            <p>${recipe.instructions}</p>
+        </div>` : ''}
+    `;
+
+    overlay.classList.add('show');
+    if (window.lucide) lucide.createIcons();
+};
+
+window.closeRecipeDialog = function(e) {
+    // Only close if clicking the dark overlay bg, not the sheet itself
+    if(e.target.id === 'recipe-sheet-overlay') {
+        e.target.classList.remove('show');
+    }
+};
 
 // ----------------------------------------------------
 // ABAS PLACEHOLDERS
