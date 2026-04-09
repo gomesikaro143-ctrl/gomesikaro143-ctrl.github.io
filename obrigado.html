@@ -17,9 +17,8 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '769699762506486');
     fbq('track', 'PageView');
-    fbq('track', 'Purchase', {value: 37.00, currency: 'BRL'}); // Track da venda principal concluída
+    fbq('track', 'Purchase', {value: 37.00, currency: 'BRL'});
 
-    // Tracking InitiateCheckout para quem clica na oferta de Upsell
     document.addEventListener("click", function(e) {
         var el = e.target.closest("a") || e.target.closest("button") || e.target.closest("div[role='button']");
         var text = el ? (el.innerText || "").toUpperCase() : "";
@@ -30,88 +29,215 @@
     </script>
     <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" async defer></script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Outfit:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
 
     <style>
-        :root { --primary: #10b981; --danger: #ef4444; }
-        body { font-family: 'Inter', sans-serif; background: #f8fafc; margin: 0; text-align: center; color: #0f172a; }
+        :root { 
+            --primary: #24a148; 
+            --primary-dark: #1b8a3b;
+            --accent: #eab308;
+            --danger: #ef4444; 
+            --bg: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+        }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg); 
+            margin: 0; 
+            text-align: center; 
+            color: #f8fafc; 
+            line-height: 1.6;
+        }
         
         /* Barra de Urgência */
         .urgency-bar {
-            background: var(--danger);
+            background: var(--primary);
             color: white;
             padding: 12px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 800;
             text-transform: uppercase;
-            animation: pulse-red 2s infinite;
+            box-shadow: 0 4px 15px rgba(36, 161, 72, 0.3);
         }
 
-        @keyframes pulse-red {
-            0% { background-color: #ef4444; }
-            50% { background-color: #b91c1c; }
-            100% { background-color: #ef4444; }
-        }
-
-        .container { max-width: 850px; margin: 0 auto; padding: 40px 20px; }
+        .container { max-width: 600px; margin: 0 auto; padding: 30px 20px; }
         
-        .confirmation {
-            background: #d1fae5;
-            color: #065f46;
-            display: inline-block;
-            padding: 5px 15px;
+        .confirmation-badge {
+            background: rgba(16, 185, 129, 0.2);
+            color: #4ade80;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 0.8rem;
-            margin-bottom: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 25px;
+            border: 1px solid rgba(74, 222, 128, 0.3);
         }
 
-        h1 { font-family: 'Outfit', sans-serif; font-size: 1.8rem; color: #0f172a; margin-bottom: 30px; line-height: 1.2; }
+        h1 { 
+            font-family: 'Outfit', sans-serif; 
+            font-size: 1.8rem; 
+            color: #fff; 
+            margin-bottom: 15px; 
+            line-height: 1.2; 
+        }
+
+        .highlight-red { color: #f87171; font-weight: 900; }
+
+        .subheadline {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+
+        .vagas-badge {
+            display: inline-block;
+            background: rgba(24acc15, 0.1);
+            color: #facc15;
+            padding: 6px 15px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            border: 1px solid rgba(250, 204, 21, 0.2);
+        }
         
-        /* Container do Vídeo - Otimizado para Mobile (9:16) */
+        /* Container do Vídeo */
         .video-box {
             background: #000;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            border: 3px solid var(--primary);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255,255,255,0.1);
             overflow: hidden;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             max-width: 400px;
             margin-left: auto;
             margin-right: auto;
+            position: relative;
         }
 
-        .no-interest {
-            display: none; /* Inicialmente escondido */
+        /* Elementos Ocultos (Delay) */
+        .delayed-content {
+            display: none;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        /* Botão CTA Principal */
+        .btn-cta {
+            display: block;
+            background: linear-gradient(135deg, #24a148 0%, #1b8a3b 100%);
+            color: white;
+            text-decoration: none;
+            padding: 20px 30px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+            margin: 20px auto;
+            box-shadow: 0 10px 25px rgba(36, 161, 72, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            animation: pulse-cta 2s infinite;
+            text-transform: uppercase;
+        }
+
+        @keyframes pulse-cta {
+            0% { transform: scale(1); box-shadow: 0 10px 25px rgba(36, 161, 72, 0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 15px 35px rgba(36, 161, 72, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 10px 25px rgba(36, 161, 72, 0.4); }
+        }
+
+        /* Seções de Conteúdo */
+        .info-section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 30px;
+            text-align: left;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .benefit-icon { color: var(--primary); font-weight: bold; }
+
+        /* Depoimentos */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
             margin-top: 20px;
         }
 
+        .testimonial-img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .faq-q { font-weight: 700; color: #fff; margin-bottom: 5px; display: block; }
+        .faq-a { font-size: 0.9rem; color: #a1a1aa; }
+
+        .no-interest {
+            margin-top: 40px;
+            padding-bottom: 80px;
+        }
+
         .btn-no-red {
-            color: var(--danger);
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 0.9rem;
-            opacity: 0.8;
-            transition: all 0.3s ease;
-        }
-
-        .btn-no-red:hover {
-            opacity: 1;
+            color: #94a3b8;
+            font-weight: 600;
             text-decoration: underline;
+            font-size: 0.85rem;
+            opacity: 0.6;
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
 
-    <div class="urgency-bar">⚠️ POR FAVOR, NÃO FECHE ESTA PÁGINA. ISSO É MUITO IMPORTANTE!</div>
+    <div class="urgency-bar">Parabéns! Oferta única liberada 🎁</div>
 
     <div class="container">
-        <div class="confirmation">✅ COMPRA APROVADA!</div>
-        <h1>ASSISTA AO VÍDEO ABAIXO PARA LIBERAR SEU ACESSO...</h1>
+        <div class="confirmation-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            COMPRA APROVADA!
+        </div>
+
+        <h1>Como <span class="highlight-red">ACELERAR</span> seus Resultados sem ESFORÇO EXTRA!</h1>
+        <p class="subheadline">Isso potencializa tudo o que você acabou de acessar da Gelatina Mounjaro!</p>
+
+        <div class="vagas-badge">Acesso único | Disponível - Apenas 22 vagas</div>
 
         <div class="video-box">
-            <!-- NOVO PLAYER CONVERTEAI - FORMATO MOBILE -->
+            <!-- PLAYER CONVERTEAI - FORMATO MOBILE -->
             <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/sdk.js", s.async=!0,document.head.appendChild(s); </script> 
             <div id="ifr_69d6fe2d450ab57d52a55788_wrapper" style="margin: 0 auto; width: 100%; max-width: 400px;"> 
                 <div style="position: relative; padding: 177.63157894736844% 0 0 0;" id="ifr_69d6fe2d450ab57d52a55788_aspect"> 
@@ -120,20 +246,69 @@
             </div>
         </div>
 
-        <div class="no-interest">
-            <a href="https://pay.kirvano.com/c1062ab1-94d0-47f5-ba88-431e21a01045" class="btn-no-red">NÃO QUERO, OBRIGADO!</a>
+        <!-- CONTEÚDO COM DELAY -->
+        <div class="delayed-content" id="delayed-elements">
+            <a href="https://pay.kirvano.com/c1062ab1-94d0-47f5-ba88-431e21a01045" class="btn-cta">
+                SIM! EU QUERO ACELERAR MEUS RESULTADOS
+            </a>
+
+            <div class="info-section">
+                <h2 class="section-title">✨ Por que você precisa disso?</h2>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✓</span>
+                    <span><strong>Ação Anti-Flacidez:</strong> O Protocolo estimula o colágeno profundo enquanto você emagrece.</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✓</span>
+                    <span><strong>Efeito Firmeza:</strong> Evite o "derretimento" facial e corporal comum na perda rápida de peso.</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✓</span>
+                    <span><strong>Simples e Prático:</strong> São apenas 5 minutos por dia adicionados à sua rotina.</span>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2 class="section-title">💬 Quem já está usando</h2>
+                <div class="testimonials-grid">
+                    <img src="https://via.placeholder.com/400x300?text=Depoimento+1" alt="Depoimento" class="testimonial-img">
+                    <img src="https://via.placeholder.com/400x300?text=Depoimento+2" alt="Depoimento" class="testimonial-img">
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2 class="section-title">❓ Perguntas Frequentes</h2>
+                <div class="faq-item">
+                    <span class="faq-q">Como recebo o acesso?</span>
+                    <span class="faq-a">O acesso é enviado imediatamente para o seu e-mail após a confirmação.</span>
+                </div>
+                <div class="faq-item">
+                    <span class="faq-q">Preciso comprar algum creme caro?</span>
+                    <span class="faq-a">Não! O foco são estímulos naturais e suplementação específica de baixo custo.</span>
+                </div>
+            </div>
+
+            <div class="no-interest">
+                <a href="https://pay.kirvano.com/c1062ab1-94d0-47f5-ba88-431e21a01045" class="btn-no-red">NÃO QUERO, OBRIGADO!</a>
+            </div>
         </div>
 
         <footer>
-            <p>&copy; 2026 Protocolo Gelatina - Todos os direitos reservados.</p>
+            <p>&copy; 2024 Gelatina Bariatrica - Todos os direitos reservados.</p>
         </footer>
     </div>
 
     <script>
-        // Revelar o link de 'NÃO QUERO' exatamente aos 9 minutos e 9 segundos (549000ms)
+        // Revelar conteúdo aos 9 minutos e 9 segundos (549000ms)
         setTimeout(function() {
-            document.querySelector('.no-interest').style.display = 'block';
+            const delayed = document.getElementById('delayed-elements');
+            if (delayed) delayed.style.display = 'block';
         }, 549000);
+
+        // Inicializar ícones Lucide
+        if (window.lucide) {
+            lucide.createIcons();
+        }
     </script>
 </body>
 </html>
