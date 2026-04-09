@@ -726,3 +726,25 @@ h1, h2, h3, h4, h5 {
 
 .sheet-box p { color: white; font-size: 0.9rem; line-height: 1.5; }
 
+/* ------------------------------------- */
+/* ESTILOS DO QUIZ E LOADING             */
+/* ------------------------------------- */
+
+.quiz-form input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.quiz-form input:focus {
+    border-color: #facc15 !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loading-bar {
+    border-radius: 4px;
+}
+

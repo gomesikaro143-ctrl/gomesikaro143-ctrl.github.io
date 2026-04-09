@@ -1,16 +1,43 @@
-// Estado Global Inicial
-const DEFAULT_STATE = {
-    user: {
-        name: "Guerreira",
-        progress: 0,
-        currentDay: 1,
-        weightLost: 0,
-        daysLeft: 29
-    },
-    activeTab: 'home'
+// Estado Global Inicial com Persistência Local
+const STORAGE_KEYS = {
+    NAME: 'gm_user_name',
+    WEIGHT: 'gm_user_weight',
+    AGE: 'gm_user_age',
+    START_DATE: 'gm_user_start_date'
 };
 
-let state = { ...DEFAULT_STATE };
+function getInitialState() {
+    const name = localStorage.getItem(STORAGE_KEYS.NAME) || "Guerreira";
+    const weight = localStorage.getItem(STORAGE_KEYS.WEIGHT) || "0kg";
+    const age = localStorage.getItem(STORAGE_KEYS.AGE) || "";
+    const startDateStr = localStorage.getItem(STORAGE_KEYS.START_DATE);
+    
+    let currentDay = 1;
+    let daysLeft = 29;
+
+    if (startDateStr) {
+        const start = new Date(startDateStr);
+        const now = new Date();
+        const diffTime = Math.abs(now - start);
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        currentDay = diffDays + 1;
+        daysLeft = Math.max(0, 30 - currentDay);
+    }
+
+    return {
+        user: {
+            name: name,
+            age: age,
+            weight: weight,
+            currentDay: Math.min(currentDay, 30),
+            daysLeft: daysLeft,
+            progress: Math.floor((currentDay / 30) * 100)
+        },
+        activeTab: 'home'
+    };
+}
+
+let state = getInitialState();
 
 // Elementos da DOM
 const appMain = document.getElementById('app-main');
@@ -32,7 +59,7 @@ function renderView(viewName, pushHistory = true) {
         else item.classList.remove('active');
     });
 
-    // Renderiza o conteúdo da aba
+// Renderiza o conteúdo da aba
     switch(viewName) {
         case 'home': renderHome(); break;
         case 'content': renderContent(); break;
@@ -42,9 +69,19 @@ function renderView(viewName, pushHistory = true) {
         default: renderHome();
     }
     
+    // Atualiza o Header Dinamicamente
+    updateHeader();
+
     // Atualiza ícones do Lucide
     if (window.lucide) lucide.createIcons();
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateHeader() {
+    const greetingEl = document.querySelector('.header-content h1');
+    if (greetingEl) {
+        greetingEl.innerHTML = `${state.user.name}! 👋`;
+    }
 }
 
 // ----------------------------------------------------
@@ -75,7 +112,7 @@ function renderHome() {
             <!-- Círculo de Progresso -->
             <div class="progress-circle-container">
                 <div class="progress-circle">
-                    <span class="circle-title">Dia 1</span>
+                    <span class="circle-title">Dia ${state.user.currentDay}</span>
                     <span class="circle-subtitle">de 30</span>
                 </div>
             </div>
@@ -83,13 +120,13 @@ function renderHome() {
             <!-- Cards de Status -->
             <div class="status-grid">
                 <div class="status-card">
-                    <i data-lucide="flame" style="color: var(--btn-pink); width: 24px; height: 24px;"></i>
-                    <span class="status-value">-0kg</span>
-                    <span class="status-label">Peso perdido</span>
+                    <i data-lucide="scale" style="color: var(--btn-pink); width: 24px; height: 24px;"></i>
+                    <span class="status-value">${state.user.weight}</span>
+                    <span class="status-label">Peso atual</span>
                 </div>
                 <div class="status-card">
                     <i data-lucide="calendar" style="color: var(--btn-yellow); width: 24px; height: 24px;"></i>
-                    <span class="status-value">29</span>
+                    <span class="status-value">${state.user.daysLeft}</span>
                     <span class="status-label">Dias restantes</span>
                 </div>
             </div>
@@ -294,7 +331,50 @@ function renderTools() {
 }
 
 function renderProfile() {
-    appMain.innerHTML = `<div class="view-animate"><div class="status-card" style="margin-top: 50px;"><p class="text-center text-muted">Perfil em construção.</p></div></div>`;
+    appMain.innerHTML = `
+        <div class="view-animate profile-page">
+            <h1 class="page-title" style="font-family: 'Playfair Display'; margin-bottom: 25px;">Seu Perfil</h1>
+            
+            <div class="profile-header-card" style="background: var(--card-bg); border-radius: 20px; padding: 25px; text-align: center; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 20px;">
+                <div class="profile-avatar" style="width: 80px; height: 80px; background: var(--btn-magenta-grad); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 2rem;">👤</div>
+                <h2 style="font-size: 1.5rem; color: white; margin-bottom: 5px;">${state.user.name}</h2>
+                <span style="color: var(--text-muted); font-size: 0.9rem;">No Protocolo há ${state.user.currentDay} dias</span>
+            </div>
+
+            <div class="profile-stats-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px;">
+                <div class="status-card" style="align-items: flex-start; text-align: left; padding: 15px;">
+                    <span style="color: var(--text-muted); font-size: 0.75rem; font-weight: 600;">PESO INICIAL</span>
+                    <span style="font-size: 1.2rem; color: #facc15; font-weight: 700; margin-top: 5px;">${state.user.weight}</span>
+                </div>
+                <div class="status-card" style="align-items: flex-start; text-align: left; padding: 15px;">
+                    <span style="color: var(--text-muted); font-size: 0.75rem; font-weight: 600;">IDADE</span>
+                    <span style="font-size: 1.2rem; color: #facc15; font-weight: 700; margin-top: 5px;">${state.user.age || '--'} anos</span>
+                </div>
+            </div>
+
+            <div class="menu-list" style="display: flex; flex-direction: column; gap: 10px;">
+                <div class="menu-item" style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(255,255,255,0.05);">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <i data-lucide="bell" style="width: 18px; height: 18px; color: var(--text-muted);"></i>
+                        <span style="font-size: 0.95rem;">Notificações</span>
+                    </div>
+                    <i data-lucide="chevron-right" style="width: 16px; height: 16px; color: var(--text-muted);"></i>
+                </div>
+                <div class="menu-item" onclick="logoutApp()" style="background: rgba(239, 68, 68, 0.05); padding: 15px; border-radius: 12px; display: flex; align-items: center; gap: 12px; border: 1px solid rgba(239, 68, 68, 0.1); color: #ef4444; margin-top: 20px; cursor: pointer;">
+                    <i data-lucide="log-out" style="width: 18px; height: 18px;"></i>
+                    <span style="font-size: 0.95rem; font-weight: 600;">Sair e Reiniciar Protocolo</span>
+                </div>
+            </div>
+        </div>
+    `;
+    if (window.lucide) lucide.createIcons();
+}
+
+window.logoutApp = function() {
+    if (confirm("Tem certeza que deseja sair? Seus dados serão limpos e você terá que fazer o quiz novamente.")) {
+        localStorage.clear();
+        location.reload();
+    }
 }
 
 
@@ -339,11 +419,76 @@ window.closeGiftOffer = function() {
     document.getElementById('gift-offer-modal').classList.remove('show');
 };
 
-// Ação ao aceitar o prêmio
+// Ação ao aceitar o prêmio -> Agora leva para o QUIZ
 window.claimPrize = function() {
     document.getElementById('prize-modal').classList.remove('show');
-    renderView('content');
+    
+    // Se o usuário já tiver nome (já fez o quiz), pula
+    if (localStorage.getItem(STORAGE_KEYS.NAME)) {
+        renderView('home');
+    } else {
+        document.getElementById('quiz-modal').classList.add('show');
+    }
 };
+
+window.submitQuiz = function() {
+    const name = document.getElementById('user-name-input').value.trim();
+    const age = document.getElementById('user-age-input').value.trim();
+    const weight = document.getElementById('user-weight-input').value.trim();
+
+    if (!name || !weight) {
+        alert("Por favor, preencha seu nome e peso para continuar! 🎀");
+        return;
+    }
+
+    // Salva no LocalStorage
+    localStorage.setItem(STORAGE_KEYS.NAME, name);
+    localStorage.setItem(STORAGE_KEYS.WEIGHT, weight);
+    localStorage.setItem(STORAGE_KEYS.AGE, age);
+    localStorage.setItem(STORAGE_KEYS.START_DATE, new Date().toISOString());
+
+    // Fecha Modal de Quiz
+    document.getElementById('quiz-modal').classList.remove('show');
+
+    // Inicia Setup Loading
+    startAppSetup();
+};
+
+function startAppSetup() {
+    const loadingScreen = document.getElementById('setup-loading-screen');
+    const loadingBar = document.getElementById('loading-bar');
+    const loadingText = document.getElementById('loading-text');
+    const loadingSub = document.getElementById('loading-subtext');
+
+    loadingScreen.classList.add('show');
+
+    const stages = [
+        { progress: 20, text: "Analisando seu metabolismo...", sub: "Processando dados de idade e peso." },
+        { progress: 50, text: `Personalizando para ${localStorage.getItem(STORAGE_KEYS.NAME)}...`, sub: "Calculando doses ideais de gelatina." },
+        { progress: 85, text: "Criando seu cronograma de 30 dias!", sub: "Quase pronto..." },
+        { progress: 100, text: "Protocolo Gerado com Sucesso! 🎀", sub: "Redirecionando..." }
+    ];
+
+    let currentStage = 0;
+    const interval = setInterval(() => {
+        if (currentStage >= stages.length) {
+            clearInterval(interval);
+            setTimeout(() => {
+                // Atualiza o estado global com os novos dados
+                state = getInitialState();
+                loadingScreen.classList.remove('show');
+                renderView('home');
+            }, 800);
+            return;
+        }
+
+        const stage = stages[currentStage];
+        loadingBar.style.width = stage.progress + "%";
+        loadingText.innerText = stage.text;
+        loadingSub.innerText = stage.sub;
+        currentStage++;
+    }, 1200);
+}
 
 // Controle do Modal de Instruções
 window.closeInstructionsModal = function() {
