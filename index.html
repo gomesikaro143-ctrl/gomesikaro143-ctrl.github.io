@@ -1,96 +1,150 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <script>
-      if (window.location.hostname.includes("github.io")) {
-        window.location.replace("https://protocolo-gelatina-app.vercel.app" + window.location.pathname + window.location.search);
-      }
-    </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Protocolo Gelatina</title>
-    <meta
-      name="description"
-      content="Gelatina Mounjaro: ative o GLP-1 naturalmente e perca até 12kg em 30 dias. Protocolo caseiro, 100% natural. Aprovado por nutricionistas. Resultados reais."
-    />
-    <meta
-      name="keywords"
-      content="emagrecimento, perder peso, emagrecer rápido, gelatina mounjaro, GLP-1 natural, dieta, perder barriga, gordura localizada, metabolismo, emagrecimento natural"
-    />
-    <link rel="canonical" href="https://mounjarogelatinaoficial.lovable.app/" />
-    <meta name="author" content="Mounjaro Gelatina" />
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Aplicativo Protocolo Gelatina</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Estrelas do Fundo (Partículas geradas no JS) -->
+    <div id="particles-bg" class="particles-bg"></div>
 
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:image"
-      content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3425df7f-fa82-4047-990b-4bbe5d91ed4a/id-preview-23d4e093--abd0dab7-8eab-4d22-a384-8f1d2076c28b.lovable.app-1771346707673.png"
-    />
+    <!-- Splash Screen Idêntico ao Original -->
+    <div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #0c0a15; z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.8s ease, transform 0.8s ease; transform: scale(1);">
+        <h1 style="font-family: 'Playfair Display', serif; color: #facc15; font-size: 3.5rem; margin-bottom: 2px; text-shadow: 0 0 20px rgba(250,204,21,0.4); animation: fadeIn 1s ease forwards;">Protocolo</h1>
+        <h2 style="font-family: 'Playfair Display', serif; color: #a1a1aa; font-size: 1.5rem; letter-spacing: 0.5em; margin-bottom: 5px; animation: fadeIn 1.5s ease forwards; margin-left: 0.5em;">GELATINA</h2>
+        <h3 style="font-family: 'Inter', sans-serif; color: #9d174d; font-size: 0.85rem; letter-spacing: 0.6em; margin-bottom: 50px; font-weight: 600; animation: fadeIn 2s ease forwards; margin-left: 0.6em;">MOUNJARO</h3>
+        
+        <div style="width: 180px; height: 2px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; position: relative;">
+            <div style="width: 100%; height: 100%; background: #facc15; box-shadow: 0 0 10px #facc15; animation: splashLoad 2.5s ease-in-out forwards; transform-origin: left;"></div>
+        </div>
+    </div>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta
-      name="twitter:image"
-      content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3425df7f-fa82-4047-990b-4bbe5d91ed4a/id-preview-23d4e093--abd0dab7-8eab-4d22-a384-8f1d2076c28b.lovable.app-1771346707673.png"
-    />
+    <div id="app-container" style="opacity: 0; transition: opacity 0.7s ease, filter 0.7s ease; filter: blur(10px); visibility: hidden;">
 
-    <!-- === COLOQUE SEU PIXEL (FACEBOOK, UTMIFY, GOOGLE) AQUI === -->
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '769699762506486');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=769699762506486&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <span class="greeting">Olá,</span>
+                <h1>Guerreira! 👋</h1>
+            </div>
+            <div class="settings-btn">
+                <i data-lucide="settings-2" style="width: 18px; height: 18px;"></i>
+            </div>
+        </header>
 
-    <script
-      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-      data-utmify-prevent-xcod-sck
-      data-utmify-prevent-subids
-      async
-      defer
-    ></script>
-    <!-- ========================================================= -->
+        <!-- Main Content Area -->
+        <main id="app-main">
+            <!-- Dynamic content injected here -->
+        </main>
 
-    <meta property="og:title" content="Protocolo Gelatina" />
-    <meta name="twitter:title" content="Protocolo Gelatina" />
-    <meta
-      property="og:description"
-      content="Gelatina Mounjaro: ative o GLP-1 naturalmente e perca até 12kg em 30 dias. Protocolo caseiro, 100% natural. Aprovado por nutricionistas. Resultados reais."
-    />
-    <meta
-      name="twitter:description"
-      content="Gelatina Mounjaro: ative o GLP-1 naturalmente e perca até 12kg em 30 dias. Protocolo caseiro, 100% natural. Aprovado por nutricionistas. Resultados reais."
-    />
-    <link rel="preload" href="./assets/index-EKBqwSm3.js" as="script" crossorigin="anonymous">
-    <link rel="preload" href="./assets/index-DWboR8yL.css" as="style">
-    <script type="module" crossorigin src="./assets/index-EKBqwSm3.js"></script>
-    <script async src="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/sdk.js"></script>
-    <script>
-      // Tracking InitiateCheckout for Meta Pixel
-      document.addEventListener("click", function(e) {
-        var el = e.target.closest("button") || e.target.closest("a") || e.target.closest("div[role='button']");
-        var text = el ? (el.innerText || "").toUpperCase() : "";
-        if (text.includes("QUERO COMEÇAR") || text.includes("SIM, EU QUERO") || text.includes("COMPRAR")) {
-          if (typeof fbq !== 'undefined') {
-            fbq('track', 'InitiateCheckout');
-          }
-        }
-      }, true);
-    </script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DWboR8yL.css">
-  </head>
 
-  <body>
-    <div id="root"></div>
-  </body>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-tab="home">
+                <i data-lucide="home"></i>
+                <span>Início</span>
+            </button>
+            <button class="nav-item" data-tab="content">
+                <i data-lucide="utensils-crossed"></i>
+                <span>Receitas</span>
+            </button>
+            <button class="nav-item" data-tab="tools">
+                <i data-lucide="sparkles"></i>
+                <span>Nutri</span>
+            </button>
+            <button class="nav-item" data-tab="progress">
+                <i data-lucide="trending-up"></i>
+                <span>Progresso</span>
+            </button>
+            <button class="nav-item" data-tab="profile">
+                <i data-lucide="user"></i>
+                <span>Perfil</span>
+            </button>
+        </nav>
+    </div> <!-- /#app-container -->
+
+    <!-- ROOT MODALS (FORA DO APP-CONTAINER PARA MANTER POSITION: FIXED ABSOLUTO) -->
+    
+    <!-- Modal Inicial de Instruções (Aviso na frente da tela) -->
+    <div id="instructions-modal" class="modal-overlay">
+        <div class="instructions-modal-content">
+            <h2 class="inst-title">🔔 Já viu as instruções para aproveitar tudo que está incluso?</h2>
+            <p class="inst-text">Não comece antes de ver como funciona! Assim você não perde nada 😉</p>
+            <div class="inst-highlight">
+                📘 Antes de começar, veja esse passo a passo rápido para aproveitar 100% do conteúdo.
+            </div>
+            
+            <button class="btn-menu btn-green" onclick="goToInstructions()">
+                👉 Sim, quero ver as instruções 👈
+            </button>
+            <button class="btn-menu btn-outline-red" onclick="closeInstructionsModal()">
+                🏠 Já vi, quero ir para a área de membros
+            </button>
+        </div>
+    </div>
+
+    <!-- Segunda Notificação de Presente (Modal Centralizado) -->
+    <div id="gift-offer-modal" class="modal-overlay">
+        <div class="gift-offer-content">
+            <button class="btn-close-gift" onclick="closeGiftOffer()"><i data-lucide="x" style="width: 18px; height: 18px;"></i></button>
+            <div class="gift-offer-icon">🎁</div>
+            <h2 class="inst-title" style="color: #eab308; margin-top: 10px;">Você ganhou um Presente!</h2>
+            <p class="inst-text" style="color: #fff;">Queremos recompensar sua determinação inicial.</p>
+            
+            <button class="btn-menu btn-yellow" onclick="triggerRoulette()" style="margin-top: 10px; box-shadow: 0 4px 15px rgba(234, 179, 8, 0.4);">
+                👉 Clicar aqui para Abrir 👈
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal da Roleta Real -->
+    <div id="prize-modal" class="modal-overlay">
+        <div class="modal-content" style="background-color: transparent; border: none; box-shadow: none;">
+            <button id="close-modal" class="btn-close-gift" style="top: -20px; right: 0px; z-index: 10;" onclick="closeRoulette()"><i data-lucide="x" style="width: 20px; height: 20px;"></i></button>
+            
+            <h2 style="font-family: 'Playfair Display', serif; color: #fff; text-align: center; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">🎀 Gire a Roleta!</h2>
+
+            <div class="wheel-container">
+                <div class="wheel-pointer"></div>
+                <div class="wheel-board" id="wheel-board">
+                    <div class="wheel-spin-center">🎁</div>
+                </div>
+            </div>
+            
+            <div id="prize-text-area" style="display: none; background: #190c2e; padding: 20px; border-radius: 20px; border: 1px solid rgba(217, 70, 239, 0.4); margin-top: 15px;">
+                <h2 class="modal-title" style="font-size: 1.3rem;">VOCÊ FOI SORTEADA!</h2>
+                <p class="modal-text">Parabéns! 🎀 Fizemos um sorteio exclusivo e <strong>você foi contemplada com nosso bônus especial!</strong></p>
+                <button class="btn-menu btn-yellow" style="margin-top: 15px;" onclick="claimPrize()">
+                    🎁 DESCOBRIR MEU PRÊMIO!
+                </button>
+            </div>
+            
+            <button id="btn-spin-wheel" class="btn-menu btn-pink" style="margin-top: 30px; font-weight: 800; font-family: 'Inter';" onclick="startWheelSpin()">
+                🎀 GIRAR A ROLETA!
+            </button>
+        </div>
+    </div>
+
+    <!-- Recipe Details Bottom Sheet (Moved to root) -->
+    <div id="recipe-sheet-overlay" class="sheet-overlay" onclick="closeRecipeDialog(event)">
+        <div class="bottom-sheet view-animate" id="recipe-sheet-content">
+            <!-- Content injected via JS -->
+        </div>
+    </div>
+
+    <!-- App Logic -->
+    <script src="app.js"></script>
+</body>
 </html>
