@@ -356,7 +356,7 @@ window.closeInstructionsModal = function() {
 };
 
 window.goToInstructions = function() {
-    window.open('https://protocolo-gelatina-app.vercel.app/upsell1.html', '_blank');
+    window.open('https://protocolo-gelatina-app.vercel.app/obrigado.html', '_blank');
     document.getElementById('instructions-modal').classList.remove('show');
     
     setTimeout(() => {
