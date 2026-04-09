@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Aplicativo Protocolo Gelatina</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Splash Screen (Animação de Entrada) -->
+    <div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: var(--bg-main); z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.6s ease, transform 0.6s ease; transform: scale(1);">
+        <i data-lucide="sparkles" style="width: 60px; height: 60px; color: var(--btn-pink); animation: pulseRing 1.5s infinite; filter: drop-shadow(0 0 20px var(--btn-pink));"></i>
+        <h2 style="color: white; margin-top: 20px; font-family: 'Outfit', sans-serif;">Protocolo Gelatina</h2>
+        
+        <button id="btn-enter-app" class="btn-menu btn-gradient" style="width: auto; padding: 15px 40px; margin-top: 40px; font-size: 1.1rem; border-radius: 30px; animation: fadeInUp 0.8s ease forwards; opacity: 0; animation-delay: 0.5s;">
+            ENTRAR NO APLICATIVO
+        </button>
+    </div>
+
+    <div id="app-container" style="opacity: 0; transition: opacity 0.7s ease, filter 0.7s ease; filter: blur(10px); visibility: hidden;">
+
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <span class="greeting">Olá,</span>
+                <h1>Guerreira! 👋</h1>
+            </div>
+            <div class="settings-btn">
+                <i data-lucide="settings-2" style="width: 18px; height: 18px;"></i>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main id="app-main">
+            <!-- Dynamic content injected here -->
+        </main>
+
+        <!-- Modal de Sorteio (Roleta / Prêmio) -->
+        <div id="prize-modal" class="modal-overlay">
+            <div class="modal-content">
+                <button id="close-modal" class="modal-close"><i data-lucide="x" style="width: 20px; height: 20px;"></i></button>
+                
+                <!-- Área de Animação (Roleta/Presente) -->
+                <div class="prize-animation-area">
+                    <img id="prize-icon" src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" alt="Presente" class="spinning-roulette">
+                </div>
+                
+                <div id="prize-text-area" style="display: none; view-animate">
+                    <h2 class="modal-title">VOCÊ FOI SORTEADA!</h2>
+                    <p class="modal-text">Parabéns pelo seu comprometimento! 🎉 Fizemos um sorteio exclusivo entre as participantes do protocolo e <strong>você foi contemplada com nosso bônus especial!</strong></p>
+                    <p class="modal-text" style="font-size: 0.85rem;">Aperte no botão abaixo para descobrir o que você ganhou.</p>
+                    <button class="btn-menu btn-yellow" style="margin-top: 15px;" onclick="claimPrize()">
+                        🎁 DESCOBRIR MEU PRÊMIO!
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Inicial de Instruções (Aviso na frente da tela) -->
+        <div id="instructions-modal" class="modal-overlay">
+            <div class="instructions-modal-content">
+                <h2 class="inst-title">🔔 Já viu as instruções para aproveitar tudo que está incluso?</h2>
+                <p class="inst-text">Não comece antes de ver como funciona! Assim você não perde nada 😉</p>
+                <div class="inst-highlight">
+                    📘 Antes de começar, veja esse passo a passo rápido para aproveitar 100% do conteúdo.
+                </div>
+                
+                <button class="btn-menu btn-green" onclick="goToInstructions()">
+                    👉 Sim, quero ver as instruções 👈
+                </button>
+                <button class="btn-menu btn-outline-red" onclick="closeInstructionsModal()">
+                    🏠 Já vi, quero ir para a área de membros
+                </button>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-tab="home">
+                <i data-lucide="home"></i>
+                <span>Início</span>
+            </button>
+            <button class="nav-item" data-tab="content">
+                <i data-lucide="utensils-crossed"></i>
+                <span>Receitas</span>
+            </button>
+            <button class="nav-item" data-tab="tools">
+                <i data-lucide="sparkles"></i>
+                <span>Nutri</span>
+            </button>
+            <button class="nav-item" data-tab="progress">
+                <i data-lucide="trending-up"></i>
+                <span>Progresso</span>
+            </button>
+            <button class="nav-item" data-tab="profile">
+                <i data-lucide="user"></i>
+                <span>Perfil</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- App Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
