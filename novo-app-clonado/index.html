@@ -48,65 +48,7 @@
             <!-- Dynamic content injected here -->
         </main>
 
-        <!-- Modal da Roleta Real (Abre após clicar no presente) -->
-        <div id="prize-modal" class="modal-overlay">
-            <div class="modal-content" style="background-color: transparent; border: none; box-shadow: none;">
-                <button id="close-modal" class="btn-close-gift" style="top: -20px; right: 0px; z-index: 10;"><i data-lucide="x" style="width: 20px; height: 20px;"></i></button>
-                
-                <h2 style="font-family: 'Playfair Display', serif; color: #fff; text-align: center; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">🎀 Gire a Roleta!</h2>
 
-                <div class="wheel-container">
-                    <div class="wheel-pointer"></div>
-                    <div class="wheel-board" id="wheel-board">
-                        <div class="wheel-spin-center">🎁</div>
-                    </div>
-                </div>
-                
-                <div id="prize-text-area" style="display: none; background: #190c2e; padding: 20px; border-radius: 20px; border: 1px solid rgba(217, 70, 239, 0.4); margin-top: 15px;">
-                    <h2 class="modal-title" style="font-size: 1.3rem;">VOCÊ FOI SORTEADA!</h2>
-                    <p class="modal-text">Parabéns! 🎀 Fizemos um sorteio exclusivo e <strong>você foi contemplada com nosso bônus especial!</strong></p>
-                    <button class="btn-menu btn-yellow" style="margin-top: 15px;" onclick="claimPrize()">
-                        🎁 DESCOBRIR MEU PRÊMIO!
-                    </button>
-                </div>
-                
-                <button id="btn-spin-wheel" class="btn-menu btn-pink" style="margin-top: 30px; font-weight: 800; font-family: 'Inter';" onclick="startWheelSpin()">
-                    🎀 GIRAR A ROLETA!
-                </button>
-            </div>
-        </div>
-
-        <!-- Modal Inicial de Instruções (Aviso na frente da tela) -->
-        <div id="instructions-modal" class="modal-overlay">
-            <div class="instructions-modal-content">
-                <h2 class="inst-title">🔔 Já viu as instruções para aproveitar tudo que está incluso?</h2>
-                <p class="inst-text">Não comece antes de ver como funciona! Assim você não perde nada 😉</p>
-                <div class="inst-highlight">
-                    📘 Antes de começar, veja esse passo a passo rápido para aproveitar 100% do conteúdo.
-                </div>
-                
-                <button class="btn-menu btn-green" onclick="goToInstructions()">
-                    👉 Sim, quero ver as instruções 👈
-                </button>
-                <button class="btn-menu btn-outline-red" onclick="closeInstructionsModal()">
-                    🏠 Já vi, quero ir para a área de membros
-                </button>
-            </div>
-        </div>
-
-        <!-- Segunda Notificação de Presente (Modal Centralizado) -->
-        <div id="gift-offer-modal" class="modal-overlay">
-            <div class="gift-offer-content">
-                <button class="btn-close-gift" onclick="closeGiftOffer()"><i data-lucide="x" style="width: 18px; height: 18px;"></i></button>
-                <div class="gift-offer-icon">🎁</div>
-                <h2 class="inst-title" style="color: #eab308; margin-top: 10px;">Você ganhou um Presente!</h2>
-                <p class="inst-text" style="color: #fff;">Queremos recompensar sua determinação inicial.</p>
-                
-                <button class="btn-menu btn-yellow" onclick="triggerRoulette()" style="margin-top: 10px; box-shadow: 0 4px 15px rgba(234, 179, 8, 0.4);">
-                    👉 Clicar aqui para Abrir 👈
-                </button>
-            </div>
-        </div>
 
         <!-- Bottom Navigation -->
         <nav class="bottom-nav">
@@ -131,6 +73,75 @@
                 <span>Perfil</span>
             </button>
         </nav>
+    </div> <!-- /#app-container -->
+
+    <!-- ROOT MODALS (FORA DO APP-CONTAINER PARA MANTER POSITION: FIXED ABSOLUTO) -->
+    
+    <!-- Modal Inicial de Instruções (Aviso na frente da tela) -->
+    <div id="instructions-modal" class="modal-overlay">
+        <div class="instructions-modal-content">
+            <h2 class="inst-title">🔔 Já viu as instruções para aproveitar tudo que está incluso?</h2>
+            <p class="inst-text">Não comece antes de ver como funciona! Assim você não perde nada 😉</p>
+            <div class="inst-highlight">
+                📘 Antes de começar, veja esse passo a passo rápido para aproveitar 100% do conteúdo.
+            </div>
+            
+            <button class="btn-menu btn-green" onclick="goToInstructions()">
+                👉 Sim, quero ver as instruções 👈
+            </button>
+            <button class="btn-menu btn-outline-red" onclick="closeInstructionsModal()">
+                🏠 Já vi, quero ir para a área de membros
+            </button>
+        </div>
+    </div>
+
+    <!-- Segunda Notificação de Presente (Modal Centralizado) -->
+    <div id="gift-offer-modal" class="modal-overlay">
+        <div class="gift-offer-content">
+            <button class="btn-close-gift" onclick="closeGiftOffer()"><i data-lucide="x" style="width: 18px; height: 18px;"></i></button>
+            <div class="gift-offer-icon">🎁</div>
+            <h2 class="inst-title" style="color: #eab308; margin-top: 10px;">Você ganhou um Presente!</h2>
+            <p class="inst-text" style="color: #fff;">Queremos recompensar sua determinação inicial.</p>
+            
+            <button class="btn-menu btn-yellow" onclick="triggerRoulette()" style="margin-top: 10px; box-shadow: 0 4px 15px rgba(234, 179, 8, 0.4);">
+                👉 Clicar aqui para Abrir 👈
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal da Roleta Real -->
+    <div id="prize-modal" class="modal-overlay">
+        <div class="modal-content" style="background-color: transparent; border: none; box-shadow: none;">
+            <button id="close-modal" class="btn-close-gift" style="top: -20px; right: 0px; z-index: 10;" onclick="closeRoulette()"><i data-lucide="x" style="width: 20px; height: 20px;"></i></button>
+            
+            <h2 style="font-family: 'Playfair Display', serif; color: #fff; text-align: center; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">🎀 Gire a Roleta!</h2>
+
+            <div class="wheel-container">
+                <div class="wheel-pointer"></div>
+                <div class="wheel-board" id="wheel-board">
+                    <div class="wheel-spin-center">🎁</div>
+                </div>
+            </div>
+            
+            <div id="prize-text-area" style="display: none; background: #190c2e; padding: 20px; border-radius: 20px; border: 1px solid rgba(217, 70, 239, 0.4); margin-top: 15px;">
+                <h2 class="modal-title" style="font-size: 1.3rem;">VOCÊ FOI SORTEADA!</h2>
+                <p class="modal-text">Parabéns! 🎀 Fizemos um sorteio exclusivo e <strong>você foi contemplada com nosso bônus especial!</strong></p>
+                <button class="btn-menu btn-yellow" style="margin-top: 15px;" onclick="claimPrize()">
+                    🎁 DESCOBRIR MEU PRÊMIO!
+                </button>
+            </div>
+            
+            <button id="btn-spin-wheel" class="btn-menu btn-pink" style="margin-top: 30px; font-weight: 800; font-family: 'Inter';" onclick="startWheelSpin()">
+                🎀 GIRAR A ROLETA!
+            </button>
+        </div>
+    </div>
+
+    <!-- Recipe Details Bottom Sheet (Moved to root) -->
+    <div id="recipe-sheet-overlay" class="sheet-overlay" onclick="closeRecipeDialog(event)">
+        <div class="bottom-sheet view-animate" id="recipe-sheet-content">
+            <!-- Content injected via JS -->
+        </div>
     </div>
 
     <!-- App Logic -->

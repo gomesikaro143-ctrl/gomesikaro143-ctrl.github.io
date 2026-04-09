@@ -221,13 +221,6 @@ function renderContent() {
                 ${gridHtml.length > 0 ? gridHtml : '<p style="color: #a1a1aa; grid-column: span 2; text-align: center;">Nenhuma receita encontrada.</p>'}
             </div>
         </div>
-
-        <!-- Recipe Details Bottom Sheet -->
-        <div id="recipe-sheet-overlay" class="sheet-overlay" onclick="closeRecipeDialog(event)">
-            <div class="bottom-sheet view-animate" id="recipe-sheet-content">
-                <!-- Content injected via JS -->
-            </div>
-        </div>
     `;
 
     if (window.lucide) lucide.createIcons();
