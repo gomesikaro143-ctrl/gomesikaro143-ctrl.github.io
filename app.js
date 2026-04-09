@@ -424,7 +424,7 @@ window.claimPrize = function() {
     document.getElementById('prize-modal').classList.remove('show');
     
     // Se o usuário já tiver nome (já fez o quiz), pula
-    if (localStorage.getItem(STORAGE_KEYS.NAME)) {
+    if (localStorage.getItem(STORAGE_KEYS.NAME) && localStorage.getItem(STORAGE_KEYS.NAME) !== 'Guerreira') {
         renderView('home');
     } else {
         document.getElementById('quiz-modal').classList.add('show');
@@ -452,6 +452,9 @@ window.submitQuiz = function() {
 
     // Inicia Setup Loading
     startAppSetup();
+    
+    // Atualiza o Header imediatamente (antes do loading sumir, para já estar certo no fundo)
+    updateHeader();
 };
 
 function startAppSetup() {
@@ -473,12 +476,14 @@ function startAppSetup() {
     const interval = setInterval(() => {
         if (currentStage >= stages.length) {
             clearInterval(interval);
-            setTimeout(() => {
-                // Atualiza o estado global com os novos dados
-                state = getInitialState();
-                loadingScreen.classList.remove('show');
-                renderView('home');
-            }, 800);
+            // Em vez de fechar, avisa que está pronto e mostra o botão
+            loadingBar.style.width = "100%";
+            loadingText.innerText = "Protocolo Gerado com Sucesso! 🎀";
+            loadingSub.innerText = "Sua jornada personalizada começa agora.";
+            
+            const finalBtn = document.getElementById('final-access-btn-container');
+            if(finalBtn) finalBtn.style.display = 'block';
+            
             return;
         }
 
@@ -489,6 +494,15 @@ function startAppSetup() {
         currentStage++;
     }, 1200);
 }
+
+// Função final de entrada após o loading
+window.completeSetup = function() {
+    const loadingScreen = document.getElementById('setup-loading-screen');
+    // Atualiza o estado global com os novos dados salvos
+    state = getInitialState();
+    loadingScreen.classList.remove('show');
+    renderView('home');
+};
 
 // Controle do Modal de Instruções
 window.closeInstructionsModal = function() {
