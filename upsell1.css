@@ -170,6 +170,58 @@ body {
     margin-bottom: 10px;
 }
 
+/* Animations & Dynamic Effects */
+.pulse-cta {
+    animation: pulse-cta 2s infinite;
+}
+
+@keyframes pulse-cta {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.4); }
+    70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(250, 204, 21, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(250, 204, 21, 0); }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timer-box {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--pink-primary);
+    padding: 15px;
+    border-radius: 12px;
+    display: inline-flex;
+    gap: 10px;
+    font-family: 'Inter', monospace;
+    font-weight: 800;
+    margin: 20px 0;
+    box-shadow: 0 0 15px rgba(157, 23, 77, 0.2);
+}
+
+.timer-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timer-val {
+    font-size: 1.4rem;
+    color: var(--yellow-gold);
+}
+
+.timer-lbl {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
 /* Modal Styels */
 .modal-overlay {
     position: fixed;
