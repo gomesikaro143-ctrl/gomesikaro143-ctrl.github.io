@@ -23,14 +23,14 @@ pdf.set_font("helvetica", "B", 20)
 pdf.set_text_color(161, 161, 170) # #a1a1aa
 pdf.cell(0, -20, "GELATINA MOUNJARO", ln=True, align='C')
 
-# 3. Mensagem de Boas-vindas
-pdf.ln(60)
+# 3. Mensagem de Boas-vindas (SUBIDO)
+pdf.ln(50) # Reduzido de 60
 pdf.set_font("helvetica", "", 16)
 pdf.set_text_color(255, 255, 255)
-pdf.multi_cell(0, 10, "Parabéns, Guerreira! Seu acesso foi liberado com sucesso.\nClique no botão abaixo para entrar na sua área de membros exclusiva.", align='C')
+pdf.multi_cell(0, 10, "Parabéns! Seu acesso foi liberado com sucesso.\nClique no botão abaixo para entrar na sua área de membros exclusiva.", align='C')
 
-# 4. Botão Central (Grande e Verde)
-pdf.ln(30)
+# 4. Botão Central (SUBIDO)
+pdf.ln(20) # Reduzido de 30
 btn_w = 160
 btn_h = 25
 btn_x = (210 - btn_w) / 2
