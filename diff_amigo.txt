@@ -88,7 +88,7 @@
          })
        : d.jsx(W.a, {
 -          href: "https://pay.cakto.com.br/pntvqgy",
-+          href: "https://payt.site/p7CBMJ9",
++          href: "https://pay.kirvano.com/19684841-a5a6-4071-adc8-60c0d375ac8b",
            target: "_blank",
            rel: "noopener noreferrer",
            className:
