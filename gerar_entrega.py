@@ -6,61 +6,61 @@ class EntregaPDF(FPDF):
     def footer(self):
         pass
 
-# Configurações do PDF
-pdf = EntregaPDF(orientation='P', unit='mm', format='A4')
+# Configurações do PDF (Focado em Mobile: 100mm x 180mm)
+pdf = EntregaPDF(orientation='P', unit='mm', format=(100, 180))
 pdf.add_page()
 
 # 1. Fundo Escuro (Premium)
-pdf.set_fill_color(12, 10, 21) # #0c0a15 (Mesmo do Splash do App)
-pdf.rect(0, 0, 210, 297, 'F')
+pdf.set_fill_color(12, 10, 21) # #0c0a15
+pdf.rect(0, 0, 100, 180, 'F')
 
 # 2. Logo / Título
-pdf.set_font("helvetica", "B", 40)
-pdf.set_text_color(250, 204, 21) # #facc15 (Amarelo Protocolo)
-pdf.cell(0, 60, "Protocolo", ln=True, align='C')
+pdf.set_font("helvetica", "B", 30)
+pdf.set_text_color(250, 204, 21) # #facc15
+pdf.cell(0, 40, "Protocolo", ln=True, align='C')
 
-pdf.set_font("helvetica", "B", 20)
+pdf.set_font("helvetica", "B", 14)
 pdf.set_text_color(161, 161, 170) # #a1a1aa
-pdf.cell(0, -20, "GELATINA MOUNJARO", ln=True, align='C')
+pdf.cell(0, -15, "GELATINA MOUNJARO", ln=True, align='C')
 
 # 3. Mensagem de Boas-vindas (SUBIDO)
-pdf.ln(50) # Reduzido de 60
-pdf.set_font("helvetica", "", 16)
+pdf.ln(40)
+pdf.set_font("helvetica", "", 12)
 pdf.set_text_color(255, 255, 255)
-pdf.multi_cell(0, 10, "Parabéns! Seu acesso foi liberado com sucesso.\nClique no botão abaixo para entrar na sua área de membros exclusiva.", align='C')
+pdf.multi_cell(0, 7, "Parabéns! Seu acesso foi liberado com sucesso.\nClique no botão abaixo para entrar na sua área de membros exclusiva.", align='C')
 
-# 4. Botão Central (SUBIDO)
-pdf.ln(20) # Reduzido de 30
-btn_w = 160
-btn_h = 25
-btn_x = (210 - btn_w) / 2
+# 4. Botão Central (Gigante para Mobile)
+pdf.ln(15)
+btn_w = 80
+btn_h = 22
+btn_x = (100 - btn_w) / 2
 btn_y = pdf.get_y()
 
 # Sombra do botão
-pdf.set_fill_color(26, 81, 42) # Tom mais escuro para simular sombra
-pdf.rect(btn_x + 2, btn_y + 2, btn_w, btn_h, 'F')
+pdf.set_fill_color(26, 81, 42)
+pdf.rect(btn_x + 1.5, btn_y + 1.5, btn_w, btn_h, 'F')
 
 # Corpo do botão
-pdf.set_fill_color(34, 197, 94) # #22c55e (Verde vibrante)
+pdf.set_fill_color(34, 197, 94) # #22c55e
 pdf.rect(btn_x, btn_y, btn_w, btn_h, 'F')
 
 # Texto do Botão
-pdf.set_y(btn_y + 7.5)
-pdf.set_font("helvetica", "B", 14)
+pdf.set_y(btn_y + 6)
+pdf.set_font("helvetica", "B", 10)
 pdf.set_text_color(255, 255, 255)
-pdf.cell(0, 10, "CLIQUE AQUI PARA ACESSAR O APLICATIVO", ln=True, align='C')
+pdf.multi_cell(btn_w, 5, "CLIQUE AQUI PARA\nACESSAR O APLICATIVO", align='C')
 
 # Link no Botão
 landing_url = "https://protocolo-gelatina-app.vercel.app/app.html"
 pdf.link(btn_x, btn_y, btn_w, btn_h, landing_url)
 
 # 5. Rodapé
-pdf.set_y(260)
-pdf.set_font("helvetica", "I", 10)
+pdf.set_y(160)
+pdf.set_font("helvetica", "I", 8)
 pdf.set_text_color(113, 113, 122)
-pdf.cell(0, 10, "Este é seu acesso vitalício. Guarde este arquivo em um lugar seguro.", ln=True, align='C')
+pdf.cell(0, 10, "Este é seu acesso vitalício. Guarde este arquivo.", ln=True, align='C')
 
 # Salvar
 output_name = "Acesso_Protocolo_Gelatina.pdf"
 pdf.output(output_name)
-print(f"Sucesso! PDF gerado: {output_name}")
+print(f"Sucesso! PDF Mobile-First gerado: {output_name}")
