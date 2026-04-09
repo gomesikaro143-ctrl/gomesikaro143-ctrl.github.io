@@ -89,6 +89,49 @@ function renderHome() {
                 </div>
             </div>
 
+            <!-- Novas Seções (Receita, Dica, Hidratação) -->
+            <div class="daily-sections" style="margin-top: 25px; display: flex; flex-direction: column; gap: 15px;">
+                
+                <!-- Receita do Dia -->
+                <div class="recipe-card" style="background: linear-gradient(135deg, rgba(219, 39, 119, 0.2), var(--card-bg)); border: 1px solid rgba(219, 39, 119, 0.3); border-radius: 16px; padding: 20px; position: relative; overflow: hidden; cursor: pointer;" onclick="renderView('content')">
+                    <div style="position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.1;">🍮</div>
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                        <i data-lucide="star" style="color: var(--btn-yellow); width: 16px; height: 16px;"></i>
+                        <span style="color: var(--btn-yellow); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;">RECEITA DO DIA</span>
+                    </div>
+                    <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 5px; font-family: 'Outfit', sans-serif;">Gelatina de Morango</h3>
+                    <div style="display: flex; align-items: center; gap: 5px; color: var(--text-muted); font-size: 0.85rem;">
+                        <i data-lucide="clock" style="width: 14px; height: 14px;"></i> 15 min de preparo
+                    </div>
+                </div>
+
+                <!-- Dica do Protocolo -->
+                <div class="tip-card" style="background: var(--card-bg); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 10px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="lightbulb" style="color: #a855f7; width: 18px; height: 18px;"></i>
+                        <span style="color: #a855f7; font-size: 0.85rem; font-weight: 700;">DICA DO PROTOCOLO</span>
+                    </div>
+                    <p style="color: var(--text-main); font-size: 0.95rem; font-style: italic; line-height: 1.5; opacity: 0.9;">"Beba 1 copo de água 30 minutos antes do almoço para potencializar os efeitos da gelatina e aumentar a saciedade."</p>
+                </div>
+
+                <!-- Hidratação -->
+                <div class="hydration-card" style="background: var(--card-bg); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 16px; padding: 20px; margin-bottom: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <i data-lucide="droplet" style="color: #38bdf8; width: 18px; height: 18px;"></i>
+                            <span style="color: white; font-weight: 700; font-size: 1rem;">Hidratação Diária</span>
+                        </div>
+                        <span style="color: #38bdf8; font-weight: 700; font-size: 0.9rem;">0 / 8 copos</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; cursor: pointer;">
+                        <!-- Gotas de Água Placeholder -->
+                        ${[1,2,3,4,5,6,7,8].map(i => `
+                            <div style="width: 35px; height: 45px; border-radius: 20px; border: 1px dashed rgba(56, 189, 248, 0.5); display: flex; align-items: center; justify-content: center; color: rgba(56, 189, 248, 0.5); font-size: 0.9rem; transition: background 0.3s; cursor: pointer;:hover{background:rgba(56,189,248,0.2)}">💧</div>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+
         </div>
     `;
 }
