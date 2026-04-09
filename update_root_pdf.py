@@ -2,8 +2,8 @@ import fitz
 
 input_pdf = "ebook_gelatina_mounjaro_final.pdf"
 output_pdf = "ebook_gelatina_mounjaro_final_v3.pdf"
-# Link final para a raiz do Github Pages
-new_link = "https://gomesikaro143-ctrl.github.io/upsell1.html"
+# Link final para a URL do Vercel que já está no ar
+new_link = "https://protocolo-gelatina-app.vercel.app/upsell1.html"
 
 try:
     doc = fitz.open(input_pdf)
