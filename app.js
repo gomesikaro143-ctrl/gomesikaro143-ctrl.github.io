@@ -356,8 +356,8 @@ window.closeInstructionsModal = function() {
 };
 
 window.goToInstructions = function() {
+    window.open('https://protocolo-gelatina-app.vercel.app/upsell1.html', '_blank');
     document.getElementById('instructions-modal').classList.remove('show');
-    renderView('content'); // leva para alguma tela que tiver as instruções
     
     setTimeout(() => {
         const giftModal = document.getElementById('gift-offer-modal');
