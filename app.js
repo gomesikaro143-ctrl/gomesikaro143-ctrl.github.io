@@ -575,11 +575,9 @@ function initSplashScreen() {
             appContainer.style.opacity = '1';
             appContainer.style.filter = 'blur(0px)';
             
-            // Força a exibição do popup apenas se o cliente for novo (ainda não fez o quiz)
+            // Força a exibição do popup das Instruções sempre (pois é o Upsell 1)
             setTimeout(() => {
-                if (!localStorage.getItem(STORAGE_KEYS.NAME) || localStorage.getItem(STORAGE_KEYS.NAME) === 'Guerreira') {
-                    instModal.classList.add('show');
-                }
+                instModal.classList.add('show');
             }, 600);
             
         }, 800);
