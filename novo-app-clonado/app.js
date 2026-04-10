@@ -569,8 +569,8 @@ function initSplashScreen() {
 document.addEventListener('DOMContentLoaded', () => {
     const navItems = document.querySelectorAll('.nav-item');
     
-    // Inicia Particulas de Fundo Estrelado
-    initParticles();
+    // Inicia Particulas de Fundo Estrelado (Desativado por Peso)
+    // initParticles();
     
     // Inicializa a Tela de Entrada
     initSplashScreen();
