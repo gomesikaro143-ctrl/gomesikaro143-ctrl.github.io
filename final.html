@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACESSO LIBERADO! 🎉 - Protocolo Gelatina</title>
+    
+    <!-- Scripts de Rastreamento -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '769699762506486');
+    fbq('track', 'PageView');
+    fbq('track', 'Purchase', {value: 37.00, currency: 'BRL'});
+    </script>
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root { 
+            --primary: #24a148; 
+            --primary-dark: #1b8a3b;
+            --accent: #eab308;
+            --bg: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.9);
+        }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg); 
+            margin: 0; 
+            text-align: center; 
+            color: #f8fafc; 
+            line-height: 1.6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container { 
+            max-width: 500px; 
+            padding: 40px 20px;
+            background: var(--card-bg);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            margin: 20px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        h1 { 
+            font-family: 'Outfit', sans-serif; 
+            font-size: 2.2rem; 
+            color: #fff; 
+            margin-bottom: 15px; 
+            line-height: 1.1; 
+            text-transform: uppercase;
+        }
+
+        .subheadline {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            margin-bottom: 35px;
+        }
+
+        .btn-access {
+            display: block;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 22px 30px;
+            border-radius: 16px;
+            font-weight: 800;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            box-shadow: 0 10px 20px rgba(36, 161, 72, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .btn-access:hover {
+            transform: scale(1.05);
+            background: var(--primary-dark);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(36, 161, 72, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(36, 161, 72, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(36, 161, 72, 0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .disclaimer {
+            margin-top: 25px;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <span class="success-icon">🎉</span>
+        <h1>Seu Acesso Foi Liberado!</h1>
+        <p class="subheadline">Tudo pronto! Seu protocolo personalizado já pode ser acessado no botão abaixo.</p>
+
+        <a href="app.html#home" class="btn-access">
+            ACESSAR APLICATIVO
+        </a>
+
+        <p class="disclaimer">
+            Você também recebeu um e-mail com os dados de acesso. Caso precise de ajuda, entre em contato com nosso suporte.
+        </p>
+    </div>
+
+</body>
+</html>
