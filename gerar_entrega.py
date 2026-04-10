@@ -1,66 +1,64 @@
-from fpdf import FPDF
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
+from reportlab.lib.colors import HexColor
 
-class EntregaPDF(FPDF):
-    def header(self):
-        pass
-    def footer(self):
-        pass
+# Setup do arquivo
+pdf_path = "/Users/macbook/site gelatina moujaro/Acesso_Aplicativo_Desafio_21D.pdf"
+c = canvas.Canvas(pdf_path, pagesize=letter)
+width, height = letter
 
-# Configurações do PDF (Focado em Mobile: 100mm x 180mm)
-pdf = EntregaPDF(orientation='P', unit='mm', format=(100, 180))
-pdf.add_page()
+# Cores
+bg_color = HexColor("#090e17")
+primary_color = HexColor("#10b981") # Verde Mounjaro
+text_light = HexColor("#f8fafc")
+text_muted = HexColor("#94a3b8")
 
-# 1. Fundo Escuro (Premium)
-pdf.set_fill_color(12, 10, 21) # #0c0a15
-pdf.rect(0, 0, 100, 180, 'F')
+# Fundo do PDF
+c.setFillColor(bg_color)
+c.rect(0, 0, width, height, fill=1)
 
-# 2. Logo / Título
-pdf.set_font("helvetica", "B", 30)
-pdf.set_text_color(250, 204, 21) # #facc15
-pdf.cell(0, 40, "Protocolo", ln=True, align='C')
+# Textos Principais
+c.setFillColor(text_light)
+c.setFont("Helvetica-Bold", 26)
+c.drawCentredString(width/2, height - 120, "PARABÉNS PELA DECISÃO!")
 
-pdf.set_font("helvetica", "B", 14)
-pdf.set_text_color(161, 161, 170) # #a1a1aa
-pdf.cell(0, -15, "GELATINA MOUNJARO", ln=True, align='C')
+c.setFont("Helvetica-Bold", 18)
+c.setFillColor(primary_color)
+c.drawCentredString(width/2, height - 160, "DESAFIO 21 DIAS + GELATINA MOUNJARO")
 
-# 3. Mensagem de Boas-vindas (SUBIDO)
-pdf.ln(40)
-pdf.set_font("helvetica", "", 12)
-pdf.set_text_color(255, 255, 255)
-pdf.multi_cell(0, 7, "Parabéns! Seu acesso foi liberado com sucesso.\nClique no botão abaixo para entrar na sua área de membros exclusiva.", align='C')
+c.setFont("Helvetica", 12)
+c.setFillColor(text_muted)
+c.drawCentredString(width/2, height - 200, "Seu aplicativo exclusivo já está liberado. Siga o passo a passo diário")
+c.drawCentredString(width/2, height - 220, "para potencializar a queima e a firmeza da sua pele.")
 
-# 4. Botão Central (Gigante para Mobile)
-pdf.ln(15)
-btn_w = 80
-btn_h = 22
-btn_x = (100 - btn_w) / 2
-btn_y = pdf.get_y()
+# BOTÃO VERDE PULSANTE (Estático no PDF mas com cara de botão)
+btn_x = width/2 - 180
+btn_y = height - 380
+btn_width = 360
+btn_height = 65
 
-# Sombra do botão
-pdf.set_fill_color(26, 81, 42)
-pdf.rect(btn_x + 1.5, btn_y + 1.5, btn_w, btn_h, 'F')
+# Sombra / Contorno brilhante do botão
+c.setFillColor(HexColor("#0d9467"))
+c.roundRect(btn_x-3, btn_y-3, btn_width+6, btn_height+6, 12, stroke=0, fill=1)
 
-# Corpo do botão
-pdf.set_fill_color(34, 197, 94) # #22c55e
-pdf.rect(btn_x, btn_y, btn_w, btn_h, 'F')
+# Botão principal
+c.setFillColor(primary_color)
+c.roundRect(btn_x, btn_y, btn_width, btn_height, 10, stroke=0, fill=1)
 
 # Texto do Botão
-pdf.set_y(btn_y + 6)
-pdf.set_font("helvetica", "B", 10)
-pdf.set_text_color(255, 255, 255)
-pdf.multi_cell(btn_w, 5, "CLIQUE AQUI PARA\nACESSAR O APLICATIVO", align='C')
+c.setFillColor(text_light)
+c.setFont("Helvetica-Bold", 18)
+c.drawCentredString(width/2, btn_y + 25, "CLIQUE AQUI PARA ACESSAR O APP")
 
-# Link no Botão
-landing_url = "https://protocolo-gelatina-app.vercel.app/app.html"
-pdf.link(btn_x, btn_y, btn_w, btn_h, landing_url)
+# Transformar o Botão em um Link Clicável
+app_link = "https://app-desafio-21d.vercel.app/"
+c.linkURL(app_link, (btn_x, btn_y, btn_x + btn_width, btn_y + btn_height), relative=1)
 
-# 5. Rodapé
-pdf.set_y(160)
-pdf.set_font("helvetica", "I", 8)
-pdf.set_text_color(113, 113, 122)
-pdf.cell(0, 10, "Este é seu acesso vitalício. Guarde este arquivo.", ln=True, align='C')
+# Rodapé
+c.setFont("Helvetica", 10)
+c.setFillColor(text_muted)
+c.drawCentredString(width/2, 50, "Atenção: Salve este PDF ou marque a página do aplicativo nos seus favoritos.")
+c.drawCentredString(width/2, 35, "Link direto: " + app_link)
 
-# Salvar
-output_name = "Acesso_Protocolo_Gelatina.pdf"
-pdf.output(output_name)
-print(f"Sucesso! PDF Mobile-First gerado: {output_name}")
+c.save()
+print("PDF gerado com sucesso em:", pdf_path)
