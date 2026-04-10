@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESPERA! NÃO FECHE ESTA PÁGINA - Protocolo Gelatina</title>
+    <title>ACESSO LIBERADO! 🎉 - Protocolo Gelatina</title>
     
     <!-- Scripts de Rastreamento -->
     <script>
@@ -18,14 +18,6 @@
     fbq('init', '769699762506486');
     fbq('track', 'PageView');
     fbq('track', 'Purchase', {value: 37.00, currency: 'BRL'});
-
-    document.addEventListener("click", function(e) {
-        var el = e.target.closest("a") || e.target.closest("button") || e.target.closest("div[role='button']");
-        var text = el ? (el.innerText || "").toUpperCase() : "";
-        if (text.includes("QUERO") || text.includes("SIM") || text.includes("ACELERAR")) {
-            fbq('track', 'InitiateCheckout');
-        }
-    }, true);
     </script>
     <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
     
@@ -36,9 +28,8 @@
             --primary: #24a148; 
             --primary-dark: #1b8a3b;
             --accent: #eab308;
-            --danger: #ef4444; 
             --bg: #0f172a;
-            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-bg: rgba(30, 41, 59, 0.9);
         }
         
         body { 
@@ -48,264 +39,91 @@
             text-align: center; 
             color: #f8fafc; 
             line-height: 1.6;
-        }
-        
-        /* Barra de Urgência */
-        .urgency-bar {
-            background: var(--primary);
-            color: white;
-            padding: 12px;
-            font-size: 0.9rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(36, 161, 72, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
 
-        .container { max-width: 600px; margin: 0 auto; padding: 30px 20px; }
-        
-        .confirmation-badge {
-            background: rgba(16, 185, 129, 0.2);
-            color: #4ade80;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            margin-bottom: 25px;
-            border: 1px solid rgba(74, 222, 128, 0.3);
+        .container { 
+            max-width: 500px; 
+            padding: 40px 20px;
+            background: var(--card-bg);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            margin: 20px;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
         }
 
         h1 { 
             font-family: 'Outfit', sans-serif; 
-            font-size: 1.8rem; 
+            font-size: 2.2rem; 
             color: #fff; 
             margin-bottom: 15px; 
-            line-height: 1.2; 
+            line-height: 1.1; 
+            text-transform: uppercase;
         }
-
-        .highlight-red { color: #f87171; font-weight: 900; }
 
         .subheadline {
             font-size: 1.1rem;
             color: #cbd5e1;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
-        .vagas-badge {
-            display: inline-block;
-            background: rgba(24acc15, 0.1);
-            color: #facc15;
-            padding: 6px 15px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 25px;
-            border: 1px solid rgba(250, 204, 21, 0.2);
-        }
-        
-        /* Container do Vídeo */
-        .video-box {
-            background: #000;
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            border: 2px solid rgba(255,255,255,0.1);
-            overflow: hidden;
-            margin-bottom: 25px;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-        }
-
-        /* Elementos Ocultos (Delay) */
-        .delayed-content {
-            display: none;
-            animation: fadeIn 1s ease-out forwards;
-        }
-
-        /* Botão CTA Principal */
-        .btn-cta {
+        .btn-access {
             display: block;
-            background: linear-gradient(135deg, #24a148 0%, #1b8a3b 100%);
+            background: var(--primary);
             color: white;
             text-decoration: none;
-            padding: 20px 30px;
-            border-radius: 15px;
-            font-size: 1.2rem;
+            padding: 22px 30px;
+            border-radius: 16px;
             font-weight: 800;
-            font-family: 'Outfit', sans-serif;
-            margin: 20px auto;
-            box-shadow: 0 10px 25px rgba(36, 161, 72, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
-            animation: pulse-cta 2s infinite;
-            text-transform: uppercase;
-        }
-
-        @keyframes pulse-cta {
-            0% { transform: scale(1); box-shadow: 0 10px 25px rgba(36, 161, 72, 0.4); }
-            50% { transform: scale(1.03); box-shadow: 0 15px 35px rgba(36, 161, 72, 0.6); }
-            100% { transform: scale(1); box-shadow: 0 10px 25px rgba(36, 161, 72, 0.4); }
-        }
-
-        /* Seções de Conteúdo */
-        .info-section {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 25px;
-            margin-top: 30px;
-            text-align: left;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .section-title {
-            font-family: 'Outfit', sans-serif;
-            color: var(--accent);
             font-size: 1.3rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            text-transform: uppercase;
+            box-shadow: 0 10px 20px rgba(36, 161, 72, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
         }
 
-        .benefit-item {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
+        .btn-access:hover {
+            transform: scale(1.05);
+            background: var(--primary-dark);
         }
 
-        .benefit-icon { color: var(--primary); font-weight: bold; }
-
-        /* Depoimentos */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-            margin-top: 20px;
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(36, 161, 72, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(36, 161, 72, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(36, 161, 72, 0); }
         }
 
-        .testimonial-img {
-            width: 100%;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* FAQ */
-        .faq-item {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .faq-q { font-weight: 700; color: #fff; margin-bottom: 5px; display: block; }
-        .faq-a { font-size: 0.9rem; color: #a1a1aa; }
-
-        .no-interest {
-            margin-top: 40px;
-            padding-bottom: 80px;
-        }
-
-        .btn-no-red {
-            color: #94a3b8;
-            font-weight: 600;
-            text-decoration: underline;
+        .disclaimer {
+            margin-top: 25px;
             font-size: 0.85rem;
-            opacity: 0.6;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            color: #64748b;
         }
     </style>
 </head>
 <body>
 
-    <div class="urgency-bar">Parabéns! Oferta única liberada 🎁</div>
-
     <div class="container">
-        <div class="confirmation-badge">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            COMPRA APROVADA!
-        </div>
+        <span class="success-icon">🎉</span>
+        <h1>Seu Acesso Foi Liberado!</h1>
+        <p class="subheadline">Tudo pronto! Seu protocolo personalizado já pode ser acessado no botão abaixo.</p>
 
-        <h1>Como <span class="highlight-red">ACELERAR</span> seus Resultados sem ESFORÇO EXTRA!</h1>
-        <p class="subheadline">Isso potencializa tudo o que você acabou de acessar da Gelatina Mounjaro!</p>
+        <a href="https://protocolo-gelatina-app.vercel.app/app.html#home" class="btn-access">
+            ACESSAR APLICATIVO
+        </a>
 
-        <div class="vagas-badge">Acesso único | Disponível - Apenas 22 vagas</div>
-
-        <div class="video-box">
-            <!-- PLAYER CONVERTEAI - FORMATO MOBILE -->
-            <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/sdk.js", s.async=!0,document.head.appendChild(s); </script> 
-            <div id="ifr_69d6fe2d450ab57d52a55788_wrapper" style="margin: 0 auto; width: 100%; max-width: 400px;"> 
-                <div style="position: relative; padding: 177.63157894736844% 0 0 0;" id="ifr_69d6fe2d450ab57d52a55788_aspect"> 
-                    <iframe frameborder="0" allowfullscreen src="about:blank" id="ifr_69d6fe2d450ab57d52a55788" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" referrerpolicy="origin" onload=" this.onload=null, this.src='https://scripts.converteai.net/77523c7b-c31c-4d97-b00f-a3ae8b422951/players/69d6fe2d450ab57d52a55788/v4/embed.html' +(location.search||'?') +'&vl=' +encodeURIComponent(location.href)"></iframe> 
-                </div> 
-            </div>
-        </div>
-
-        <!-- CONTEÚDO COM DELAY -->
-        <div class="delayed-content" id="delayed-elements">
-            <div class="no-interest" style="margin-top: 10px; margin-bottom: 20px;">
-                <a href="downsell.html" class="btn-no-red" style="font-size: 0.75rem; opacity: 0.5;">NÃO QUERO, OBRIGADO!</a>
-            </div>
-
-            <div class="info-section">
-                <h2 class="section-title">✨ Por que você precisa disso?</h2>
-                <div class="benefit-item">
-                    <span class="benefit-icon">✓</span>
-                    <span><strong>Ação Anti-Flacidez:</strong> O Protocolo estimula o colágeno profundo enquanto você emagrece.</span>
-                </div>
-                <div class="benefit-item">
-                    <span class="benefit-icon">✓</span>
-                    <span><strong>Efeito Firmeza:</strong> Evite o "derretimento" facial e corporal comum na perda rápida de peso.</span>
-                </div>
-                <div class="benefit-item">
-                    <span class="benefit-icon">✓</span>
-                    <span><strong>Simples e Prático:</strong> São apenas 5 minutos por dia adicionados à sua rotina.</span>
-                </div>
-            </div>
-
-            <div class="info-section">
-                <h2 class="section-title">💬 Quem já está usando</h2>
-                <div class="testimonials-grid">
-                    <img src="https://via.placeholder.com/400x300?text=Depoimento+1" alt="Depoimento" class="testimonial-img">
-                    <img src="https://via.placeholder.com/400x300?text=Depoimento+2" alt="Depoimento" class="testimonial-img">
-                </div>
-            </div>
-
-            <div class="info-section">
-                <h2 class="section-title">❓ Perguntas Frequentes</h2>
-                <div class="faq-item">
-                    <span class="faq-q">Como recebo o acesso?</span>
-                    <span class="faq-a">O acesso é enviado imediatamente para o seu e-mail após a confirmação.</span>
-                </div>
-                <div class="faq-item">
-                    <span class="faq-q">Preciso comprar algum creme caro?</span>
-                    <span class="faq-a">Não! O foco são estímulos naturais e suplementação específica de baixo custo.</span>
-                </div>
-            </div>
-
-        </div>
-
-        <footer>
-            <p>&copy; 2024 Gelatina Bariatrica - Todos os direitos reservados.</p>
-        </footer>
+        <p class="disclaimer">
+            Você também recebeu um e-mail com os dados de acesso. Caso precise de ajuda, entre em contato com nosso suporte.
+        </p>
     </div>
 
-    <script>
-        // Revelar conteúdo aos 9 minutos e 9 segundos (549000ms)
-        setTimeout(function() {
-            const delayed = document.getElementById('delayed-elements');
-            if (delayed) delayed.style.display = 'block';
-        }, 549000);
-
-        // Inicializar ícones Lucide
-        if (window.lucide) {
-            lucide.createIcons();
-        }
-    </script>
 </body>
 </html>
