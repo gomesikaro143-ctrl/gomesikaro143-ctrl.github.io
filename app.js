@@ -390,6 +390,7 @@ window.triggerRoulette = function() {
 
 window.closeRoulette = function() {
     document.getElementById('prize-modal').classList.remove('show');
+    setTimeout(() => { triggerQuiz(); }, 500);
 };
 
 window.startWheelSpin = function() {
@@ -417,18 +418,23 @@ window.startWheelSpin = function() {
 
 window.closeGiftOffer = function() {
     document.getElementById('gift-offer-modal').classList.remove('show');
+    // Mesmo recusando o presente, força a coleta de nome
+    setTimeout(() => { triggerQuiz(); }, 500);
 };
 
-// Ação ao aceitar o prêmio -> Agora leva para o QUIZ
-window.claimPrize = function() {
-    document.getElementById('prize-modal').classList.remove('show');
-    
-    // Se o usuário já tiver nome (já fez o quiz), pula
+// Centralização da chamada do Quiz para garantir independência
+window.triggerQuiz = function() {
     if (localStorage.getItem(STORAGE_KEYS.NAME) && localStorage.getItem(STORAGE_KEYS.NAME) !== 'Guerreira') {
         renderView('home');
     } else {
         document.getElementById('quiz-modal').classList.add('show');
     }
+};
+
+// Ação ao aceitar o prêmio -> Agora leva para o QUIZ
+window.claimPrize = function() {
+    document.getElementById('prize-modal').classList.remove('show');
+    triggerQuiz();
 };
 
 window.submitQuiz = function() {
