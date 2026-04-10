@@ -1,0 +1,16 @@
+{
+  "name": "Protocolo Gelatina",
+  "short_name": "Protocolo",
+  "description": "Gelatina Mounjaro",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#090e17",
+  "theme_color": "#ff1a75",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/8146/8146003.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
