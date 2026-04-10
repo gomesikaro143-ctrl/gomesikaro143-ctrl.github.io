@@ -5,7 +5,7 @@ input_pdf = "ebook_gelatina_mounjaro_final.pdf"
 output_pdf = "ebook_gelatina_mounjaro_final_updated.pdf"
 
 # Link para o Botão 2 (Acompanhamento Exclusivo)
-checkout_link = "https://pay.kirvano.com/d07c776b-2a48-491b-8b75-790115a11a08"
+checkout_link = "https://vip-mentoria-site.vercel.app"
 
 try:
     doc = fitz.open(input_pdf)
