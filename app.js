@@ -575,10 +575,12 @@ function initSplashScreen() {
             appContainer.style.opacity = '1';
             appContainer.style.filter = 'blur(0px)';
             
-            // Força a exibição do popup de "Leia as Instruções" idêntico ao site original
+            // Força a exibição do popup apenas se o cliente for novo (ainda não fez o quiz)
             setTimeout(() => {
-                instModal.classList.add('show');
-            }, 600); // delay de segurança para animação principal terminar
+                if (!localStorage.getItem(STORAGE_KEYS.NAME) || localStorage.getItem(STORAGE_KEYS.NAME) === 'Guerreira') {
+                    instModal.classList.add('show');
+                }
+            }, 600);
             
         }, 800);
     }, 2800); // 2.5s loading + 300ms suspance
