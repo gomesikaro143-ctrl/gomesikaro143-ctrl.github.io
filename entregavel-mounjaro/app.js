@@ -412,10 +412,13 @@ function initSplashScreen() {
             appContainer.style.opacity = '1';
             appContainer.style.filter = 'blur(0px)';
             
-            // Força a exibição do popup de "Leia as Instruções" idêntico ao site original
-            setTimeout(() => {
-                instModal.classList.add('show');
-            }, 600); // delay de segurança para animação principal terminar
+            // Força a exibição do popup de "Leia as Instruções" apenas no primeiro acesso do cliente
+            if(!localStorage.getItem('sawAppNotifications')) {
+                setTimeout(() => {
+                    instModal.classList.add('show');
+                    localStorage.setItem('sawAppNotifications', 'true');
+                }, 600); // delay de segurança para animação principal terminar
+            }
             
         }, 800);
     }, 2800); // 2.5s loading + 300ms suspance

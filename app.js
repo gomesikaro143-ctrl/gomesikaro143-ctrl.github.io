@@ -575,10 +575,13 @@ function initSplashScreen() {
             appContainer.style.opacity = '1';
             appContainer.style.filter = 'blur(0px)';
             
-            // Força a exibição do popup das Instruções sempre (pois é o Upsell 1)
-            setTimeout(() => {
-                instModal.classList.add('show');
-            }, 600);
+            // Força a exibição do popup das Instruções apenas no primeiro acesso do cliente
+            if(!localStorage.getItem('sawAppNotifications')) {
+                setTimeout(() => {
+                    instModal.classList.add('show');
+                    localStorage.setItem('sawAppNotifications', 'true');
+                }, 600);
+            }
             
         }, 800);
     }, 2800); // 2.5s loading + 300ms suspance
