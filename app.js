@@ -38,6 +38,10 @@ window.toggleDay = function(dayNumber) {
     renderView('home', false);
 }
 
+window.potencializarResultados = function() {
+    alert("Ação em breve!");
+};
+
 function getInitialState() {
     const name = localStorage.getItem(STORAGE_KEYS.NAME) || "Guerreira";
     const weight = localStorage.getItem(STORAGE_KEYS.WEIGHT) || "0kg";
@@ -183,6 +187,10 @@ function renderHome() {
                 </button>
             </div>
             ${(isCurrent || isCompleted) ? recipesHTML : ''}
+            <button onclick="potencializarResultados()" style="width: 100%; margin-top: 15px; background: linear-gradient(135deg, #f59e0b, #d97706); border: none; border-radius: 12px; padding: 12px; color: white; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.5px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); transition: 0.2s; text-transform: uppercase;">
+                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                POTENCIALIZAR RESULTADOS
+            </button>
         </div>
         `;
     }
