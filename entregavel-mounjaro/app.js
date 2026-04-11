@@ -59,7 +59,6 @@ function renderHome() {
                      : (isCurrent ? "background: linear-gradient(135deg, rgba(219, 39, 119, 0.15), var(--card-bg)); border: 1px solid rgba(219, 39, 119, 0.7); box-shadow: 0 4px 15px rgba(219, 39, 119, 0.25);" 
                      : "background: var(--card-bg); border: 1px dashed rgba(255, 255, 255, 0.1); opacity: 0.45; filter: grayscale(1);");
         
-        // Disable click for locked
         let disableToggle = (!isCompleted && !isCurrent) ? "pointer-events: none;" : "";
         let checkStyle = isCompleted ? "background: #10b981; color: white;" : (isCurrent ? "background: var(--btn-pink); color: white;" : "background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.2);");
         let checkText = isCompleted ? "<i data-lucide='check' style='width: 14px; height: 14px;'></i> Concluído" : "Dar Check";
@@ -98,11 +97,18 @@ function renderHome() {
                     ${checkText}
                 </button>
             </div>
-            ${(isCurrent || isCompleted) ? recipesHTML : ''}
-            <button onclick="potencializarResultados()" style="width: 100%; margin-top: 15px; background: linear-gradient(135deg, #f59e0b, #d97706); border: none; border-radius: 12px; padding: 12px; color: white; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.5px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); transition: 0.2s; text-transform: uppercase;">
-                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
-                POTENCIALIZAR RESULTADOS
+            
+            <button id="btn-abrir-dia-${d}" onclick="toggleAccordion(${d})" style="width: 100%; margin-top: 15px; padding: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; color: var(--text-main); font-weight: 600; cursor: pointer; font-family: 'Outfit'; display: flex; justify-content: center; align-items: center; gap: 5px; transition: 0.2s;">
+                Abrir Dia ${d} <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
             </button>
+            
+            <div id="content-dia-${d}" style="display: none; flex-direction: column; opacity: 0; transition: opacity 0.3s; margin-top: 5px;">
+                ${recipesHTML}
+                <button onclick="potencializarResultados()" style="width: 100%; margin-top: 15px; background: linear-gradient(135deg, #f59e0b, #d97706); border: none; border-radius: 12px; padding: 12px; color: white; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.5px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); transition: 0.2s; text-transform: uppercase;">
+                    <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                    POTENCIALIZAR RESULTADOS
+                </button>
+            </div>
         </div>
         `;
     }
@@ -115,6 +121,7 @@ function renderHome() {
                 ACESSAR AS 3 RECEITAS MAIS FAMOSAS
             </button>
             <p style="text-align: center; color: var(--text-muted); font-size: 0.8rem; margin-top: -8px; margin-bottom: 12px; font-style: italic;">✨ Rola pra baixo! Mais de 200 receitas bônus na aba inferior.</p>
+            
             <button class="btn-menu btn-yellow" onclick="window.open('https://protocolo-gelatina-app.vercel.app/obrigado.html', '_blank')">
                 <i data-lucide="file-text" style="width: 18px; height: 18px;"></i>
                 ACESSAR INSTRUÇÕES
@@ -157,7 +164,7 @@ function renderHome() {
         </div>
     `;
 }
-
+}
 // ----------------------------------------------------
 // ABA DE CONTEÚDO (RECEITAS OFICIAIS)
 // ----------------------------------------------------
