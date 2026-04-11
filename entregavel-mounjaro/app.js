@@ -63,6 +63,7 @@ function renderHome() {
         let checkStyle = isCompleted ? "background: #10b981; color: white;" : (isCurrent ? "background: var(--btn-pink); color: white;" : "background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.2);");
         let checkText = isCompleted ? "<i data-lucide='check' style='width: 14px; height: 14px;'></i> Concluído" : "Dar Check";
         
+        
         let dayRecipes = (typeof recipesDatabase !== 'undefined') ? recipesDatabase.filter(r => r.dayOfPlan == d) : [];
         let recipesHTML = '';
         if(dayRecipes.length > 0) {
@@ -81,7 +82,7 @@ function renderHome() {
         }
         
         timelineHTML += `
-        <div class="day-card" onclick="toggleAccordion(${d})" style="cursor: pointer; border-radius: 16px; padding: 20px; transition: all 0.3s; position: relative; overflow: hidden; ${cardStyle}">
+        <div class="day-card" style="border-radius: 16px; padding: 20px; transition: all 0.3s; position: relative; overflow: hidden; ${cardStyle}">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <div style="display: flex; align-items: center; gap: 12px;">
                     <div style="width: 42px; height: 42px; border-radius: 12px; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; font-weight: 800; font-family: 'Outfit'; font-size: 1.1rem; color: ${isCurrent ? 'var(--btn-yellow)' : 'inherit'};">
@@ -93,21 +94,15 @@ function renderHome() {
                     </div>
                 </div>
                 
-                <button onclick="toggleDay(event, ${d})" style="border: none; border-radius: 20px; padding: 8px 16px; font-size: 0.8rem; font-weight: 800; display: flex; align-items: center; gap: 6px; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.1); ${disableToggle} ${checkStyle}">
+                <button onclick="toggleDay(${d})" style="border: none; border-radius: 20px; padding: 8px 16px; font-size: 0.8rem; font-weight: 800; display: flex; align-items: center; gap: 6px; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.1); ${disableToggle} ${checkStyle}">
                     ${checkText}
                 </button>
             </div>
             
-            <div id="content-dia-${d}" style="display: none; flex-direction: column; opacity: 0; transition: opacity 0.3s; margin-top: 5px;">
-                ${recipesHTML}
-                <button onclick="potencializarResultados()" style="width: 100%; margin-top: 15px; background: linear-gradient(135deg, #f59e0b, #d97706); border: none; border-radius: 12px; padding: 12px; color: white; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.5px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); transition: 0.2s; text-transform: uppercase;">
-                    <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
-                    POTENCIALIZAR RESULTADOS
-                </button>
-            </div>
+            ${(isCurrent || isCompleted) ? recipesHTML : ''}
         </div>
         `;
-    }
+}
     timelineHTML += `</div>`;
 
     appMain.innerHTML = `
@@ -1310,10 +1305,15 @@ window.openRecipeDialog = function(id) {
         <div class="sheet-box" style="margin-bottom: 20px; padding: 16px;">
             <span class="box-label" style="color: #facc15; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.5px;">MODO DE PREPARO (COMO FAZER)</span>
             <p style="white-space: pre-line; color: var(--text-main); font-size: 0.95rem; margin-top: 6px; line-height: 1.6;">${recipe.instructions}</p>
-        </div>` : ''}
+        
+        <button onclick="window.potencializarResultados()" style="width: 100%; margin-top: 5px; margin-bottom: 20px; background: linear-gradient(135deg, #f59e0b, #d97706); border: none; border-radius: 12px; padding: 14px; color: white; font-weight: 800; font-size: 0.9rem; letter-spacing: 0.5px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); transition: 0.3s; text-transform: uppercase;">
+            <i data-lucide="zap" style="width: 18px; height: 18px;"></i>
+            POTENCIALIZAR RESULTADOS
+        </button>
     `;
 
     overlay.classList.add('show');
+
     if (window.lucide) lucide.createIcons();
 };
 
