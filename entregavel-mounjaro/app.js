@@ -1305,6 +1305,7 @@ window.openRecipeDialog = function(id) {
         <div class="sheet-box" style="margin-bottom: 20px; padding: 16px;">
             <span class="box-label" style="color: #facc15; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.5px;">MODO DE PREPARO (COMO FAZER)</span>
             <p style="white-space: pre-line; color: var(--text-main); font-size: 0.95rem; margin-top: 6px; line-height: 1.6;">${recipe.instructions}</p>
+        </div>` : ''}
         
         <button onclick="window.potencializarResultados()" style="width: 100%; margin-top: 5px; margin-bottom: 20px; background: linear-gradient(135deg, #f59e0b, #d97706); border: none; border-radius: 12px; padding: 14px; color: white; font-weight: 800; font-size: 0.9rem; letter-spacing: 0.5px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); transition: 0.3s; text-transform: uppercase;">
             <i data-lucide="zap" style="width: 18px; height: 18px;"></i>
