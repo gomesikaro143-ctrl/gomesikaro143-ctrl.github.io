@@ -53,7 +53,7 @@ window.toggleAccordion = function(d) {
 }
 
 window.potencializarResultados = function() {
-    window.open('https://potencializador-treinos.vercel.app', '_blank');
+    window.open('https://upsell-treinos-app.vercel.app', '_blank');
 }
 
 function getInitialState() {
