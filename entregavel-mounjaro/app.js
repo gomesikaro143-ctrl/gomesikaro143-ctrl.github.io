@@ -152,7 +152,6 @@ function renderHome() {
         </div>
     `;
 }
-}
 
 // ----------------------------------------------------
 // ABA DE CONTEÚDO (RECEITAS OFICIAIS)
