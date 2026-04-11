@@ -18,3 +18,4 @@ __pycache__/
 novo-app-clonado/venv/
 app-desafio-21d/
 *.zip
+.env

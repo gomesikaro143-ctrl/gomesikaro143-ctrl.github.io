@@ -1,0 +1,12 @@
+{
+  "name": "protocolo-gelatina-webhook",
+  "version": "1.0.0",
+  "description": "Webhook para automação de entrega via Kirvano + Resend",
+  "main": "api/kirvano.js",
+  "dependencies": {
+    "resend": "^3.0.0"
+  },
+  "scripts": {
+    "start": "node api/kirvano.js"
+  }
+}
