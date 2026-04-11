@@ -12,6 +12,15 @@ module.exports = async (req, res) => {
   try {
     const payload = req.body;
     
+    // 0. Validação de Segurança (Token)
+    const kirvanoToken = req.headers['x-kirvano-token']; // Kirvano envia neste header
+    const expectedToken = process.env.KIRVANO_WEBHOOK_TOKEN;
+
+    if (expectedToken && kirvanoToken !== expectedToken) {
+      console.error('ALERTA: Tentativa de acesso não autorizado! Token inválido.');
+      return res.status(401).json({ error: 'Não autorizado. Token de segurança inválido.' });
+    }
+
     // Log detalhado para depuração no painel da Vercel
     console.log('--- NOVO WEBHOOK KIRVANO ---');
     console.log('ID da Venda:', payload.sale_id);
