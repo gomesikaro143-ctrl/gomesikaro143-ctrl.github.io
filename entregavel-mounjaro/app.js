@@ -81,7 +81,7 @@ function renderHome() {
         }
         
         timelineHTML += `
-        <div class="day-card" style="border-radius: 16px; padding: 20px; transition: all 0.3s; position: relative; overflow: hidden; ${cardStyle}">
+        <div class="day-card" onclick="toggleAccordion(${d})" style="cursor: pointer; border-radius: 16px; padding: 20px; transition: all 0.3s; position: relative; overflow: hidden; ${cardStyle}">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <div style="display: flex; align-items: center; gap: 12px;">
                     <div style="width: 42px; height: 42px; border-radius: 12px; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; font-weight: 800; font-family: 'Outfit'; font-size: 1.1rem; color: ${isCurrent ? 'var(--btn-yellow)' : 'inherit'};">
@@ -93,14 +93,10 @@ function renderHome() {
                     </div>
                 </div>
                 
-                <button onclick="toggleDay(${d})" style="border: none; border-radius: 20px; padding: 8px 16px; font-size: 0.8rem; font-weight: 800; display: flex; align-items: center; gap: 6px; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.1); ${disableToggle} ${checkStyle}">
+                <button onclick="toggleDay(event, ${d})" style="border: none; border-radius: 20px; padding: 8px 16px; font-size: 0.8rem; font-weight: 800; display: flex; align-items: center; gap: 6px; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.1); ${disableToggle} ${checkStyle}">
                     ${checkText}
                 </button>
             </div>
-            
-            <button id="btn-abrir-dia-${d}" onclick="toggleAccordion(${d})" style="width: 100%; margin-top: 15px; padding: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; color: var(--text-main); font-weight: 600; cursor: pointer; font-family: 'Outfit'; display: flex; justify-content: center; align-items: center; gap: 5px; transition: 0.2s;">
-                Abrir Dia ${d} <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
-            </button>
             
             <div id="content-dia-${d}" style="display: none; flex-direction: column; opacity: 0; transition: opacity 0.3s; margin-top: 5px;">
                 ${recipesHTML}
