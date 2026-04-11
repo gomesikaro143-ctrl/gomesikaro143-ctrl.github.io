@@ -58,7 +58,7 @@ window.toggleAccordion = function(d) {
 }
 
 window.potencializarResultados = function() {
-    alert("Ação em breve!");
+    window.open('https://potencializador-treinos.vercel.app', '_blank');
 }
 
 function getInitialState() {
