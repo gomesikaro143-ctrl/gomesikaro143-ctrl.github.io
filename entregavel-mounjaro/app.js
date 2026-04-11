@@ -149,14 +149,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 1: Queima Gordura. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Gengibre, Adoçante natural stevia, Pedaços frescos de Limão",
-        "instructions": "1. Prepare o chá de Gengibre quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Limão.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Gengibre para chá
-• Limão
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Gengibre quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Limão.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Gengibre para chá\n• Limão\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 1
     },
@@ -168,11 +162,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 1: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Canela, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Canela e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Canela
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Canela e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Canela\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 1
     },
@@ -184,14 +175,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 2: Efeito Diurético. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Canela, Adoçante natural stevia, Pedaços frescos de Abacaxi",
-        "instructions": "1. Prepare o chá de Canela quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Abacaxi.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Canela para chá
-• Abacaxi
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Canela quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Abacaxi.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Canela para chá\n• Abacaxi\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 2
     },
@@ -203,11 +188,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 2: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Camomila, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Camomila e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Camomila
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Camomila e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Camomila\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 2
     },
@@ -219,14 +201,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 3: Zero Inchaço. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Camomila, Adoçante natural stevia, Pedaços frescos de Maracujá",
-        "instructions": "1. Prepare o chá de Camomila quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Maracujá.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Camomila para chá
-• Maracujá
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Camomila quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Maracujá.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Camomila para chá\n• Maracujá\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 3
     },
@@ -238,11 +214,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 3: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Hibisco, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Hibisco e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Hibisco
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Hibisco e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Hibisco\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 3
     },
@@ -254,14 +227,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 4: Mais Saciedade. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Hibisco, Adoçante natural stevia, Pedaços frescos de Uva",
-        "instructions": "1. Prepare o chá de Hibisco quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Uva.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Hibisco para chá
-• Uva
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Hibisco quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Uva.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Hibisco para chá\n• Uva\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 4
     },
@@ -273,11 +240,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 4: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Erva-Doce, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Erva-Doce e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Erva-Doce
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Erva-Doce e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Erva-Doce\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 4
     },
@@ -289,14 +253,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 5: Ação Antioxidante. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Erva-Doce, Adoçante natural stevia, Pedaços frescos de Mirtilo",
-        "instructions": "1. Prepare o chá de Erva-Doce quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Mirtilo.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Erva-Doce para chá
-• Mirtilo
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Erva-Doce quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Mirtilo.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Erva-Doce para chá\n• Mirtilo\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 5
     },
@@ -308,11 +266,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 5: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Alecrim, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Alecrim e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Alecrim
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Alecrim e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Alecrim\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 5
     },
@@ -324,14 +279,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 6: Detox Corporal. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Alecrim, Adoçante natural stevia, Pedaços frescos de Maçã",
-        "instructions": "1. Prepare o chá de Alecrim quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Maçã.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Alecrim para chá
-• Maçã
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Alecrim quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Maçã.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Alecrim para chá\n• Maçã\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 6
     },
@@ -343,11 +292,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 6: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Capim-Limão, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Capim-Limão e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Capim-Limão
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Capim-Limão e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Capim-Limão\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 6
     },
@@ -359,14 +305,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 7: Seca Barriga. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Capim-Limão, Adoçante natural stevia, Pedaços frescos de Kiwi",
-        "instructions": "1. Prepare o chá de Capim-Limão quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Kiwi.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Capim-Limão para chá
-• Kiwi
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Capim-Limão quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Kiwi.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Capim-Limão para chá\n• Kiwi\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 7
     },
@@ -378,11 +318,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 7: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Cidreira, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Cidreira e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Cidreira
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Cidreira e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Cidreira\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 7
     },
@@ -394,14 +331,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 8: Ação Termogênica. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Cidreira, Adoçante natural stevia, Pedaços frescos de Framboesa",
-        "instructions": "1. Prepare o chá de Cidreira quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Framboesa.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Cidreira para chá
-• Framboesa
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Cidreira quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Framboesa.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Cidreira para chá\n• Framboesa\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 8
     },
@@ -413,11 +344,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 8: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Matchá, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Matchá e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Matchá
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Matchá e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Matchá\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 8
     },
@@ -429,14 +357,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 9: Reduz Fome Noturna. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Matchá, Adoçante natural stevia, Pedaços frescos de Amora",
-        "instructions": "1. Prepare o chá de Matchá quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Amora.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Matchá para chá
-• Amora
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Matchá quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Amora.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Matchá para chá\n• Amora\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 9
     },
@@ -448,11 +370,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 9: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Hortelã, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Hortelã e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Hortelã
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Hortelã e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Hortelã\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 9
     },
@@ -464,14 +383,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 10: Acelera Metabolismo. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Hortelã, Adoçante natural stevia, Pedaços frescos de Morango",
-        "instructions": "1. Prepare o chá de Hortelã quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Morango.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Hortelã para chá
-• Morango
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Hortelã quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Morango.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Hortelã para chá\n• Morango\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 10
     },
@@ -483,11 +396,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 10: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Gengibre, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Gengibre e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Gengibre
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Gengibre e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Gengibre\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 10
     },
@@ -499,14 +409,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 11: Queima Gordura. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Gengibre, Adoçante natural stevia, Pedaços frescos de Limão",
-        "instructions": "1. Prepare o chá de Gengibre quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Limão.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Gengibre para chá
-• Limão
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Gengibre quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Limão.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Gengibre para chá\n• Limão\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 11
     },
@@ -518,11 +422,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 11: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Canela, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Canela e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Canela
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Canela e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Canela\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 11
     },
@@ -534,14 +435,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 12: Efeito Diurético. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Canela, Adoçante natural stevia, Pedaços frescos de Abacaxi",
-        "instructions": "1. Prepare o chá de Canela quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Abacaxi.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Canela para chá
-• Abacaxi
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Canela quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Abacaxi.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Canela para chá\n• Abacaxi\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 12
     },
@@ -553,11 +448,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 12: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Camomila, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Camomila e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Camomila
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Camomila e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Camomila\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 12
     },
@@ -569,14 +461,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 13: Zero Inchaço. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Camomila, Adoçante natural stevia, Pedaços frescos de Maracujá",
-        "instructions": "1. Prepare o chá de Camomila quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Maracujá.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Camomila para chá
-• Maracujá
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Camomila quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Maracujá.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Camomila para chá\n• Maracujá\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 13
     },
@@ -588,11 +474,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 13: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Hibisco, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Hibisco e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Hibisco
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Hibisco e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Hibisco\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 13
     },
@@ -604,14 +487,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 14: Mais Saciedade. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Hibisco, Adoçante natural stevia, Pedaços frescos de Uva",
-        "instructions": "1. Prepare o chá de Hibisco quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Uva.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Hibisco para chá
-• Uva
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Hibisco quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Uva.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Hibisco para chá\n• Uva\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 14
     },
@@ -623,11 +500,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 14: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Erva-Doce, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Erva-Doce e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Erva-Doce
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Erva-Doce e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Erva-Doce\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 14
     },
@@ -639,14 +513,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 15: Ação Antioxidante. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Erva-Doce, Adoçante natural stevia, Pedaços frescos de Mirtilo",
-        "instructions": "1. Prepare o chá de Erva-Doce quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Mirtilo.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Erva-Doce para chá
-• Mirtilo
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Erva-Doce quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Mirtilo.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Erva-Doce para chá\n• Mirtilo\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 15
     },
@@ -658,11 +526,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 15: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Alecrim, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Alecrim e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Alecrim
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Alecrim e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Alecrim\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 15
     },
@@ -674,14 +539,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 16: Detox Corporal. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Alecrim, Adoçante natural stevia, Pedaços frescos de Maçã",
-        "instructions": "1. Prepare o chá de Alecrim quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Maçã.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Alecrim para chá
-• Maçã
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Alecrim quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Maçã.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Alecrim para chá\n• Maçã\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 16
     },
@@ -693,11 +552,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 16: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Capim-Limão, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Capim-Limão e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Capim-Limão
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Capim-Limão e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Capim-Limão\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 16
     },
@@ -709,14 +565,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 17: Seca Barriga. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Capim-Limão, Adoçante natural stevia, Pedaços frescos de Kiwi",
-        "instructions": "1. Prepare o chá de Capim-Limão quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Kiwi.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Capim-Limão para chá
-• Kiwi
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Capim-Limão quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Kiwi.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Capim-Limão para chá\n• Kiwi\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 17
     },
@@ -728,11 +578,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 17: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Cidreira, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Cidreira e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Cidreira
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Cidreira e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Cidreira\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 17
     },
@@ -744,14 +591,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 18: Ação Termogênica. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Cidreira, Adoçante natural stevia, Pedaços frescos de Framboesa",
-        "instructions": "1. Prepare o chá de Cidreira quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Framboesa.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Cidreira para chá
-• Framboesa
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Cidreira quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Framboesa.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Cidreira para chá\n• Framboesa\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 18
     },
@@ -763,11 +604,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 18: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Matchá, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Matchá e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Matchá
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Matchá e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Matchá\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 18
     },
@@ -779,14 +617,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 19: Reduz Fome Noturna. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Matchá, Adoçante natural stevia, Pedaços frescos de Amora",
-        "instructions": "1. Prepare o chá de Matchá quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Amora.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Matchá para chá
-• Amora
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Matchá quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Amora.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Matchá para chá\n• Amora\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 19
     },
@@ -798,11 +630,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 19: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Hortelã, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Hortelã e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Hortelã
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Hortelã e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Hortelã\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 19
     },
@@ -814,14 +643,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 20: Acelera Metabolismo. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Hortelã, Adoçante natural stevia, Pedaços frescos de Morango",
-        "instructions": "1. Prepare o chá de Hortelã quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Morango.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Hortelã para chá
-• Morango
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Hortelã quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Morango.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Hortelã para chá\n• Morango\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 20
     },
@@ -833,11 +656,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 20: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Gengibre, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Gengibre e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Gengibre
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Gengibre e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Gengibre\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 20
     },
@@ -849,14 +669,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 21: Queima Gordura. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Gengibre, Adoçante natural stevia, Pedaços frescos de Limão",
-        "instructions": "1. Prepare o chá de Gengibre quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Limão.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Gengibre para chá
-• Limão
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Gengibre quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Limão.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Gengibre para chá\n• Limão\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 21
     },
@@ -868,11 +682,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 21: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Canela, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Canela e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Canela
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Canela e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Canela\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 21
     },
@@ -884,14 +695,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 22: Efeito Diurético. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Canela, Adoçante natural stevia, Pedaços frescos de Abacaxi",
-        "instructions": "1. Prepare o chá de Canela quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Abacaxi.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Canela para chá
-• Abacaxi
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Canela quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Abacaxi.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Canela para chá\n• Abacaxi\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 22
     },
@@ -903,11 +708,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 22: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Camomila, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Camomila e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Camomila
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Camomila e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Camomila\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 22
     },
@@ -919,14 +721,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 23: Zero Inchaço. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Camomila, Adoçante natural stevia, Pedaços frescos de Maracujá",
-        "instructions": "1. Prepare o chá de Camomila quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Maracujá.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Camomila para chá
-• Maracujá
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Camomila quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Maracujá.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Camomila para chá\n• Maracujá\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 23
     },
@@ -938,11 +734,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 23: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Hibisco, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Hibisco e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Hibisco
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Hibisco e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Hibisco\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 23
     },
@@ -954,14 +747,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 24: Mais Saciedade. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Hibisco, Adoçante natural stevia, Pedaços frescos de Uva",
-        "instructions": "1. Prepare o chá de Hibisco quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Uva.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Hibisco para chá
-• Uva
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Hibisco quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Uva.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Hibisco para chá\n• Uva\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 24
     },
@@ -973,11 +760,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 24: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Erva-Doce, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Erva-Doce e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Erva-Doce
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Erva-Doce e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Erva-Doce\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 24
     },
@@ -989,14 +773,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 25: Ação Antioxidante. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Erva-Doce, Adoçante natural stevia, Pedaços frescos de Mirtilo",
-        "instructions": "1. Prepare o chá de Erva-Doce quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Mirtilo.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Erva-Doce para chá
-• Mirtilo
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Erva-Doce quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Mirtilo.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Erva-Doce para chá\n• Mirtilo\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 25
     },
@@ -1008,11 +786,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 25: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Alecrim, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Alecrim e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Alecrim
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Alecrim e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Alecrim\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 25
     },
@@ -1024,14 +799,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 26: Detox Corporal. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Alecrim, Adoçante natural stevia, Pedaços frescos de Maçã",
-        "instructions": "1. Prepare o chá de Alecrim quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Maçã.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Alecrim para chá
-• Maçã
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Alecrim quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Maçã.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Alecrim para chá\n• Maçã\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 26
     },
@@ -1043,11 +812,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 26: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Capim-Limão, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Capim-Limão e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Capim-Limão
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Capim-Limão e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Capim-Limão\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 26
     },
@@ -1059,14 +825,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 27: Seca Barriga. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Capim-Limão, Adoçante natural stevia, Pedaços frescos de Kiwi",
-        "instructions": "1. Prepare o chá de Capim-Limão quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Kiwi.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Capim-Limão para chá
-• Kiwi
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Capim-Limão quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Kiwi.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Capim-Limão para chá\n• Kiwi\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 27
     },
@@ -1078,11 +838,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 27: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Cidreira, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Cidreira e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Cidreira
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Cidreira e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Cidreira\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 27
     },
@@ -1094,14 +851,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 28: Ação Termogênica. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Cidreira, Adoçante natural stevia, Pedaços frescos de Framboesa",
-        "instructions": "1. Prepare o chá de Cidreira quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Framboesa.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Cidreira para chá
-• Framboesa
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Cidreira quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Framboesa.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Cidreira para chá\n• Framboesa\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 28
     },
@@ -1113,11 +864,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 28: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Matchá, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Matchá e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Matchá
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Matchá e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Matchá\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 28
     },
@@ -1129,14 +877,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 29: Reduz Fome Noturna. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Matchá, Adoçante natural stevia, Pedaços frescos de Amora",
-        "instructions": "1. Prepare o chá de Matchá quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Amora.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Matchá para chá
-• Amora
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Matchá quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Amora.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Matchá para chá\n• Amora\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 29
     },
@@ -1148,11 +890,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 29: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Hortelã, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Hortelã e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Hortelã
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Hortelã e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Hortelã\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 29
     },
@@ -1164,14 +903,8 @@ const recipesDatabase = [
         "emoji": "🍮",
         "desc": "✨ Receita Oficial - Dia 30: Acelera Metabolismo. Combinação potente para ativar o termogênico natural do corpo antes do almoço.",
         "ingredients": "1 sachê (12g) de gelatina incolor, 250ml de chá de Hortelã, Adoçante natural stevia, Pedaços frescos de Morango",
-        "instructions": "1. Prepare o chá de Hortelã quente.
-2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.
-3. Adicione o adoçante a gosto e os pedaços de Morango.
-4. Leve à geladeira por 3 horas até firmar.",
-        "shoppingList": "• Gelatina incolor sem sabor
-• Hortelã para chá
-• Morango
-• Stevia 100% natural",
+        "instructions": "1. Prepare o chá de Hortelã quente.\n2. Dilua a gelatina incolor no chá quente mexendo bem para não empelotar.\n3. Adicione o adoçante a gosto e os pedaços de Morango.\n4. Leve à geladeira por 3 horas até firmar.",
+        "shoppingList": "• Gelatina incolor sem sabor\n• Hortelã para chá\n• Morango\n• Stevia 100% natural",
         "schedule": "Meio-dia (Consumir 30 minutos antes do almoço)",
         "dayOfPlan": 30
     },
@@ -1183,11 +916,8 @@ const recipesDatabase = [
         "emoji": "🍵",
         "desc": "✨ Complemento - Dia 30: Limpa o fígado enquanto você dorme e prepara o intestino para a queima matinal.",
         "ingredients": "1 colher de sopa de Gengibre, 200ml de água filtrada, 1/2 limão espremido na hora",
-        "instructions": "1. Ferva a água e desligue o fogo.
-2. Adicione a Gengibre e abafe (infusão) por 7 minutos.
-3. Coe e esprema o limão apenas no momento exato em que for beber.",
-        "shoppingList": "• Erva Gengibre
-• Limões frescos",
+        "instructions": "1. Ferva a água e desligue o fogo.\n2. Adicione a Gengibre e abafe (infusão) por 7 minutos.\n3. Coe e esprema o limão apenas no momento exato em que for beber.",
+        "shoppingList": "• Erva Gengibre\n• Limões frescos",
         "schedule": "Noite (Consumir 40 minutos antes de dormir)",
         "dayOfPlan": 30
     },
@@ -1200,9 +930,7 @@ const recipesDatabase = [
         "desc": "Substituição completa e nutritiva que tira a fome desesperadora da tarde.",
         "ingredients": "200ml de leite de amêndoas, 1 colher de Whey Protein ou Colágeno Verisol, 1 rodela de Morango, Gelo a gosto",
         "instructions": "Bata tudo no liquidificador até ficar muito cremoso. Beba imediatamente.",
-        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)
-• Whey Protein
-• Morango",
+        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)\n• Whey Protein\n• Morango",
         "schedule": "Lanche da tarde (Sempre que a fome apertar)"
     },
     {
@@ -1214,9 +942,7 @@ const recipesDatabase = [
         "desc": "Substituição completa e nutritiva que tira a fome desesperadora da tarde.",
         "ingredients": "200ml de leite de amêndoas, 1 colher de Whey Protein ou Colágeno Verisol, 1 rodela de Limão, Gelo a gosto",
         "instructions": "Bata tudo no liquidificador até ficar muito cremoso. Beba imediatamente.",
-        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)
-• Whey Protein
-• Limão",
+        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)\n• Whey Protein\n• Limão",
         "schedule": "Lanche da tarde (Sempre que a fome apertar)"
     },
     {
@@ -1228,9 +954,7 @@ const recipesDatabase = [
         "desc": "Substituição completa e nutritiva que tira a fome desesperadora da tarde.",
         "ingredients": "200ml de leite de amêndoas, 1 colher de Whey Protein ou Colágeno Verisol, 1 rodela de Abacaxi, Gelo a gosto",
         "instructions": "Bata tudo no liquidificador até ficar muito cremoso. Beba imediatamente.",
-        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)
-• Whey Protein
-• Abacaxi",
+        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)\n• Whey Protein\n• Abacaxi",
         "schedule": "Lanche da tarde (Sempre que a fome apertar)"
     },
     {
@@ -1242,9 +966,7 @@ const recipesDatabase = [
         "desc": "Substituição completa e nutritiva que tira a fome desesperadora da tarde.",
         "ingredients": "200ml de leite de amêndoas, 1 colher de Whey Protein ou Colágeno Verisol, 1 rodela de Maracujá, Gelo a gosto",
         "instructions": "Bata tudo no liquidificador até ficar muito cremoso. Beba imediatamente.",
-        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)
-• Whey Protein
-• Maracujá",
+        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)\n• Whey Protein\n• Maracujá",
         "schedule": "Lanche da tarde (Sempre que a fome apertar)"
     },
     {
@@ -1256,9 +978,7 @@ const recipesDatabase = [
         "desc": "Substituição completa e nutritiva que tira a fome desesperadora da tarde.",
         "ingredients": "200ml de leite de amêndoas, 1 colher de Whey Protein ou Colágeno Verisol, 1 rodela de Uva, Gelo a gosto",
         "instructions": "Bata tudo no liquidificador até ficar muito cremoso. Beba imediatamente.",
-        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)
-• Whey Protein
-• Uva",
+        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)\n• Whey Protein\n• Uva",
         "schedule": "Lanche da tarde (Sempre que a fome apertar)"
     },
     {
@@ -1270,9 +990,7 @@ const recipesDatabase = [
         "desc": "Substituição completa e nutritiva que tira a fome desesperadora da tarde.",
         "ingredients": "200ml de leite de amêndoas, 1 colher de Whey Protein ou Colágeno Verisol, 1 rodela de Mirtilo, Gelo a gosto",
         "instructions": "Bata tudo no liquidificador até ficar muito cremoso. Beba imediatamente.",
-        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)
-• Whey Protein
-• Mirtilo",
+        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)\n• Whey Protein\n• Mirtilo",
         "schedule": "Lanche da tarde (Sempre que a fome apertar)"
     },
     {
@@ -1284,9 +1002,7 @@ const recipesDatabase = [
         "desc": "Substituição completa e nutritiva que tira a fome desesperadora da tarde.",
         "ingredients": "200ml de leite de amêndoas, 1 colher de Whey Protein ou Colágeno Verisol, 1 rodela de Maçã, Gelo a gosto",
         "instructions": "Bata tudo no liquidificador até ficar muito cremoso. Beba imediatamente.",
-        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)
-• Whey Protein
-• Maçã",
+        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)\n• Whey Protein\n• Maçã",
         "schedule": "Lanche da tarde (Sempre que a fome apertar)"
     },
     {
@@ -1298,9 +1014,7 @@ const recipesDatabase = [
         "desc": "Substituição completa e nutritiva que tira a fome desesperadora da tarde.",
         "ingredients": "200ml de leite de amêndoas, 1 colher de Whey Protein ou Colágeno Verisol, 1 rodela de Kiwi, Gelo a gosto",
         "instructions": "Bata tudo no liquidificador até ficar muito cremoso. Beba imediatamente.",
-        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)
-• Whey Protein
-• Kiwi",
+        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)\n• Whey Protein\n• Kiwi",
         "schedule": "Lanche da tarde (Sempre que a fome apertar)"
     },
     {
@@ -1312,9 +1026,7 @@ const recipesDatabase = [
         "desc": "Substituição completa e nutritiva que tira a fome desesperadora da tarde.",
         "ingredients": "200ml de leite de amêndoas, 1 colher de Whey Protein ou Colágeno Verisol, 1 rodela de Framboesa, Gelo a gosto",
         "instructions": "Bata tudo no liquidificador até ficar muito cremoso. Beba imediatamente.",
-        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)
-• Whey Protein
-• Framboesa",
+        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)\n• Whey Protein\n• Framboesa",
         "schedule": "Lanche da tarde (Sempre que a fome apertar)"
     },
     {
@@ -1326,9 +1038,7 @@ const recipesDatabase = [
         "desc": "Substituição completa e nutritiva que tira a fome desesperadora da tarde.",
         "ingredients": "200ml de leite de amêndoas, 1 colher de Whey Protein ou Colágeno Verisol, 1 rodela de Amora, Gelo a gosto",
         "instructions": "Bata tudo no liquidificador até ficar muito cremoso. Beba imediatamente.",
-        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)
-• Whey Protein
-• Amora",
+        "shoppingList": "• Leite Vegetal (Amêndoas ou Coco)\n• Whey Protein\n• Amora",
         "schedule": "Lanche da tarde (Sempre que a fome apertar)"
     },
     {
@@ -1340,9 +1050,7 @@ const recipesDatabase = [
         "desc": "Proteína magra para reconstrução e pele firme enquanto emagrece.",
         "ingredients": "150g de peito de frango ou peixe branco, 1 xícara de vegetais verdes, Azeite, Sal e Ervas finas",
         "instructions": "Tempere a proteína apenas com sal, limão e ervas. Grelhe com 1 fio de azeite. Acompanhe com salada de folhas.",
-        "shoppingList": "• Proteína Magra
-• Folhas Verdes
-• Azeite Extra Virgem",
+        "shoppingList": "• Proteína Magra\n• Folhas Verdes\n• Azeite Extra Virgem",
         "schedule": "Almoço"
     },
     {
@@ -1354,9 +1062,7 @@ const recipesDatabase = [
         "desc": "Proteína magra para reconstrução e pele firme enquanto emagrece.",
         "ingredients": "150g de peito de frango ou peixe branco, 1 xícara de vegetais verdes, Azeite, Sal e Ervas finas",
         "instructions": "Tempere a proteína apenas com sal, limão e ervas. Grelhe com 1 fio de azeite. Acompanhe com salada de folhas.",
-        "shoppingList": "• Proteína Magra
-• Folhas Verdes
-• Azeite Extra Virgem",
+        "shoppingList": "• Proteína Magra\n• Folhas Verdes\n• Azeite Extra Virgem",
         "schedule": "Almoço"
     },
     {
@@ -1368,9 +1074,7 @@ const recipesDatabase = [
         "desc": "Proteína magra para reconstrução e pele firme enquanto emagrece.",
         "ingredients": "150g de peito de frango ou peixe branco, 1 xícara de vegetais verdes, Azeite, Sal e Ervas finas",
         "instructions": "Tempere a proteína apenas com sal, limão e ervas. Grelhe com 1 fio de azeite. Acompanhe com salada de folhas.",
-        "shoppingList": "• Proteína Magra
-• Folhas Verdes
-• Azeite Extra Virgem",
+        "shoppingList": "• Proteína Magra\n• Folhas Verdes\n• Azeite Extra Virgem",
         "schedule": "Almoço"
     },
     {
@@ -1382,9 +1086,7 @@ const recipesDatabase = [
         "desc": "Proteína magra para reconstrução e pele firme enquanto emagrece.",
         "ingredients": "150g de peito de frango ou peixe branco, 1 xícara de vegetais verdes, Azeite, Sal e Ervas finas",
         "instructions": "Tempere a proteína apenas com sal, limão e ervas. Grelhe com 1 fio de azeite. Acompanhe com salada de folhas.",
-        "shoppingList": "• Proteína Magra
-• Folhas Verdes
-• Azeite Extra Virgem",
+        "shoppingList": "• Proteína Magra\n• Folhas Verdes\n• Azeite Extra Virgem",
         "schedule": "Almoço"
     },
     {
@@ -1396,9 +1098,7 @@ const recipesDatabase = [
         "desc": "Proteína magra para reconstrução e pele firme enquanto emagrece.",
         "ingredients": "150g de peito de frango ou peixe branco, 1 xícara de vegetais verdes, Azeite, Sal e Ervas finas",
         "instructions": "Tempere a proteína apenas com sal, limão e ervas. Grelhe com 1 fio de azeite. Acompanhe com salada de folhas.",
-        "shoppingList": "• Proteína Magra
-• Folhas Verdes
-• Azeite Extra Virgem",
+        "shoppingList": "• Proteína Magra\n• Folhas Verdes\n• Azeite Extra Virgem",
         "schedule": "Almoço"
     },
     {
@@ -1410,9 +1110,7 @@ const recipesDatabase = [
         "desc": "Um jantar levíssimo que te fará acordar desinchada.",
         "ingredients": "1 chuchu, 1/2 cenoura rasa, 1 pitada de gengibre, 100g de frango desfiado, Pimenta preta",
         "instructions": "Cozinhe o chuchu e a cenoura até derreter, bata no liquidificador. Volte pra panela, adicione o frango e os temperos.",
-        "shoppingList": "• Chuchu e Cenoura
-• Gengibre
-• Peito de frango",
+        "shoppingList": "• Chuchu e Cenoura\n• Gengibre\n• Peito de frango",
         "schedule": "Jantar (até as 20h00)"
     },
     {
@@ -1424,9 +1122,7 @@ const recipesDatabase = [
         "desc": "Um jantar levíssimo que te fará acordar desinchada.",
         "ingredients": "1 chuchu, 1/2 cenoura rasa, 1 pitada de gengibre, 100g de frango desfiado, Pimenta preta",
         "instructions": "Cozinhe o chuchu e a cenoura até derreter, bata no liquidificador. Volte pra panela, adicione o frango e os temperos.",
-        "shoppingList": "• Chuchu e Cenoura
-• Gengibre
-• Peito de frango",
+        "shoppingList": "• Chuchu e Cenoura\n• Gengibre\n• Peito de frango",
         "schedule": "Jantar (até as 20h00)"
     },
     {
@@ -1438,9 +1134,7 @@ const recipesDatabase = [
         "desc": "Um jantar levíssimo que te fará acordar desinchada.",
         "ingredients": "1 chuchu, 1/2 cenoura rasa, 1 pitada de gengibre, 100g de frango desfiado, Pimenta preta",
         "instructions": "Cozinhe o chuchu e a cenoura até derreter, bata no liquidificador. Volte pra panela, adicione o frango e os temperos.",
-        "shoppingList": "• Chuchu e Cenoura
-• Gengibre
-• Peito de frango",
+        "shoppingList": "• Chuchu e Cenoura\n• Gengibre\n• Peito de frango",
         "schedule": "Jantar (até as 20h00)"
     },
     {
@@ -1452,9 +1146,7 @@ const recipesDatabase = [
         "desc": "Um jantar levíssimo que te fará acordar desinchada.",
         "ingredients": "1 chuchu, 1/2 cenoura rasa, 1 pitada de gengibre, 100g de frango desfiado, Pimenta preta",
         "instructions": "Cozinhe o chuchu e a cenoura até derreter, bata no liquidificador. Volte pra panela, adicione o frango e os temperos.",
-        "shoppingList": "• Chuchu e Cenoura
-• Gengibre
-• Peito de frango",
+        "shoppingList": "• Chuchu e Cenoura\n• Gengibre\n• Peito de frango",
         "schedule": "Jantar (até as 20h00)"
     },
     {
@@ -1466,9 +1158,7 @@ const recipesDatabase = [
         "desc": "Um jantar levíssimo que te fará acordar desinchada.",
         "ingredients": "1 chuchu, 1/2 cenoura rasa, 1 pitada de gengibre, 100g de frango desfiado, Pimenta preta",
         "instructions": "Cozinhe o chuchu e a cenoura até derreter, bata no liquidificador. Volte pra panela, adicione o frango e os temperos.",
-        "shoppingList": "• Chuchu e Cenoura
-• Gengibre
-• Peito de frango",
+        "shoppingList": "• Chuchu e Cenoura\n• Gengibre\n• Peito de frango",
         "schedule": "Jantar (até as 20h00)"
     }
 ];
