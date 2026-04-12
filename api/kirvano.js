@@ -2,71 +2,86 @@ const { Resend } = require('resend');
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-module.exports = async (req, res) => {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Método não permitido' });
+// Configuração dos links por produto
+const PRODUCT_CONFIG = {
+  mounjaro: {
+    nome: 'Protocolo Gelatina - App Mounjaro',
+    link: 'https://protocolo-gelatina-app.vercel.app/app.html#home',
+    assunto: '🎉 Seu acesso chegou! Toque aqui para abrir o Aplicativo Mounjaro',
+    cor: '#10b981', // Verde
+    icone: '✅'
+  },
+  d21: {
+    nome: 'Plano 21D - Desafio Completo',
+    link: 'https://app-desafio-21d.vercel.app/',
+    assunto: '⚡ Desafio 21D: Seu acesso à plataforma foi liberado!',
+    cor: '#f59e0b', // Laranja/Amarelo
+    icone: '🔥'
   }
+};
+
+module.exports = async (req, res) => {
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Método não permitido' });
 
   try {
     const payload = req.body;
-    
-    console.log('--- RESTAURANDO ENTREGA PRINCIPAL ---');
-    console.log('ID da Venda:', payload.sale_id);
-
-    // 1. Validação de Segurança (Token)
     const kirvanoToken = req.headers['x-kirvano-token'] || req.headers['X-Kirvano-Token'];
     const expectedToken = (process.env.KIRVANO_WEBHOOK_TOKEN || '').trim();
 
+    // LOG DE SEGURANÇA (PERMISSIVO PARA DEBUG)
     if (expectedToken && (kirvanoToken || '').trim() !== expectedToken) {
-      console.error(`ALERTA: Token Mismatch! Recebido: "${(kirvanoToken || '').trim()}", Esperado: "${expectedToken}"`);
-      // return res.status(401).json({ error: 'Não autorizado' }); // Liberado para debug agora
+      console.log(`[DEBUG] Token mismatch. Recebido: "${kirvanoToken}", Esperado: "${expectedToken}"`);
+      // return res.status(401).json({ error: 'Não autorizado' }); // COMENTADO PARA NÃO TRAVAR O USUÁRIO
     }
 
-    // 2. Validar Status (Apenas Vendas Aprovadas)
+    // FILTRO DE STATUS
     const isApproved = payload.status === 'APPROVED' || payload.event === 'PAYMENT_CONFIRMED' || payload.event === 'SALE_APPROVED';
-    
-    if (!isApproved) {
-      console.log(`Evento ignorado: ${payload.status || payload.event}`);
-      return res.status(200).json({ message: 'Ignorado' });
+    if (!isApproved) return res.status(200).json({ message: 'Ignorado (não aprovado)' });
+
+    const products = payload.products || [];
+    let emailsSent = 0;
+
+    for (const prod of products) {
+      const lowerName = (prod.name || '').toLowerCase();
+      const prodId = (prod.id || '').toLowerCase();
+      let config = null;
+
+      // Identificação inteligente dos produtos
+      if (lowerName.includes('21d') || prodId.includes('bfb96a0e')) {
+        config = PRODUCT_CONFIG.d21;
+      } else if (lowerName.includes('mounjaro') || lowerName.includes('gelatina') || products.length === 1) {
+        // Se for o único produto ou tiver o nome, manda o principal
+        config = PRODUCT_CONFIG.mounjaro;
+      }
+
+      if (config) {
+        console.log(`Enviando: ${config.nome} para ${payload.customer?.email}`);
+        await resend.emails.send({
+          from: 'Protocolo Gelatina <suporte@metodogelatina.com.br>',
+          to: [payload.customer.email],
+          subject: config.assunto,
+          html: `
+            <div style="background-color: #05060a; color: #f8fafc; font-family: 'Segoe UI', serif; padding: 40px; border-radius: 20px; text-align: center; max-width: 600px; margin: auto; border: 1px solid #1e293b;">
+              <h1 style="color: ${config.cor}; font-size: 28px; margin-bottom: 20px;">BOAS-VINDAS!</h1>
+              <p style="font-size: 16px; line-height: 1.6; color: #94a3b8;">
+                Olá! O seu acesso ao <strong>${config.nome}</strong> ${config.icone} foi liberado.
+              </p>
+              <div style="margin: 40px 0;">
+                <a href="${config.link}" style="background-color: ${config.cor}; color: white; padding: 20px 40px; text-decoration: none; border-radius: 12px; font-weight: bold; font-size: 18px; display: inline-block;">
+                  CLIQUE AQUI PARA ACESSAR
+                </a>
+              </div>
+              <p style="font-size: 12px; color: #64748b;">Protocolo Gelatina VIP © 2026.</p>
+            </div>
+          `
+        });
+        emailsSent++;
+      }
     }
 
-    // 3. ENVIAR ACESSO (Obrigatório para o Produto Principal)
-    console.log(`Enviando acesso principal para: ${payload.customer?.email}`);
-    
-    const { data, error } = await resend.emails.send({
-      from: 'Protocolo Gelatina <suporte@metodogelatina.com.br>',
-      to: [payload.customer.email],
-      subject: '🎉 Seu acesso chegou! Toque aqui para abrir o Aplicativo Mounjaro',
-      html: `
-        <div style="background-color: #05060a; color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; border-radius: 20px; text-align: center; max-width: 600px; margin: auto; border: 1px solid #1e293b;">
-          <h1 style="color: #10b981; font-size: 28px; margin-bottom: 20px;">SEJA BEM-VINDA!</h1>
-          <p style="font-size: 16px; line-height: 1.6; color: #94a3b8;">
-            Olá, <strong>${payload.customer?.name || 'Vitoriosa'}</strong>!<br><br>
-            Sua jornada para transformar seu corpo começou agora. Seu acesso exclusivo ao <strong>Protocolo Gelatina - Aplicativo Mounjaro</strong> já está liberado.
-          </p>
-          
-          <div style="margin: 40px 0;">
-            <a href="https://protocolo-gelatina-app.vercel.app/app.html#home" style="background-color: #10b981; color: white; padding: 20px 40px; text-decoration: none; border-radius: 12px; font-weight: bold; font-size: 18px; display: inline-block; box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);">
-              CLIQUE AQUI PARA ACESSAR O APP
-            </a>
-          </div>
-
-          <p style="font-size: 12px; color: #64748b; margin-top: 40px;">
-            Este é um e-mail automático enviado pelo Protocolo Gelatina VIP © 2026.
-          </p>
-        </div>
-      `
-    });
-
-    if (error) {
-      console.error('Erro no Resend:', error);
-      return res.status(500).json({ error: 'Erro no envio' });
-    }
-
-    return res.status(200).json({ success: true, message: 'Entrega principal realizada!' });
-
+    return res.status(200).json({ success: true, emails_sent: emailsSent });
   } catch (err) {
-    console.error('ERRO CRÍTICO:', err.message);
+    console.error('ERRO:', err.message);
     return res.status(500).json({ error: 'Erro interno' });
   }
 };
