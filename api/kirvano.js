@@ -59,7 +59,7 @@ module.exports = async (req, res) => {
     
     // 5. Enviar E-mail via Resend
     // NOTA: Se você ainda não verificou um domínio no Resend, use 'onboarding@resend.dev'
-    const fromEmail = 'Protocolo Gelatina <onboarding@resend.dev>'; 
+    const fromEmail = 'Protocolo Gelatina <suporte@metodogelatina.com.br>'; 
 
     const { data, error } = await resend.emails.send({
       from: fromEmail,
