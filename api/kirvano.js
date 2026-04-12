@@ -98,7 +98,7 @@ async function handleRecovery(payload, reason) {
     from: 'Protocolo Gelatina <suporte@metodogelatina.com.br>',
     to: [email],
     subject: `[Detalhes] Sua inscrição no Protocolo Gelatina`,
-    scheduledAt: 'in 15 minutes',
+    scheduledAt: new Date(Date.now() + 15 * 60 * 1000).toISOString(),
     html: `
       <div style="background-color: #05060a; color: #f8fafc; font-family: sans-serif; padding: 40px; border-radius: 20px; text-align: center; max-width: 600px; margin: auto; border: 1px solid #1e293b;">
         <h1 style="color: #f8fafc; font-size: 24px;">Oi, ${name}!</h1>
