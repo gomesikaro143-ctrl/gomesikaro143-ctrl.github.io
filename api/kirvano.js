@@ -2,7 +2,7 @@ const { Resend } = require('resend');
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// 1. CONFIGURAÇÕES DOS PRODUTOS
+// 1. CONFIGURAÇÕES DOS PRODUTOS (ENTREGA)
 const PRODUCT_CONFIG = {
   mounjaro: {
     nome: 'Protocolo Gelatina - App Mounjaro',
@@ -31,7 +31,7 @@ async function handleApprovedSale(payload) {
   const products = payload.products || [];
   let sentCount = 0;
 
-  // Tentar cancelar qualquer e-mail de recuperação agendado para este cliente
+  // Cancelar e-mails de recuperação agendados para este cliente
   try {
     const list = await resend.emails.list({ limit: 50 });
     const pending = (list.data || []).filter(e => 
@@ -39,13 +39,13 @@ async function handleApprovedSale(payload) {
     );
     for (const emailRecord of pending) {
       await resend.emails.cancel(emailRecord.id);
-      console.log(`[CANCELADO] Recuperação cancelada para ${email} pois ele comprou!`);
+      console.log(`[CANCELADO] Recuperação cancelada para ${email} (Compra realizada).`);
     }
   } catch (e) {
     console.error('Erro ao cancelar recuperações:', e.message);
   }
 
-  // Entregar os acessos
+  // Entregar acessos
   for (const prod of products) {
     const lowerName = (prod.name || '').toLowerCase();
     const prodId = (prod.id || '').toLowerCase();
@@ -63,11 +63,17 @@ async function handleApprovedSale(payload) {
         to: [email],
         subject: config.assunto,
         html: `
-          <div style="background-color: #05060a; color: #f8fafc; font-family: 'Segoe UI', serif; padding: 40px; border-radius: 20px; text-align: center; max-width: 600px; margin: auto; border: 1px solid #1e293b;">
-            <h1 style="color: ${config.cor}; font-size: 28px; margin-bottom: 20px;">BOAS-VINDAS!</h1>
-            <p style="font-size: 16px; line-height: 1.6; color: #94a3b8;">Olá! O seu acesso ao <strong>${config.nome}</strong> ${config.icone} foi liberado.</p>
-            <div style="margin: 40px 0;"><a href="${config.link}" style="background-color: ${config.cor}; color: white; padding: 20px 40px; text-decoration: none; border-radius: 12px; font-weight: bold; font-size: 18px; display: inline-block;">CLIQUE AQUI PARA ACESSAR</a></div>
-            <p style="font-size: 12px; color: #64748b;">Protocolo Gelatina VIP © 2026.</p>
+          <div style="background-color: #05060a; color: #f8fafc; font-family: sans-serif; padding: 40px; border-radius: 20px; text-align: center; max-width: 600px; margin: auto; border: 1px solid #1e293b;">
+            <img src="https://protocolo-gelatina-app.vercel.app/assets/novacapa_do_funil.png" style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
+            <h1 style="color: ${config.cor}; font-size: 28px; margin-bottom: 15px;">ACESSO LIBERADO!</h1>
+            <p style="font-size: 16px; color: #94a3b8; line-height: 1.6;">
+              Olá, <strong>${payload.customer?.name || 'Vitoriosa'}</strong>!<br><br>
+              Seu acesso ao <strong>${config.nome}</strong> está disponível. Toque no botão abaixo e comece agora!
+            </p>
+            <div style="margin: 30px 0;">
+              <a href="${config.link}" style="background-color: ${config.cor}; color: white; padding: 18px 30px; text-decoration: none; border-radius: 10px; font-weight: bold; display: inline-block;">ENTRAR NO APLICATIVO</a>
+            </div>
+            <p style="font-size: 12px; color: #475569;">Protocolo Gelatina © 2026.</p>
           </div>
         `
       });
@@ -84,35 +90,32 @@ async function handleRecovery(payload, reason) {
   const email = payload.customer?.email;
   const name = payload.customer?.name || 'Vitoriosa';
   
-  console.log(`[AGENDADO] Recuperação de ${reason} para ${email} em 15 minutos.`);
+  console.log(`[AGENDADO] Recuperação de ${reason} para ${email} em 15min.`);
 
   await resend.emails.send({
     from: 'Protocolo Gelatina <suporte@metodogelatina.com.br>',
     to: [email],
-    subject: '🚨 IMPORTANTE: Sua vaga no Protocolo Gelatina expira em breve',
+    subject: '⚠️ Sua vaga no Protocolo Gelatina oficial expira em breve',
     scheduledAt: 'in 15 minutes',
     html: `
-      <div style="background-color: #05060a; color: #f8fafc; font-family: 'Segoe UI', serif; padding: 40px; border-radius: 20px; text-align: center; max-width: 600px; margin: auto; border: 1px solid #1e293b;">
-        <h1 style="color: #f59e0b; font-size: 28px; margin-bottom: 20px;">FICOU COM ALGUMA DÚVIDA?</h1>
-        <p style="font-size: 16px; line-height: 1.6; color: #94a3b8;">
-          Olá, <strong>${name}</strong>!<br><br>
-          Vimos que você tentou garantir seu acesso ao <strong>Protocolo Gelatina</strong>, mas a inscrição ainda não foi concluída.<br><br>
-          As vagas são limitadas e o sistema reserva o seu lugar por apenas alguns minutos. Não deixe sua saúde para depois!
+      <div style="background-color: #05060a; color: #f8fafc; font-family: sans-serif; padding: 40px; border-radius: 20px; text-align: center; max-width: 600px; margin: auto; border: 1px solid #1e293b;">
+        <h1 style="color: #f59e0b; font-size: 24px;">FICOU COM ALGUMA DÚVIDA?</h1>
+        <p style="font-size: 16px; color: #94a3b8; line-height: 1.6; margin: 25px 0;">
+          Oi, <strong>${name}</strong>!<br><br>
+          Notamos que você iniciou sua inscrição no <strong>Protocolo Gelatina</strong>, mas ainda não concluiu.<br><br>
+          Este protocolo está ajudando milhares de mulheres a ativar o metabolismo naturalmente. Não deixe sua vaga para outra pessoa!
         </p>
-        <div style="margin: 40px 0;">
-          <a href="${CHECKOUT_RECOVERY_URL}" style="background-color: #f59e0b; color: white; padding: 20px 40px; text-decoration: none; border-radius: 12px; font-weight: bold; font-size: 18px; display: inline-block; box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);">
-            CONCLUIR MINHA INSCRIÇÃO AGORA
-          </a>
+        <div style="margin: 35px 0;">
+          <a href="${CHECKOUT_RECOVERY_URL}" style="background-color: #f59e0b; color: white; padding: 18px 35px; text-decoration: none; border-radius: 10px; font-weight: bold; display: inline-block; box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);">CONCLUIR MINHA INSCRIÇÃO</a>
         </div>
-        <p style="font-size: 13px; color: #94a3b8;">* Se você já realizou o pagamento via Pix ou Cartão, desconsidere este aviso. Seu e-mail de acesso chegará em instantes.</p>
-        <p style="font-size: 12px; color: #64748b; margin-top: 40px;">Protocolo Gelatina VIP © 2026.</p>
+        <p style="font-size: 11px; color: #64748b;">*Se já pagou via Pix, aguarde alguns minutos pelo seu acesso.</p>
       </div>
     `
   });
 }
 
 /**
- * HANDLER PRINCIPAL (WEBHOOK)
+ * HANDLER PRINCIPAL
  */
 module.exports = async (req, res) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Método não permitido' });
@@ -123,29 +126,26 @@ module.exports = async (req, res) => {
     const kirvanoToken = req.headers['x-kirvano-token'] || req.headers['X-Kirvano-Token'];
     const expectedToken = (process.env.KIRVANO_WEBHOOK_TOKEN || '').trim();
 
-    // Segurança (Permissiva para Debug)
+    // Log Permissivo para Debug
     if (expectedToken && (kirvanoToken || '').trim() !== expectedToken) {
-      console.log(`[DEBUG] Token mismatch. Recebido: "${kirvanoToken}", Esperado: "${expectedToken}"`);
+      console.log(`[DEBUG] Token mismatch: "${kirvanoToken}"`);
     }
 
-    console.log(`--- WEBHOOK RECEBIDO: ${event} ---`);
+    console.log(`EVENTO: ${event} | ID: ${payload.sale_id}`);
 
-    // 1. CASO: Venda Aprovada (Entrega + Cancelar Lembrete)
     if (event === 'APPROVED' || event === 'PAYMENT_CONFIRMED' || event === 'SALE_APPROVED') {
       const count = await handleApprovedSale(payload);
       return res.status(200).json({ success: true, action: 'delivery', count });
     }
 
-    // 2. CASO: Recuperação (Pix Gerado ou Carrinho Abandonado)
     if (event === 'PIX_GENERATED' || event === 'CART_ABANDONED' || event === 'ORDER_CREATED') {
       await handleRecovery(payload, event);
       return res.status(200).json({ success: true, action: 'recovery_scheduled' });
     }
 
-    return res.status(200).json({ message: 'Evento ignorado' });
-
+    return res.status(200).json({ message: 'OK' });
   } catch (err) {
-    console.error('ERRO NO WEBHOOK:', err.message);
-    return res.status(500).json({ error: 'Erro interno' });
+    console.error('ERRO:', err.message);
+    return res.status(500).json({ error: 'Internal Error' });
   }
 };
