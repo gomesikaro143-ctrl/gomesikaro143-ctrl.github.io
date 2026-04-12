@@ -66,24 +66,14 @@ async function handleApprovedSale(payload) {
             <h1 style="color: ${config.cor}; font-size: 28px; margin-bottom: 15px;">ACESSO LIBERADO!</h1>
             <p style="font-size: 16px; color: #94a3b8; line-height: 1.6; margin-bottom: 30px;">
               Olá, <strong>${payload.customer?.name || 'Vitoriosa'}</strong>!<br><br>
-              Seu acesso ao <strong>${config.nome}</strong> está disponível. Clique no botão abaixo para entrar:
+              Seu acesso ao <strong>${config.nome}</strong> está pronto. Toque no botão gigante abaixo para entrar:
             </p>
             
-            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-              <tr>
-                <td align="center">
-                  <table border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                      <td align="center" style="border-radius: 12px;" bgcolor="${config.cor}">
-                        <a href="${config.link}" target="_blank" style="font-size: 18px; font-family: sans-serif; color: #ffffff; text-decoration: none; border-radius: 12px; padding: 18px 36px; border: 1px solid ${config.cor}; display: inline-block; font-weight: bold;">
-                          ENTRAR NO APLICATIVO AGORA
-                        </a>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
+            <div style="text-align: center;">
+              <a href="${config.link}" target="_blank" style="background-color:${config.cor}; border: 1px solid ${config.cor}; border-radius: 12px; color: #ffffff; display: inline-block; font-family: sans-serif; font-size: 18px; font-weight: bold; line-height: 60px; text-align: center; text-decoration: none; width: 300px; -webkit-text-size-adjust: none; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+                ENTRAR NO APLICATIVO
+              </a>
+            </div>
 
             <p style="font-size: 12px; color: #475569; margin-top: 40px;">Protocolo Gelatina © 2026.</p>
           </div>
@@ -114,27 +104,16 @@ async function handleRecovery(payload, reason) {
         <h1 style="color: #f8fafc; font-size: 24px;">Oi, ${name}!</h1>
         <p style="font-size: 16px; color: #94a3b8; line-height: 1.6; margin: 25px 0;">
           Vimos que você iniciou sua inscrição no <strong>Protocolo Gelatina</strong>, mas ainda não concluiu e seu lugar continua reservado.<br><br>
-          Gostaríamos de garantir que você não perca essa oportunidade de ativar o seu metabolismo de forma 100% natural.<br><br>
           Caso tenha ocorrido algum problema com o seu pagamento, você pode tentar novamente clicando no botão abaixo:
         </p>
 
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td align="center">
-              <table border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td align="center" style="border-radius: 12px;" bgcolor="#f59e0b">
-                    <a href="${CHECKOUT_RECOVERY_URL}" target="_blank" style="font-size: 18px; font-family: sans-serif; color: #ffffff; text-decoration: none; border-radius: 12px; padding: 18px 36px; border: 1px solid #f59e0b; display: inline-block; font-weight: bold;">
-                      Acessar minha inscrição
-                    </a>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
+        <div style="text-align: center;">
+          <a href="${CHECKOUT_RECOVERY_URL}" target="_blank" style="background-color:#f59e0b; border: 1px solid #f59e0b; border-radius: 12px; color: #ffffff; display: inline-block; font-family: sans-serif; font-size: 18px; font-weight: bold; line-height: 60px; text-align: center; text-decoration: none; width: 300px; -webkit-text-size-adjust: none; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+            ACESSAR MINHA INSCRIÇÃO
+          </a>
+        </div>
 
-        <p style="font-size: 12px; color: #64748b; margin-top: 35px;">* Se você já realizou o pagamento, seu e-mail de acesso deve chegar em alguns minutos. Sinta-se à vontade para nos contatar se precisar de ajuda.</p>
+        <p style="font-size: 12px; color: #64748b; margin-top: 35px;">* Se você já realizou o pagamento, seu e-mail de acesso deve chegar em alguns minutos.</p>
         <p style="font-size: 11px; color: #475569; margin-top: 15px;">Protocolo Gelatina © 2026.</p>
       </div>
     `
