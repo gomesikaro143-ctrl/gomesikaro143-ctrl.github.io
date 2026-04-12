@@ -69,7 +69,6 @@ async function handleApprovedSale(payload) {
               Seu acesso ao <strong>${config.nome}</strong> está disponível. Clique no botão abaixo para entrar:
             </p>
             
-            <!-- BULLETPROOF BUTTON -->
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td align="center">
@@ -97,7 +96,7 @@ async function handleApprovedSale(payload) {
 }
 
 /**
- * FUNÇÃO: Agendar Recuperação (Abandono ou Pix Gerado)
+ * FUNÇÃO: Agendar Recuperação (Abandono ou Pix Gerado) - LIMPA PARA EVITAR SPAM
  */
 async function handleRecovery(payload, reason) {
   const email = payload.customer?.email;
@@ -108,18 +107,17 @@ async function handleRecovery(payload, reason) {
   await resend.emails.send({
     from: 'Protocolo Gelatina <suporte@metodogelatina.com.br>',
     to: [email],
-    subject: '⚠️ Sua vaga no Protocolo Gelatina oficial expira em breve',
+    subject: `[Detalhes] Sua inscrição no Protocolo Gelatina`,
     scheduledAt: 'in 15 minutes',
     html: `
       <div style="background-color: #05060a; color: #f8fafc; font-family: sans-serif; padding: 40px; border-radius: 20px; text-align: center; max-width: 600px; margin: auto; border: 1px solid #1e293b;">
-        <h1 style="color: #f59e0b; font-size: 24px;">FICOU COM ALGUMA DÚVIDA?</h1>
+        <h1 style="color: #f8fafc; font-size: 24px;">Oi, ${name}!</h1>
         <p style="font-size: 16px; color: #94a3b8; line-height: 1.6; margin: 25px 0;">
-          Oi, <strong>${name}</strong>!<br><br>
-          Notamos que você iniciou sua inscrição no <strong>Protocolo Gelatina</strong>, mas ainda não concluiu.<br><br>
-          Este protocolo está ajudando milhares de mulheres a ativar o metabolismo naturalmente. Não deixe sua vaga para outra pessoa!
+          Vimos que você iniciou sua inscrição no <strong>Protocolo Gelatina</strong>, mas ainda não concluiu e seu lugar continua reservado.<br><br>
+          Gostaríamos de garantir que você não perca essa oportunidade de ativar o seu metabolismo de forma 100% natural.<br><br>
+          Caso tenha ocorrido algum problema com o seu pagamento, você pode tentar novamente clicando no botão abaixo:
         </p>
 
-        <!-- BULLETPROOF BUTTON RECUPERACAO -->
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td align="center">
@@ -127,7 +125,7 @@ async function handleRecovery(payload, reason) {
                 <tr>
                   <td align="center" style="border-radius: 12px;" bgcolor="#f59e0b">
                     <a href="${CHECKOUT_RECOVERY_URL}" target="_blank" style="font-size: 18px; font-family: sans-serif; color: #ffffff; text-decoration: none; border-radius: 12px; padding: 18px 36px; border: 1px solid #f59e0b; display: inline-block; font-weight: bold;">
-                      CONCLUIR MINHA INSCRIÇÃO AGORA
+                      Acessar minha inscrição
                     </a>
                   </td>
                 </tr>
@@ -136,7 +134,8 @@ async function handleRecovery(payload, reason) {
           </tr>
         </table>
 
-        <p style="font-size: 11px; color: #64748b; margin-top: 30px;">*Se já pagou via Pix, aguarde alguns minutos pelo seu acesso.</p>
+        <p style="font-size: 12px; color: #64748b; margin-top: 35px;">* Se você já realizou o pagamento, seu e-mail de acesso deve chegar em alguns minutos. Sinta-se à vontade para nos contatar se precisar de ajuda.</p>
+        <p style="font-size: 11px; color: #475569; margin-top: 15px;">Protocolo Gelatina © 2026.</p>
       </div>
     `
   });
