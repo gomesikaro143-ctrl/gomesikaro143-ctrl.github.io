@@ -31,7 +31,6 @@ async function handleApprovedSale(payload) {
   const products = payload.products || [];
   let sentCount = 0;
 
-  // Cancelar e-mails de recuperação agendados para este cliente
   try {
     const list = await resend.emails.list({ limit: 50 });
     const pending = (list.data || []).filter(e => 
@@ -45,7 +44,6 @@ async function handleApprovedSale(payload) {
     console.error('Erro ao cancelar recuperações:', e.message);
   }
 
-  // Entregar acessos
   for (const prod of products) {
     const lowerName = (prod.name || '').toLowerCase();
     const prodId = (prod.id || '').toLowerCase();
@@ -66,14 +64,29 @@ async function handleApprovedSale(payload) {
           <div style="background-color: #05060a; color: #f8fafc; font-family: sans-serif; padding: 40px; border-radius: 20px; text-align: center; max-width: 600px; margin: auto; border: 1px solid #1e293b;">
             <img src="https://protocolo-gelatina-app.vercel.app/assets/novacapa_do_funil.png" style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
             <h1 style="color: ${config.cor}; font-size: 28px; margin-bottom: 15px;">ACESSO LIBERADO!</h1>
-            <p style="font-size: 16px; color: #94a3b8; line-height: 1.6;">
+            <p style="font-size: 16px; color: #94a3b8; line-height: 1.6; margin-bottom: 30px;">
               Olá, <strong>${payload.customer?.name || 'Vitoriosa'}</strong>!<br><br>
-              Seu acesso ao <strong>${config.nome}</strong> está disponível. Toque no botão abaixo e comece agora!
+              Seu acesso ao <strong>${config.nome}</strong> está disponível. Clique no botão abaixo para entrar:
             </p>
-            <div style="margin: 30px 0;">
-              <a href="${config.link}" style="background-color: ${config.cor}; color: white; padding: 18px 30px; text-decoration: none; border-radius: 10px; font-weight: bold; display: inline-block;">ENTRAR NO APLICATIVO</a>
-            </div>
-            <p style="font-size: 12px; color: #475569;">Protocolo Gelatina © 2026.</p>
+            
+            <!-- BULLETPROOF BUTTON -->
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td align="center">
+                  <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td align="center" style="border-radius: 12px;" bgcolor="${config.cor}">
+                        <a href="${config.link}" target="_blank" style="font-size: 18px; font-family: sans-serif; color: #ffffff; text-decoration: none; border-radius: 12px; padding: 18px 36px; border: 1px solid ${config.cor}; display: inline-block; font-weight: bold;">
+                          ENTRAR NO APLICATIVO AGORA
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <p style="font-size: 12px; color: #475569; margin-top: 40px;">Protocolo Gelatina © 2026.</p>
           </div>
         `
       });
@@ -105,10 +118,25 @@ async function handleRecovery(payload, reason) {
           Notamos que você iniciou sua inscrição no <strong>Protocolo Gelatina</strong>, mas ainda não concluiu.<br><br>
           Este protocolo está ajudando milhares de mulheres a ativar o metabolismo naturalmente. Não deixe sua vaga para outra pessoa!
         </p>
-        <div style="margin: 35px 0;">
-          <a href="${CHECKOUT_RECOVERY_URL}" style="background-color: #f59e0b; color: white; padding: 18px 35px; text-decoration: none; border-radius: 10px; font-weight: bold; display: inline-block; box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);">CONCLUIR MINHA INSCRIÇÃO</a>
-        </div>
-        <p style="font-size: 11px; color: #64748b;">*Se já pagou via Pix, aguarde alguns minutos pelo seu acesso.</p>
+
+        <!-- BULLETPROOF BUTTON RECUPERACAO -->
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td align="center">
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td align="center" style="border-radius: 12px;" bgcolor="#f59e0b">
+                    <a href="${CHECKOUT_RECOVERY_URL}" target="_blank" style="font-size: 18px; font-family: sans-serif; color: #ffffff; text-decoration: none; border-radius: 12px; padding: 18px 36px; border: 1px solid #f59e0b; display: inline-block; font-weight: bold;">
+                      CONCLUIR MINHA INSCRIÇÃO AGORA
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+
+        <p style="font-size: 11px; color: #64748b; margin-top: 30px;">*Se já pagou via Pix, aguarde alguns minutos pelo seu acesso.</p>
       </div>
     `
   });
@@ -126,7 +154,6 @@ module.exports = async (req, res) => {
     const kirvanoToken = req.headers['x-kirvano-token'] || req.headers['X-Kirvano-Token'];
     const expectedToken = (process.env.KIRVANO_WEBHOOK_TOKEN || '').trim();
 
-    // Log Permissivo para Debug
     if (expectedToken && (kirvanoToken || '').trim() !== expectedToken) {
       console.log(`[DEBUG] Token mismatch: "${kirvanoToken}"`);
     }
