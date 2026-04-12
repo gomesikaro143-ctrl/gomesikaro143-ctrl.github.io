@@ -101,17 +101,25 @@
         </div>
 
         <div style="margin-top: 40px;" class="reveal">
-            <a href="https://pay.kirvano.com/5077563a-cd43-4da4-b3b6-0c3a9672c2d1" class="btn-main pulse-cta">
+            <button class="btn-main pulse-cta kirvano-payment-trigger">
                 GARANTIR MEU PROTOCOLO AGORA
-            </a>
+            </button>
             
-            <p style="margin-top: 15px; font-size: 0.75rem; color: #a1a1aa;">Acesso imediato • Pagamento 100% Seguro</p>
+            <p style="margin-top: 15px; font-size: 0.75rem; color: #a1a1aa;">Acesso imediato • Pagamento 100% Seguro • 1 Clique</p>
 
-            <a href="#" class="btn-no-thanks" onclick="openDownsellModal(event)">
+            <a href="#" class="btn-no-thanks kirvano-refuse-trigger">
                 Não quero, obrigada
             </a>
         </div>
     </div>
+
+    <!-- Scripts de Upsell Kirvano -->
+    <script>
+        var offer = "44d77b3d-841e-4ac5-a849-fd4145a6f591";
+        var nextPageURL = "https://protocolo-gelatina-app.vercel.app/obrigado.html";
+        var refusePageURL = "https://protocolo-gelatina-app.vercel.app/downsell.html?utm_source=organic&xcod=organichQwK21wXxR";
+    </script>
+    <script src="https://snippets.kirvano.com/upsell.min.js"></script>
 
     <!-- Downsell Modal -->
     <div id="downsell-modal" class="modal-overlay">
